@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `beaconinfo` (
   `lastUpdateByUserID` bigint(20) DEFAULT '0',
   `version` bigint(20) NOT NULL,
   `isDeleted` tinyint(4) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`,`version`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --

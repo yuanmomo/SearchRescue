@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="net.yuanmomo.searchrescue.web.mapper.LeaseInfoMapper" >
+  <resultMap id="BaseResultMap" type="net.yuanmomo.searchrescue.web.bean.LeaseInfo" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="userID" property="userid" jdbcType="BIGINT" />
+    <result column="beaconID" property="beaconid" jdbcType="BIGINT" />
+    <result column="startDate" property="startdate" jdbcType="TIMESTAMP" />
+    <result column="returnDate" property="returndate" jdbcType="TIMESTAMP" />
+    <result column="version" property="version" jdbcType="BIGINT" />
+    <result column="isReturned" property="isreturned" jdbcType="TINYINT" />
+    <result column="isDeleted" property="isdeleted" jdbcType="TINYINT" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="net.yuanmomo.searchrescue.web.bean.LeaseInfo" extends="BaseResultMap" >
+    <result column="remark" property="remark" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, userID, beaconID, startDate, returnDate, version, isReturned, isDeleted
+  </sql>
+  <sql id="Blob_Column_List" >
+    remark
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="net.yuanmomo.searchrescue.web.bean.LeaseInfoCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from leaseinfo
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="net.yuanmomo.searchrescue.web.bean.LeaseInfoCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from leaseinfo
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+      <if test="limitStartAndEnd != null" >
+        limit ${limitStartAndEnd}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from leaseinfo
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from leaseinfo
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="net.yuanmomo.searchrescue.web.bean.LeaseInfoCriteria" >
+    delete from leaseinfo
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="net.yuanmomo.searchrescue.web.bean.LeaseInfo" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into leaseinfo (userID, beaconID, startDate, 
+      returnDate, version, isReturned, 
+      isDeleted, remark)
+    values (#{userid,jdbcType=BIGINT}, #{beaconid,jdbcType=BIGINT}, #{startdate,jdbcType=TIMESTAMP}, 
+      #{returndate,jdbcType=TIMESTAMP}, #{version,jdbcType=BIGINT}, #{isreturned,jdbcType=TINYINT}, 
+      #{isdeleted,jdbcType=TINYINT}, #{remark,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="net.yuanmomo.searchrescue.web.bean.LeaseInfo" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into leaseinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        userID,
+      </if>
+      <if test="beaconid != null" >
+        beaconID,
+      </if>
+      <if test="startdate != null" >
+        startDate,
+      </if>
+      <if test="returndate != null" >
+        returnDate,
+      </if>
+      <if test="version != null" >
+        version,
+      </if>
+      <if test="isreturned != null" >
+        isReturned,
+      </if>
+      <if test="isdeleted != null" >
+        isDeleted,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        #{userid,jdbcType=BIGINT},
+      </if>
+      <if test="beaconid != null" >
+        #{beaconid,jdbcType=BIGINT},
+      </if>
+      <if test="startdate != null" >
+        #{startdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="returndate != null" >
+        #{returndate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=BIGINT},
+      </if>
+      <if test="isreturned != null" >
+        #{isreturned,jdbcType=TINYINT},
+      </if>
+      <if test="isdeleted != null" >
+        #{isdeleted,jdbcType=TINYINT},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="net.yuanmomo.searchrescue.web.bean.LeaseInfoCriteria" resultType="java.lang.Integer" >
+    select count(*) from leaseinfo
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update leaseinfo
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.userid != null" >
+        userID = #{record.userid,jdbcType=BIGINT},
+      </if>
+      <if test="record.beaconid != null" >
+        beaconID = #{record.beaconid,jdbcType=BIGINT},
+      </if>
+      <if test="record.startdate != null" >
+        startDate = #{record.startdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.returndate != null" >
+        returnDate = #{record.returndate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.version != null" >
+        version = #{record.version,jdbcType=BIGINT},
+      </if>
+      <if test="record.isreturned != null" >
+        isReturned = #{record.isreturned,jdbcType=TINYINT},
+      </if>
+      <if test="record.isdeleted != null" >
+        isDeleted = #{record.isdeleted,jdbcType=TINYINT},
+      </if>
+      <if test="record.remark != null" >
+        remark = #{record.remark,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update leaseinfo
+    set id = #{record.id,jdbcType=BIGINT},
+      userID = #{record.userid,jdbcType=BIGINT},
+      beaconID = #{record.beaconid,jdbcType=BIGINT},
+      startDate = #{record.startdate,jdbcType=TIMESTAMP},
+      returnDate = #{record.returndate,jdbcType=TIMESTAMP},
+      version = #{record.version,jdbcType=BIGINT},
+      isReturned = #{record.isreturned,jdbcType=TINYINT},
+      isDeleted = #{record.isdeleted,jdbcType=TINYINT},
+      remark = #{record.remark,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update leaseinfo
+    set id = #{record.id,jdbcType=BIGINT},
+      userID = #{record.userid,jdbcType=BIGINT},
+      beaconID = #{record.beaconid,jdbcType=BIGINT},
+      startDate = #{record.startdate,jdbcType=TIMESTAMP},
+      returnDate = #{record.returndate,jdbcType=TIMESTAMP},
+      version = #{record.version,jdbcType=BIGINT},
+      isReturned = #{record.isreturned,jdbcType=TINYINT},
+      isDeleted = #{record.isdeleted,jdbcType=TINYINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="net.yuanmomo.searchrescue.web.bean.LeaseInfo" >
+    update leaseinfo
+    <set >
+      <if test="userid != null" >
+        userID = #{userid,jdbcType=BIGINT},
+      </if>
+      <if test="beaconid != null" >
+        beaconID = #{beaconid,jdbcType=BIGINT},
+      </if>
+      <if test="startdate != null" >
+        startDate = #{startdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="returndate != null" >
+        returnDate = #{returndate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null" >
+        version = #{version,jdbcType=BIGINT},
+      </if>
+      <if test="isreturned != null" >
+        isReturned = #{isreturned,jdbcType=TINYINT},
+      </if>
+      <if test="isdeleted != null" >
+        isDeleted = #{isdeleted,jdbcType=TINYINT},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="net.yuanmomo.searchrescue.web.bean.LeaseInfo" >
+    update leaseinfo
+    set userID = #{userid,jdbcType=BIGINT},
+      beaconID = #{beaconid,jdbcType=BIGINT},
+      startDate = #{startdate,jdbcType=TIMESTAMP},
+      returnDate = #{returndate,jdbcType=TIMESTAMP},
+      version = #{version,jdbcType=BIGINT},
+      isReturned = #{isreturned,jdbcType=TINYINT},
+      isDeleted = #{isdeleted,jdbcType=TINYINT},
+      remark = #{remark,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="net.yuanmomo.searchrescue.web.bean.LeaseInfo" >
+    update leaseinfo
+    set userID = #{userid,jdbcType=BIGINT},
+      beaconID = #{beaconid,jdbcType=BIGINT},
+      startDate = #{startdate,jdbcType=TIMESTAMP},
+      returnDate = #{returndate,jdbcType=TIMESTAMP},
+      version = #{version,jdbcType=BIGINT},
+      isReturned = #{isreturned,jdbcType=TINYINT},
+      isDeleted = #{isdeleted,jdbcType=TINYINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

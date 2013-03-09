@@ -3,18 +3,26 @@
   PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"  
   "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
-	<properties resource="net/yuanmomo/searchrescue/resource/generatorConfig.properties" />
+	<properties
+		resource="net/yuanmomo/searchrescue/resource/generatorConfig.properties" />
 	<!-- <classPathEntry location="${classPath}" /> -->
 	<context id="MBG" targetRuntime="MyBatis3" defaultModelType="conditional">
 		<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+		<plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin" />
 		<plugin type="org.mybatis.generator.plugins.MapperConfigPlugin">
-			<property name="fileName" value="GeneratedMapperConfig.xml" />
-			<property name="targetPackage" value="net.yuanmomo.searchrescue.util" />
+			<property name="fileName" value="SqlMapConfig.xml" />
+			<property name="targetPackage" value="net.yuanmomo.searchrescue.web.mapper" />
 			<property name="targetProject" value="${targetProject}" />
 		</plugin>
-
+		<plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
+			<property name="searchString" value="Example$" />
+			<property name="replaceString" value="Criteria" />
+		</plugin>
+		<!-- <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin" /> -->
+		<plugin type="net.yuanmomo.searchrescue.mybatis.generator.plugin.SelectPaginationPlugin" />
 		<commentGenerator>
-			<property name="suppressAllComments" value="false" />
+			<property name="suppressAllComments" value="true" />
 		</commentGenerator>
 		<jdbcConnection driverClass="${driverClass}"
 			connectionURL="${connectionURL}" userId="${userId}" password="${password}">
@@ -34,16 +42,37 @@
 			targetPackage="${daoMapperPackage}" targetProject="${targetProject}">
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
-		<!-- <table tableName="userinfo" domainObjectName="UserInfo">
-			<generatedKey column="groupId" sqlStatement="mysql"
-				identity="true" />
-		</table> -->
+		
+		
 		<table tableName="userinfo" domainObjectName="UserInfo"
 			enableCountByExample="true" enableUpdateByExample="true"
 			enableDeleteByExample="true" enableSelectByExample="true"
 			selectByExampleQueryId="true">
-			<generatedKey column="id" sqlStatement="mysql"
-				identity="true" />
+			<generatedKey column="id" sqlStatement="mysql" identity="true" />
+		</table>
+		<table tableName="beaconinfo" domainObjectName="BeaconInfo"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true">
+			<generatedKey column="id" sqlStatement="mysql" identity="true" />
+		</table>
+		<table tableName="idinfo" domainObjectName="IdInfo"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true">
+			<generatedKey column="id" sqlStatement="mysql" identity="true" />
+		</table>
+		<table tableName="leaseinfo" domainObjectName="LeaseInfo"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true">
+			<generatedKey column="id" sqlStatement="mysql" identity="true" />
+		</table>
+		<table tableName="passportinfo" domainObjectName="PassportInfo"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true">
+			<generatedKey column="id" sqlStatement="mysql" identity="true" />
 		</table>
 	</context>
 </generatorConfiguration>

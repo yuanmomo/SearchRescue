@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="net.yuanmomo.searchrescue.web.mapper.BeaconInfoMapper" >
+  <resultMap id="BaseResultMap" type="net.yuanmomo.searchrescue.web.bean.BeaconInfo" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <id column="version" property="version" jdbcType="BIGINT" />
+    <result column="beacon_No" property="beaconNo" jdbcType="CHAR" />
+    <result column="State" property="state" jdbcType="TINYINT" />
+    <result column="lastUpdateTime" property="lastupdatetime" jdbcType="TIMESTAMP" />
+    <result column="lastUpdateByUserStyle" property="lastupdatebyuserstyle" jdbcType="TINYINT" />
+    <result column="lastUpdateByUserID" property="lastupdatebyuserid" jdbcType="BIGINT" />
+    <result column="isDeleted" property="isdeleted" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, version, beacon_No, State, lastUpdateTime, lastUpdateByUserStyle, lastUpdateByUserID, 
+    isDeleted
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="net.yuanmomo.searchrescue.web.bean.BeaconInfoCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from beaconinfo
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+      <if test="limitStartAndEnd != null" >
+        limit ${limitStartAndEnd}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="net.yuanmomo.searchrescue.web.bean.BeaconInfoKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from beaconinfo
+    where id = #{id,jdbcType=BIGINT}
+      and version = #{version,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="net.yuanmomo.searchrescue.web.bean.BeaconInfoKey" >
+    delete from beaconinfo
+    where id = #{id,jdbcType=BIGINT}
+      and version = #{version,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="net.yuanmomo.searchrescue.web.bean.BeaconInfoCriteria" >
+    delete from beaconinfo
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="net.yuanmomo.searchrescue.web.bean.BeaconInfo" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into beaconinfo (version, beacon_No, State, 
+      lastUpdateTime, lastUpdateByUserStyle, 
+      lastUpdateByUserID, isDeleted)
+    values (#{version,jdbcType=BIGINT}, #{beaconNo,jdbcType=CHAR}, #{state,jdbcType=TINYINT}, 
+      #{lastupdatetime,jdbcType=TIMESTAMP}, #{lastupdatebyuserstyle,jdbcType=TINYINT}, 
+      #{lastupdatebyuserid,jdbcType=BIGINT}, #{isdeleted,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="net.yuanmomo.searchrescue.web.bean.BeaconInfo" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into beaconinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="version != null" >
+        version,
+      </if>
+      <if test="beaconNo != null" >
+        beacon_No,
+      </if>
+      <if test="state != null" >
+        State,
+      </if>
+      <if test="lastupdatetime != null" >
+        lastUpdateTime,
+      </if>
+      <if test="lastupdatebyuserstyle != null" >
+        lastUpdateByUserStyle,
+      </if>
+      <if test="lastupdatebyuserid != null" >
+        lastUpdateByUserID,
+      </if>
+      <if test="isdeleted != null" >
+        isDeleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="version != null" >
+        #{version,jdbcType=BIGINT},
+      </if>
+      <if test="beaconNo != null" >
+        #{beaconNo,jdbcType=CHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=TINYINT},
+      </if>
+      <if test="lastupdatetime != null" >
+        #{lastupdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastupdatebyuserstyle != null" >
+        #{lastupdatebyuserstyle,jdbcType=TINYINT},
+      </if>
+      <if test="lastupdatebyuserid != null" >
+        #{lastupdatebyuserid,jdbcType=BIGINT},
+      </if>
+      <if test="isdeleted != null" >
+        #{isdeleted,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="net.yuanmomo.searchrescue.web.bean.BeaconInfoCriteria" resultType="java.lang.Integer" >
+    select count(*) from beaconinfo
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update beaconinfo
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.version != null" >
+        version = #{record.version,jdbcType=BIGINT},
+      </if>
+      <if test="record.beaconNo != null" >
+        beacon_No = #{record.beaconNo,jdbcType=CHAR},
+      </if>
+      <if test="record.state != null" >
+        State = #{record.state,jdbcType=TINYINT},
+      </if>
+      <if test="record.lastupdatetime != null" >
+        lastUpdateTime = #{record.lastupdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.lastupdatebyuserstyle != null" >
+        lastUpdateByUserStyle = #{record.lastupdatebyuserstyle,jdbcType=TINYINT},
+      </if>
+      <if test="record.lastupdatebyuserid != null" >
+        lastUpdateByUserID = #{record.lastupdatebyuserid,jdbcType=BIGINT},
+      </if>
+      <if test="record.isdeleted != null" >
+        isDeleted = #{record.isdeleted,jdbcType=TINYINT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update beaconinfo
+    set id = #{record.id,jdbcType=BIGINT},
+      version = #{record.version,jdbcType=BIGINT},
+      beacon_No = #{record.beaconNo,jdbcType=CHAR},
+      State = #{record.state,jdbcType=TINYINT},
+      lastUpdateTime = #{record.lastupdatetime,jdbcType=TIMESTAMP},
+      lastUpdateByUserStyle = #{record.lastupdatebyuserstyle,jdbcType=TINYINT},
+      lastUpdateByUserID = #{record.lastupdatebyuserid,jdbcType=BIGINT},
+      isDeleted = #{record.isdeleted,jdbcType=TINYINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="net.yuanmomo.searchrescue.web.bean.BeaconInfo" >
+    update beaconinfo
+    <set >
+      <if test="beaconNo != null" >
+        beacon_No = #{beaconNo,jdbcType=CHAR},
+      </if>
+      <if test="state != null" >
+        State = #{state,jdbcType=TINYINT},
+      </if>
+      <if test="lastupdatetime != null" >
+        lastUpdateTime = #{lastupdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastupdatebyuserstyle != null" >
+        lastUpdateByUserStyle = #{lastupdatebyuserstyle,jdbcType=TINYINT},
+      </if>
+      <if test="lastupdatebyuserid != null" >
+        lastUpdateByUserID = #{lastupdatebyuserid,jdbcType=BIGINT},
+      </if>
+      <if test="isdeleted != null" >
+        isDeleted = #{isdeleted,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+      and version = #{version,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="net.yuanmomo.searchrescue.web.bean.BeaconInfo" >
+    update beaconinfo
+    set beacon_No = #{beaconNo,jdbcType=CHAR},
+      State = #{state,jdbcType=TINYINT},
+      lastUpdateTime = #{lastupdatetime,jdbcType=TIMESTAMP},
+      lastUpdateByUserStyle = #{lastupdatebyuserstyle,jdbcType=TINYINT},
+      lastUpdateByUserID = #{lastupdatebyuserid,jdbcType=BIGINT},
+      isDeleted = #{isdeleted,jdbcType=TINYINT}
+    where id = #{id,jdbcType=BIGINT}
+      and version = #{version,jdbcType=BIGINT}
+  </update>
+</mapper>
