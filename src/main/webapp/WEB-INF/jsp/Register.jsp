@@ -1,6 +1,5 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page language="java" contentType="text/html;charset=utf-8"
-	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,104 +38,83 @@
 				</a>
 				<div class="nav-collapse">
 					<ul class="nav">
-						<li class="active"><a href="#">首页</a></li>
+						<li class="active"><a href="user.do">首页</a></li>
 						<li><a href="#about">关于</a></li>
 						<li><a href="#contact">联系</a></li>
 					</ul>
-					<p class="navbar-text pull-right">
-						<span style="font-size: 15px;">你好，xxx</span>&nbsp;&nbsp;<a
-							href="#">退出</a>
-					</p>
 				</div>
 				<!--/.nav-collapse -->
 			</div>
 		</div>
 	</div>
-
 	<div class="container-fluid">
 		<div class="row-fluid">
-			<div class="span2">
-				<div class="well sidebar-nav">
-					<ul class="nav nav-list">
-						<li class="nav-header">信标租赁管理</li>
-						<li><a href="#">新增租赁</a></li>
-						<li><a href="#">租赁归还</a></li>
-						<li class="nav-header">信标购买管理</li>
-						<li><a href="#">新建购买</a></li>
-						<li><a href="#">购买查询</a></li>
-						<li class="nav-header">信标管理</li>
-						<li class="active"><a href="#">新增信标</a></li>
-						<li><a href="#">信标报废</a></li>
-						<li class="nav-header">账号管理</li>
-						<li><a href="#">修改密码</a></li>
-					</ul>
+			<div id="myModal" class="modal hide fade" style="display: none;">
+				<div class="modal-header">
+					<a class="close" data-dismiss="modal">×</a>
+					<h3>错误：</h3>
 				</div>
-				<!--/.well -->
+				<div class="modal-body">
+					<p id="message"></p>
+				</div>
+				<div class="modal-footer">
+					<a href="#" class="btn" data-dismiss="modal">确定</a>
+				</div>
 			</div>
-			<!--/span-->
-			<div class="span10">
+			<div class="span2"></div>
+			<div class="span8">
 				<div class="hero-unit">
-					<h1 align="center">新增信标</h1>
+					<h1 align="center">用户注册</h1>
 					<br />
 					<form class="form-horizontal">
 						<fieldset>
 							<div class="control-group">
 								<label class="control-label" for="input01"
-									style="font-weight: bold; font-size: 25px;">单个增加</label>
+									style="font-weight: bold; font-size: 25px;">用户信息:</label>
 							</div>
 							<div class="control-group">
-								<label class="control-label" for="input01">新标号</label>
+								<label class="control-label" for="select01">身份类型</label>
 								<div class="controls">
-									<input type="text" class="input-xlarge" id="input01">
+									<select id="cerStyle" onchange="loadCerStyle()" name="cerStyle">
+										<option value="0" selected="selected">请选择</option>
+										<option value="1">身份证用户</option>
+										<option value="2">护照用户</option>
+									</select>
 								</div>
 							</div>
-							<div class="control-group">
-								<label class="control-label" for="input01"
-									style="font-weight: bold; font-size: 25px;">批量增加</label>
-							</div>
-							<div class="control-group">
-								<label class="control-label" for="fileInput">请选择文件</label>
-								<div class="controls">
-									<input class="input-file" id="fileInput" type="file">
-								</div>
-							</div>
-							<div class="form-actions" style="margin-left: 200px;">
-								<button type="submit" class="btn btn-primary">保存</button>
-								<button class="btn">取消</button>
+							<!-- //添加用户注册的body页面 -->
+							<div id="cerStyleBody">
+									
 							</div>
 						</fieldset>
 					</form>
 				</div>
 			</div>
-			<!--/span-->
+			<div class="span2"></div>
 		</div>
 		<!--/row-->
-
 		<hr>
-
 		<footer>
-			<p>&copy; xxxxxxxxx设计2012</p>
+			<p>&copy; XXXXXX设计2013</p>
 		</footer>
-
 	</div>
 	<!--/.fluid-container-->
 </body>
 <!-- Placed at the end of the document so the pages load faster -->
 <!-- <script type="text/javascript" src="js/jquery/jquery-ui-1.9.2.custom.js"></script> -->
 <script type="text/javascript" src="js/jquery/jquery-1.8.3.js"></script>
-<script src="js/jquery/jquery.cookie.js" type="text/javascript"></script>
-<script src="js/external/application.js" type="text/javascript"></script>
-<script src="js/external/bootstrap-alert.js" type="text/javascript"></script>
-<script src="js/external/bootstrap-modal.js" type="text/javascript"></script>
-<script src="js/external/bootstrap-transition.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/jquery/jquery.validate.js"></script>
+<script type="text/javascript" src="js/jquery/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/external/application.js"></script>
+<script type="text/javascript" src="js/external/bootstrap-alert.js"></script>
+<script type="text/javascript" src="js/external/bootstrap-modal.js"></script>
+<script type="text/javascript" src="js/external/bootstrap-transition.js"></script>
 <!-- Optional, bootstrap javascript library -->
 <script type="text/javascript" src="js/external/bootstrap.js"></script>
-
+<script type="text/javascript" src="js/register.js"></script>
+<script type="text/javascript" src="js/global.js"></script>
 <!-- bsie js patch, it will only execute in IE6 -->
 <!--[if lte IE 6]>
   <script type="text/javascript" src="js/external/bootstrap-ie.js"></script>
   <![endif]-->
-<script type="text/javascript">
-  $.bootstrapIE6(el)
-  </script>
 </html>
