@@ -6,10 +6,10 @@
     <id column="version" property="version" jdbcType="BIGINT" />
     <result column="beacon_No" property="beaconNo" jdbcType="CHAR" />
     <result column="State" property="state" jdbcType="TINYINT" />
-    <result column="lastUpdateTime" property="lastupdatetime" jdbcType="TIMESTAMP" />
-    <result column="lastUpdateByUserStyle" property="lastupdatebyuserstyle" jdbcType="TINYINT" />
-    <result column="lastUpdateByUserID" property="lastupdatebyuserid" jdbcType="BIGINT" />
-    <result column="isDeleted" property="isdeleted" jdbcType="TINYINT" />
+    <result column="last_Update_Time" property="lastUpdateTime" jdbcType="TIMESTAMP" />
+    <result column="last_Update_By_User_Style" property="lastUpdateByUserStyle" jdbcType="TINYINT" />
+    <result column="last_Update_By_User_ID" property="lastUpdateByUserId" jdbcType="BIGINT" />
+    <result column="is_Deleted" property="isDeleted" jdbcType="TINYINT" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -70,8 +70,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, version, beacon_No, State, lastUpdateTime, lastUpdateByUserStyle, lastUpdateByUserID, 
-    isDeleted
+    id, version, beacon_No, State, last_Update_Time, last_Update_By_User_Style, last_Update_By_User_ID, 
+    is_Deleted
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="net.yuanmomo.searchrescue.web.bean.BeaconInfoCriteria" >
     select
@@ -114,11 +114,11 @@
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into beaconinfo (version, beacon_No, State, 
-      lastUpdateTime, lastUpdateByUserStyle, 
-      lastUpdateByUserID, isDeleted)
+      last_Update_Time, last_Update_By_User_Style, 
+      last_Update_By_User_ID, is_Deleted)
     values (#{version,jdbcType=BIGINT}, #{beaconNo,jdbcType=CHAR}, #{state,jdbcType=TINYINT}, 
-      #{lastupdatetime,jdbcType=TIMESTAMP}, #{lastupdatebyuserstyle,jdbcType=TINYINT}, 
-      #{lastupdatebyuserid,jdbcType=BIGINT}, #{isdeleted,jdbcType=TINYINT})
+      #{lastUpdateTime,jdbcType=TIMESTAMP}, #{lastUpdateByUserStyle,jdbcType=TINYINT}, 
+      #{lastUpdateByUserId,jdbcType=BIGINT}, #{isDeleted,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" parameterType="net.yuanmomo.searchrescue.web.bean.BeaconInfo" >
     <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
@@ -135,17 +135,17 @@
       <if test="state != null" >
         State,
       </if>
-      <if test="lastupdatetime != null" >
-        lastUpdateTime,
+      <if test="lastUpdateTime != null" >
+        last_Update_Time,
       </if>
-      <if test="lastupdatebyuserstyle != null" >
-        lastUpdateByUserStyle,
+      <if test="lastUpdateByUserStyle != null" >
+        last_Update_By_User_Style,
       </if>
-      <if test="lastupdatebyuserid != null" >
-        lastUpdateByUserID,
+      <if test="lastUpdateByUserId != null" >
+        last_Update_By_User_ID,
       </if>
-      <if test="isdeleted != null" >
-        isDeleted,
+      <if test="isDeleted != null" >
+        is_Deleted,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -158,17 +158,17 @@
       <if test="state != null" >
         #{state,jdbcType=TINYINT},
       </if>
-      <if test="lastupdatetime != null" >
-        #{lastupdatetime,jdbcType=TIMESTAMP},
+      <if test="lastUpdateTime != null" >
+        #{lastUpdateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="lastupdatebyuserstyle != null" >
-        #{lastupdatebyuserstyle,jdbcType=TINYINT},
+      <if test="lastUpdateByUserStyle != null" >
+        #{lastUpdateByUserStyle,jdbcType=TINYINT},
       </if>
-      <if test="lastupdatebyuserid != null" >
-        #{lastupdatebyuserid,jdbcType=BIGINT},
+      <if test="lastUpdateByUserId != null" >
+        #{lastUpdateByUserId,jdbcType=BIGINT},
       </if>
-      <if test="isdeleted != null" >
-        #{isdeleted,jdbcType=TINYINT},
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=TINYINT},
       </if>
     </trim>
   </insert>
@@ -193,17 +193,17 @@
       <if test="record.state != null" >
         State = #{record.state,jdbcType=TINYINT},
       </if>
-      <if test="record.lastupdatetime != null" >
-        lastUpdateTime = #{record.lastupdatetime,jdbcType=TIMESTAMP},
+      <if test="record.lastUpdateTime != null" >
+        last_Update_Time = #{record.lastUpdateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.lastupdatebyuserstyle != null" >
-        lastUpdateByUserStyle = #{record.lastupdatebyuserstyle,jdbcType=TINYINT},
+      <if test="record.lastUpdateByUserStyle != null" >
+        last_Update_By_User_Style = #{record.lastUpdateByUserStyle,jdbcType=TINYINT},
       </if>
-      <if test="record.lastupdatebyuserid != null" >
-        lastUpdateByUserID = #{record.lastupdatebyuserid,jdbcType=BIGINT},
+      <if test="record.lastUpdateByUserId != null" >
+        last_Update_By_User_ID = #{record.lastUpdateByUserId,jdbcType=BIGINT},
       </if>
-      <if test="record.isdeleted != null" >
-        isDeleted = #{record.isdeleted,jdbcType=TINYINT},
+      <if test="record.isDeleted != null" >
+        is_Deleted = #{record.isDeleted,jdbcType=TINYINT},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -216,10 +216,10 @@
       version = #{record.version,jdbcType=BIGINT},
       beacon_No = #{record.beaconNo,jdbcType=CHAR},
       State = #{record.state,jdbcType=TINYINT},
-      lastUpdateTime = #{record.lastupdatetime,jdbcType=TIMESTAMP},
-      lastUpdateByUserStyle = #{record.lastupdatebyuserstyle,jdbcType=TINYINT},
-      lastUpdateByUserID = #{record.lastupdatebyuserid,jdbcType=BIGINT},
-      isDeleted = #{record.isdeleted,jdbcType=TINYINT}
+      last_Update_Time = #{record.lastUpdateTime,jdbcType=TIMESTAMP},
+      last_Update_By_User_Style = #{record.lastUpdateByUserStyle,jdbcType=TINYINT},
+      last_Update_By_User_ID = #{record.lastUpdateByUserId,jdbcType=BIGINT},
+      is_Deleted = #{record.isDeleted,jdbcType=TINYINT}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -233,17 +233,17 @@
       <if test="state != null" >
         State = #{state,jdbcType=TINYINT},
       </if>
-      <if test="lastupdatetime != null" >
-        lastUpdateTime = #{lastupdatetime,jdbcType=TIMESTAMP},
+      <if test="lastUpdateTime != null" >
+        last_Update_Time = #{lastUpdateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="lastupdatebyuserstyle != null" >
-        lastUpdateByUserStyle = #{lastupdatebyuserstyle,jdbcType=TINYINT},
+      <if test="lastUpdateByUserStyle != null" >
+        last_Update_By_User_Style = #{lastUpdateByUserStyle,jdbcType=TINYINT},
       </if>
-      <if test="lastupdatebyuserid != null" >
-        lastUpdateByUserID = #{lastupdatebyuserid,jdbcType=BIGINT},
+      <if test="lastUpdateByUserId != null" >
+        last_Update_By_User_ID = #{lastUpdateByUserId,jdbcType=BIGINT},
       </if>
-      <if test="isdeleted != null" >
-        isDeleted = #{isdeleted,jdbcType=TINYINT},
+      <if test="isDeleted != null" >
+        is_Deleted = #{isDeleted,jdbcType=TINYINT},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
@@ -253,10 +253,10 @@
     update beaconinfo
     set beacon_No = #{beaconNo,jdbcType=CHAR},
       State = #{state,jdbcType=TINYINT},
-      lastUpdateTime = #{lastupdatetime,jdbcType=TIMESTAMP},
-      lastUpdateByUserStyle = #{lastupdatebyuserstyle,jdbcType=TINYINT},
-      lastUpdateByUserID = #{lastupdatebyuserid,jdbcType=BIGINT},
-      isDeleted = #{isdeleted,jdbcType=TINYINT}
+      last_Update_Time = #{lastUpdateTime,jdbcType=TIMESTAMP},
+      last_Update_By_User_Style = #{lastUpdateByUserStyle,jdbcType=TINYINT},
+      last_Update_By_User_ID = #{lastUpdateByUserId,jdbcType=BIGINT},
+      is_Deleted = #{isDeleted,jdbcType=TINYINT}
     where id = #{id,jdbcType=BIGINT}
       and version = #{version,jdbcType=BIGINT}
   </update>

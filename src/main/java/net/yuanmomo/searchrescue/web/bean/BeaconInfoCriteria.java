@@ -365,243 +365,243 @@ public class BeaconInfoCriteria {
             return (Criteria) this;
         }
 
-        public Criteria andLastupdatetimeIsNull() {
-            addCriterion("lastUpdateTime is null");
+        public Criteria andLastUpdateTimeIsNull() {
+            addCriterion("last_Update_Time is null");
             return (Criteria) this;
         }
 
-        public Criteria andLastupdatetimeIsNotNull() {
-            addCriterion("lastUpdateTime is not null");
+        public Criteria andLastUpdateTimeIsNotNull() {
+            addCriterion("last_Update_Time is not null");
             return (Criteria) this;
         }
 
-        public Criteria andLastupdatetimeEqualTo(Date value) {
-            addCriterion("lastUpdateTime =", value, "lastupdatetime");
+        public Criteria andLastUpdateTimeEqualTo(Date value) {
+            addCriterion("last_Update_Time =", value, "lastUpdateTime");
             return (Criteria) this;
         }
 
-        public Criteria andLastupdatetimeNotEqualTo(Date value) {
-            addCriterion("lastUpdateTime <>", value, "lastupdatetime");
+        public Criteria andLastUpdateTimeNotEqualTo(Date value) {
+            addCriterion("last_Update_Time <>", value, "lastUpdateTime");
             return (Criteria) this;
         }
 
-        public Criteria andLastupdatetimeGreaterThan(Date value) {
-            addCriterion("lastUpdateTime >", value, "lastupdatetime");
+        public Criteria andLastUpdateTimeGreaterThan(Date value) {
+            addCriterion("last_Update_Time >", value, "lastUpdateTime");
             return (Criteria) this;
         }
 
-        public Criteria andLastupdatetimeGreaterThanOrEqualTo(Date value) {
-            addCriterion("lastUpdateTime >=", value, "lastupdatetime");
+        public Criteria andLastUpdateTimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("last_Update_Time >=", value, "lastUpdateTime");
             return (Criteria) this;
         }
 
-        public Criteria andLastupdatetimeLessThan(Date value) {
-            addCriterion("lastUpdateTime <", value, "lastupdatetime");
+        public Criteria andLastUpdateTimeLessThan(Date value) {
+            addCriterion("last_Update_Time <", value, "lastUpdateTime");
             return (Criteria) this;
         }
 
-        public Criteria andLastupdatetimeLessThanOrEqualTo(Date value) {
-            addCriterion("lastUpdateTime <=", value, "lastupdatetime");
+        public Criteria andLastUpdateTimeLessThanOrEqualTo(Date value) {
+            addCriterion("last_Update_Time <=", value, "lastUpdateTime");
             return (Criteria) this;
         }
 
-        public Criteria andLastupdatetimeIn(List<Date> values) {
-            addCriterion("lastUpdateTime in", values, "lastupdatetime");
+        public Criteria andLastUpdateTimeIn(List<Date> values) {
+            addCriterion("last_Update_Time in", values, "lastUpdateTime");
             return (Criteria) this;
         }
 
-        public Criteria andLastupdatetimeNotIn(List<Date> values) {
-            addCriterion("lastUpdateTime not in", values, "lastupdatetime");
+        public Criteria andLastUpdateTimeNotIn(List<Date> values) {
+            addCriterion("last_Update_Time not in", values, "lastUpdateTime");
             return (Criteria) this;
         }
 
-        public Criteria andLastupdatetimeBetween(Date value1, Date value2) {
-            addCriterion("lastUpdateTime between", value1, value2, "lastupdatetime");
+        public Criteria andLastUpdateTimeBetween(Date value1, Date value2) {
+            addCriterion("last_Update_Time between", value1, value2, "lastUpdateTime");
             return (Criteria) this;
         }
 
-        public Criteria andLastupdatetimeNotBetween(Date value1, Date value2) {
-            addCriterion("lastUpdateTime not between", value1, value2, "lastupdatetime");
+        public Criteria andLastUpdateTimeNotBetween(Date value1, Date value2) {
+            addCriterion("last_Update_Time not between", value1, value2, "lastUpdateTime");
             return (Criteria) this;
         }
 
-        public Criteria andLastupdatebyuserstyleIsNull() {
-            addCriterion("lastUpdateByUserStyle is null");
+        public Criteria andLastUpdateByUserStyleIsNull() {
+            addCriterion("last_Update_By_User_Style is null");
             return (Criteria) this;
         }
 
-        public Criteria andLastupdatebyuserstyleIsNotNull() {
-            addCriterion("lastUpdateByUserStyle is not null");
+        public Criteria andLastUpdateByUserStyleIsNotNull() {
+            addCriterion("last_Update_By_User_Style is not null");
             return (Criteria) this;
         }
 
-        public Criteria andLastupdatebyuserstyleEqualTo(Byte value) {
-            addCriterion("lastUpdateByUserStyle =", value, "lastupdatebyuserstyle");
+        public Criteria andLastUpdateByUserStyleEqualTo(Byte value) {
+            addCriterion("last_Update_By_User_Style =", value, "lastUpdateByUserStyle");
             return (Criteria) this;
         }
 
-        public Criteria andLastupdatebyuserstyleNotEqualTo(Byte value) {
-            addCriterion("lastUpdateByUserStyle <>", value, "lastupdatebyuserstyle");
+        public Criteria andLastUpdateByUserStyleNotEqualTo(Byte value) {
+            addCriterion("last_Update_By_User_Style <>", value, "lastUpdateByUserStyle");
             return (Criteria) this;
         }
 
-        public Criteria andLastupdatebyuserstyleGreaterThan(Byte value) {
-            addCriterion("lastUpdateByUserStyle >", value, "lastupdatebyuserstyle");
+        public Criteria andLastUpdateByUserStyleGreaterThan(Byte value) {
+            addCriterion("last_Update_By_User_Style >", value, "lastUpdateByUserStyle");
             return (Criteria) this;
         }
 
-        public Criteria andLastupdatebyuserstyleGreaterThanOrEqualTo(Byte value) {
-            addCriterion("lastUpdateByUserStyle >=", value, "lastupdatebyuserstyle");
+        public Criteria andLastUpdateByUserStyleGreaterThanOrEqualTo(Byte value) {
+            addCriterion("last_Update_By_User_Style >=", value, "lastUpdateByUserStyle");
             return (Criteria) this;
         }
 
-        public Criteria andLastupdatebyuserstyleLessThan(Byte value) {
-            addCriterion("lastUpdateByUserStyle <", value, "lastupdatebyuserstyle");
+        public Criteria andLastUpdateByUserStyleLessThan(Byte value) {
+            addCriterion("last_Update_By_User_Style <", value, "lastUpdateByUserStyle");
             return (Criteria) this;
         }
 
-        public Criteria andLastupdatebyuserstyleLessThanOrEqualTo(Byte value) {
-            addCriterion("lastUpdateByUserStyle <=", value, "lastupdatebyuserstyle");
+        public Criteria andLastUpdateByUserStyleLessThanOrEqualTo(Byte value) {
+            addCriterion("last_Update_By_User_Style <=", value, "lastUpdateByUserStyle");
             return (Criteria) this;
         }
 
-        public Criteria andLastupdatebyuserstyleIn(List<Byte> values) {
-            addCriterion("lastUpdateByUserStyle in", values, "lastupdatebyuserstyle");
+        public Criteria andLastUpdateByUserStyleIn(List<Byte> values) {
+            addCriterion("last_Update_By_User_Style in", values, "lastUpdateByUserStyle");
             return (Criteria) this;
         }
 
-        public Criteria andLastupdatebyuserstyleNotIn(List<Byte> values) {
-            addCriterion("lastUpdateByUserStyle not in", values, "lastupdatebyuserstyle");
+        public Criteria andLastUpdateByUserStyleNotIn(List<Byte> values) {
+            addCriterion("last_Update_By_User_Style not in", values, "lastUpdateByUserStyle");
             return (Criteria) this;
         }
 
-        public Criteria andLastupdatebyuserstyleBetween(Byte value1, Byte value2) {
-            addCriterion("lastUpdateByUserStyle between", value1, value2, "lastupdatebyuserstyle");
+        public Criteria andLastUpdateByUserStyleBetween(Byte value1, Byte value2) {
+            addCriterion("last_Update_By_User_Style between", value1, value2, "lastUpdateByUserStyle");
             return (Criteria) this;
         }
 
-        public Criteria andLastupdatebyuserstyleNotBetween(Byte value1, Byte value2) {
-            addCriterion("lastUpdateByUserStyle not between", value1, value2, "lastupdatebyuserstyle");
+        public Criteria andLastUpdateByUserStyleNotBetween(Byte value1, Byte value2) {
+            addCriterion("last_Update_By_User_Style not between", value1, value2, "lastUpdateByUserStyle");
             return (Criteria) this;
         }
 
-        public Criteria andLastupdatebyuseridIsNull() {
-            addCriterion("lastUpdateByUserID is null");
+        public Criteria andLastUpdateByUserIdIsNull() {
+            addCriterion("last_Update_By_User_ID is null");
             return (Criteria) this;
         }
 
-        public Criteria andLastupdatebyuseridIsNotNull() {
-            addCriterion("lastUpdateByUserID is not null");
+        public Criteria andLastUpdateByUserIdIsNotNull() {
+            addCriterion("last_Update_By_User_ID is not null");
             return (Criteria) this;
         }
 
-        public Criteria andLastupdatebyuseridEqualTo(Long value) {
-            addCriterion("lastUpdateByUserID =", value, "lastupdatebyuserid");
+        public Criteria andLastUpdateByUserIdEqualTo(Long value) {
+            addCriterion("last_Update_By_User_ID =", value, "lastUpdateByUserId");
             return (Criteria) this;
         }
 
-        public Criteria andLastupdatebyuseridNotEqualTo(Long value) {
-            addCriterion("lastUpdateByUserID <>", value, "lastupdatebyuserid");
+        public Criteria andLastUpdateByUserIdNotEqualTo(Long value) {
+            addCriterion("last_Update_By_User_ID <>", value, "lastUpdateByUserId");
             return (Criteria) this;
         }
 
-        public Criteria andLastupdatebyuseridGreaterThan(Long value) {
-            addCriterion("lastUpdateByUserID >", value, "lastupdatebyuserid");
+        public Criteria andLastUpdateByUserIdGreaterThan(Long value) {
+            addCriterion("last_Update_By_User_ID >", value, "lastUpdateByUserId");
             return (Criteria) this;
         }
 
-        public Criteria andLastupdatebyuseridGreaterThanOrEqualTo(Long value) {
-            addCriterion("lastUpdateByUserID >=", value, "lastupdatebyuserid");
+        public Criteria andLastUpdateByUserIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("last_Update_By_User_ID >=", value, "lastUpdateByUserId");
             return (Criteria) this;
         }
 
-        public Criteria andLastupdatebyuseridLessThan(Long value) {
-            addCriterion("lastUpdateByUserID <", value, "lastupdatebyuserid");
+        public Criteria andLastUpdateByUserIdLessThan(Long value) {
+            addCriterion("last_Update_By_User_ID <", value, "lastUpdateByUserId");
             return (Criteria) this;
         }
 
-        public Criteria andLastupdatebyuseridLessThanOrEqualTo(Long value) {
-            addCriterion("lastUpdateByUserID <=", value, "lastupdatebyuserid");
+        public Criteria andLastUpdateByUserIdLessThanOrEqualTo(Long value) {
+            addCriterion("last_Update_By_User_ID <=", value, "lastUpdateByUserId");
             return (Criteria) this;
         }
 
-        public Criteria andLastupdatebyuseridIn(List<Long> values) {
-            addCriterion("lastUpdateByUserID in", values, "lastupdatebyuserid");
+        public Criteria andLastUpdateByUserIdIn(List<Long> values) {
+            addCriterion("last_Update_By_User_ID in", values, "lastUpdateByUserId");
             return (Criteria) this;
         }
 
-        public Criteria andLastupdatebyuseridNotIn(List<Long> values) {
-            addCriterion("lastUpdateByUserID not in", values, "lastupdatebyuserid");
+        public Criteria andLastUpdateByUserIdNotIn(List<Long> values) {
+            addCriterion("last_Update_By_User_ID not in", values, "lastUpdateByUserId");
             return (Criteria) this;
         }
 
-        public Criteria andLastupdatebyuseridBetween(Long value1, Long value2) {
-            addCriterion("lastUpdateByUserID between", value1, value2, "lastupdatebyuserid");
+        public Criteria andLastUpdateByUserIdBetween(Long value1, Long value2) {
+            addCriterion("last_Update_By_User_ID between", value1, value2, "lastUpdateByUserId");
             return (Criteria) this;
         }
 
-        public Criteria andLastupdatebyuseridNotBetween(Long value1, Long value2) {
-            addCriterion("lastUpdateByUserID not between", value1, value2, "lastupdatebyuserid");
+        public Criteria andLastUpdateByUserIdNotBetween(Long value1, Long value2) {
+            addCriterion("last_Update_By_User_ID not between", value1, value2, "lastUpdateByUserId");
             return (Criteria) this;
         }
 
-        public Criteria andIsdeletedIsNull() {
-            addCriterion("isDeleted is null");
+        public Criteria andIsDeletedIsNull() {
+            addCriterion("is_Deleted is null");
             return (Criteria) this;
         }
 
-        public Criteria andIsdeletedIsNotNull() {
-            addCriterion("isDeleted is not null");
+        public Criteria andIsDeletedIsNotNull() {
+            addCriterion("is_Deleted is not null");
             return (Criteria) this;
         }
 
-        public Criteria andIsdeletedEqualTo(Byte value) {
-            addCriterion("isDeleted =", value, "isdeleted");
+        public Criteria andIsDeletedEqualTo(Byte value) {
+            addCriterion("is_Deleted =", value, "isDeleted");
             return (Criteria) this;
         }
 
-        public Criteria andIsdeletedNotEqualTo(Byte value) {
-            addCriterion("isDeleted <>", value, "isdeleted");
+        public Criteria andIsDeletedNotEqualTo(Byte value) {
+            addCriterion("is_Deleted <>", value, "isDeleted");
             return (Criteria) this;
         }
 
-        public Criteria andIsdeletedGreaterThan(Byte value) {
-            addCriterion("isDeleted >", value, "isdeleted");
+        public Criteria andIsDeletedGreaterThan(Byte value) {
+            addCriterion("is_Deleted >", value, "isDeleted");
             return (Criteria) this;
         }
 
-        public Criteria andIsdeletedGreaterThanOrEqualTo(Byte value) {
-            addCriterion("isDeleted >=", value, "isdeleted");
+        public Criteria andIsDeletedGreaterThanOrEqualTo(Byte value) {
+            addCriterion("is_Deleted >=", value, "isDeleted");
             return (Criteria) this;
         }
 
-        public Criteria andIsdeletedLessThan(Byte value) {
-            addCriterion("isDeleted <", value, "isdeleted");
+        public Criteria andIsDeletedLessThan(Byte value) {
+            addCriterion("is_Deleted <", value, "isDeleted");
             return (Criteria) this;
         }
 
-        public Criteria andIsdeletedLessThanOrEqualTo(Byte value) {
-            addCriterion("isDeleted <=", value, "isdeleted");
+        public Criteria andIsDeletedLessThanOrEqualTo(Byte value) {
+            addCriterion("is_Deleted <=", value, "isDeleted");
             return (Criteria) this;
         }
 
-        public Criteria andIsdeletedIn(List<Byte> values) {
-            addCriterion("isDeleted in", values, "isdeleted");
+        public Criteria andIsDeletedIn(List<Byte> values) {
+            addCriterion("is_Deleted in", values, "isDeleted");
             return (Criteria) this;
         }
 
-        public Criteria andIsdeletedNotIn(List<Byte> values) {
-            addCriterion("isDeleted not in", values, "isdeleted");
+        public Criteria andIsDeletedNotIn(List<Byte> values) {
+            addCriterion("is_Deleted not in", values, "isDeleted");
             return (Criteria) this;
         }
 
-        public Criteria andIsdeletedBetween(Byte value1, Byte value2) {
-            addCriterion("isDeleted between", value1, value2, "isdeleted");
+        public Criteria andIsDeletedBetween(Byte value1, Byte value2) {
+            addCriterion("is_Deleted between", value1, value2, "isDeleted");
             return (Criteria) this;
         }
 
-        public Criteria andIsdeletedNotBetween(Byte value1, Byte value2) {
-            addCriterion("isDeleted not between", value1, value2, "isdeleted");
+        public Criteria andIsDeletedNotBetween(Byte value1, Byte value2) {
+            addCriterion("is_Deleted not between", value1, value2, "isDeleted");
             return (Criteria) this;
         }
 

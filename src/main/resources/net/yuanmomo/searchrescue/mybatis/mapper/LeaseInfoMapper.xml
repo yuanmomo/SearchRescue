@@ -3,13 +3,13 @@
 <mapper namespace="net.yuanmomo.searchrescue.web.mapper.LeaseInfoMapper" >
   <resultMap id="BaseResultMap" type="net.yuanmomo.searchrescue.web.bean.LeaseInfo" >
     <id column="id" property="id" jdbcType="BIGINT" />
-    <result column="userID" property="userid" jdbcType="BIGINT" />
-    <result column="beaconID" property="beaconid" jdbcType="BIGINT" />
-    <result column="startDate" property="startdate" jdbcType="TIMESTAMP" />
-    <result column="returnDate" property="returndate" jdbcType="TIMESTAMP" />
+    <result column="user_ID" property="userId" jdbcType="BIGINT" />
+    <result column="beacon_ID" property="beaconId" jdbcType="BIGINT" />
+    <result column="start_Date" property="startDate" jdbcType="TIMESTAMP" />
+    <result column="return_Date" property="returnDate" jdbcType="TIMESTAMP" />
     <result column="version" property="version" jdbcType="BIGINT" />
-    <result column="isReturned" property="isreturned" jdbcType="TINYINT" />
-    <result column="isDeleted" property="isdeleted" jdbcType="TINYINT" />
+    <result column="is_Returned" property="isReturned" jdbcType="TINYINT" />
+    <result column="is_Deleted" property="isDeleted" jdbcType="TINYINT" />
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="net.yuanmomo.searchrescue.web.bean.LeaseInfo" extends="BaseResultMap" >
     <result column="remark" property="remark" jdbcType="LONGVARCHAR" />
@@ -73,7 +73,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, userID, beaconID, startDate, returnDate, version, isReturned, isDeleted
+    id, user_ID, beacon_ID, start_Date, return_Date, version, is_Returned, is_Deleted
   </sql>
   <sql id="Blob_Column_List" >
     remark
@@ -135,12 +135,12 @@
     <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into leaseinfo (userID, beaconID, startDate, 
-      returnDate, version, isReturned, 
-      isDeleted, remark)
-    values (#{userid,jdbcType=BIGINT}, #{beaconid,jdbcType=BIGINT}, #{startdate,jdbcType=TIMESTAMP}, 
-      #{returndate,jdbcType=TIMESTAMP}, #{version,jdbcType=BIGINT}, #{isreturned,jdbcType=TINYINT}, 
-      #{isdeleted,jdbcType=TINYINT}, #{remark,jdbcType=LONGVARCHAR})
+    insert into leaseinfo (user_ID, beacon_ID, start_Date, 
+      return_Date, version, is_Returned, 
+      is_Deleted, remark)
+    values (#{userId,jdbcType=BIGINT}, #{beaconId,jdbcType=BIGINT}, #{startDate,jdbcType=TIMESTAMP}, 
+      #{returnDate,jdbcType=TIMESTAMP}, #{version,jdbcType=BIGINT}, #{isReturned,jdbcType=TINYINT}, 
+      #{isDeleted,jdbcType=TINYINT}, #{remark,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="net.yuanmomo.searchrescue.web.bean.LeaseInfo" >
     <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
@@ -148,52 +148,52 @@
     </selectKey>
     insert into leaseinfo
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="userid != null" >
-        userID,
+      <if test="userId != null" >
+        user_ID,
       </if>
-      <if test="beaconid != null" >
-        beaconID,
+      <if test="beaconId != null" >
+        beacon_ID,
       </if>
-      <if test="startdate != null" >
-        startDate,
+      <if test="startDate != null" >
+        start_Date,
       </if>
-      <if test="returndate != null" >
-        returnDate,
+      <if test="returnDate != null" >
+        return_Date,
       </if>
       <if test="version != null" >
         version,
       </if>
-      <if test="isreturned != null" >
-        isReturned,
+      <if test="isReturned != null" >
+        is_Returned,
       </if>
-      <if test="isdeleted != null" >
-        isDeleted,
+      <if test="isDeleted != null" >
+        is_Deleted,
       </if>
       <if test="remark != null" >
         remark,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="userid != null" >
-        #{userid,jdbcType=BIGINT},
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
       </if>
-      <if test="beaconid != null" >
-        #{beaconid,jdbcType=BIGINT},
+      <if test="beaconId != null" >
+        #{beaconId,jdbcType=BIGINT},
       </if>
-      <if test="startdate != null" >
-        #{startdate,jdbcType=TIMESTAMP},
+      <if test="startDate != null" >
+        #{startDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="returndate != null" >
-        #{returndate,jdbcType=TIMESTAMP},
+      <if test="returnDate != null" >
+        #{returnDate,jdbcType=TIMESTAMP},
       </if>
       <if test="version != null" >
         #{version,jdbcType=BIGINT},
       </if>
-      <if test="isreturned != null" >
-        #{isreturned,jdbcType=TINYINT},
+      <if test="isReturned != null" >
+        #{isReturned,jdbcType=TINYINT},
       </if>
-      <if test="isdeleted != null" >
-        #{isdeleted,jdbcType=TINYINT},
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=TINYINT},
       </if>
       <if test="remark != null" >
         #{remark,jdbcType=LONGVARCHAR},
@@ -212,26 +212,26 @@
       <if test="record.id != null" >
         id = #{record.id,jdbcType=BIGINT},
       </if>
-      <if test="record.userid != null" >
-        userID = #{record.userid,jdbcType=BIGINT},
+      <if test="record.userId != null" >
+        user_ID = #{record.userId,jdbcType=BIGINT},
       </if>
-      <if test="record.beaconid != null" >
-        beaconID = #{record.beaconid,jdbcType=BIGINT},
+      <if test="record.beaconId != null" >
+        beacon_ID = #{record.beaconId,jdbcType=BIGINT},
       </if>
-      <if test="record.startdate != null" >
-        startDate = #{record.startdate,jdbcType=TIMESTAMP},
+      <if test="record.startDate != null" >
+        start_Date = #{record.startDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.returndate != null" >
-        returnDate = #{record.returndate,jdbcType=TIMESTAMP},
+      <if test="record.returnDate != null" >
+        return_Date = #{record.returnDate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.version != null" >
         version = #{record.version,jdbcType=BIGINT},
       </if>
-      <if test="record.isreturned != null" >
-        isReturned = #{record.isreturned,jdbcType=TINYINT},
+      <if test="record.isReturned != null" >
+        is_Returned = #{record.isReturned,jdbcType=TINYINT},
       </if>
-      <if test="record.isdeleted != null" >
-        isDeleted = #{record.isdeleted,jdbcType=TINYINT},
+      <if test="record.isDeleted != null" >
+        is_Deleted = #{record.isDeleted,jdbcType=TINYINT},
       </if>
       <if test="record.remark != null" >
         remark = #{record.remark,jdbcType=LONGVARCHAR},
@@ -244,13 +244,13 @@
   <update id="updateByExampleWithBLOBs" parameterType="map" >
     update leaseinfo
     set id = #{record.id,jdbcType=BIGINT},
-      userID = #{record.userid,jdbcType=BIGINT},
-      beaconID = #{record.beaconid,jdbcType=BIGINT},
-      startDate = #{record.startdate,jdbcType=TIMESTAMP},
-      returnDate = #{record.returndate,jdbcType=TIMESTAMP},
+      user_ID = #{record.userId,jdbcType=BIGINT},
+      beacon_ID = #{record.beaconId,jdbcType=BIGINT},
+      start_Date = #{record.startDate,jdbcType=TIMESTAMP},
+      return_Date = #{record.returnDate,jdbcType=TIMESTAMP},
       version = #{record.version,jdbcType=BIGINT},
-      isReturned = #{record.isreturned,jdbcType=TINYINT},
-      isDeleted = #{record.isdeleted,jdbcType=TINYINT},
+      is_Returned = #{record.isReturned,jdbcType=TINYINT},
+      is_Deleted = #{record.isDeleted,jdbcType=TINYINT},
       remark = #{record.remark,jdbcType=LONGVARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -259,13 +259,13 @@
   <update id="updateByExample" parameterType="map" >
     update leaseinfo
     set id = #{record.id,jdbcType=BIGINT},
-      userID = #{record.userid,jdbcType=BIGINT},
-      beaconID = #{record.beaconid,jdbcType=BIGINT},
-      startDate = #{record.startdate,jdbcType=TIMESTAMP},
-      returnDate = #{record.returndate,jdbcType=TIMESTAMP},
+      user_ID = #{record.userId,jdbcType=BIGINT},
+      beacon_ID = #{record.beaconId,jdbcType=BIGINT},
+      start_Date = #{record.startDate,jdbcType=TIMESTAMP},
+      return_Date = #{record.returnDate,jdbcType=TIMESTAMP},
       version = #{record.version,jdbcType=BIGINT},
-      isReturned = #{record.isreturned,jdbcType=TINYINT},
-      isDeleted = #{record.isdeleted,jdbcType=TINYINT}
+      is_Returned = #{record.isReturned,jdbcType=TINYINT},
+      is_Deleted = #{record.isDeleted,jdbcType=TINYINT}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -273,26 +273,26 @@
   <update id="updateByPrimaryKeySelective" parameterType="net.yuanmomo.searchrescue.web.bean.LeaseInfo" >
     update leaseinfo
     <set >
-      <if test="userid != null" >
-        userID = #{userid,jdbcType=BIGINT},
+      <if test="userId != null" >
+        user_ID = #{userId,jdbcType=BIGINT},
       </if>
-      <if test="beaconid != null" >
-        beaconID = #{beaconid,jdbcType=BIGINT},
+      <if test="beaconId != null" >
+        beacon_ID = #{beaconId,jdbcType=BIGINT},
       </if>
-      <if test="startdate != null" >
-        startDate = #{startdate,jdbcType=TIMESTAMP},
+      <if test="startDate != null" >
+        start_Date = #{startDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="returndate != null" >
-        returnDate = #{returndate,jdbcType=TIMESTAMP},
+      <if test="returnDate != null" >
+        return_Date = #{returnDate,jdbcType=TIMESTAMP},
       </if>
       <if test="version != null" >
         version = #{version,jdbcType=BIGINT},
       </if>
-      <if test="isreturned != null" >
-        isReturned = #{isreturned,jdbcType=TINYINT},
+      <if test="isReturned != null" >
+        is_Returned = #{isReturned,jdbcType=TINYINT},
       </if>
-      <if test="isdeleted != null" >
-        isDeleted = #{isdeleted,jdbcType=TINYINT},
+      <if test="isDeleted != null" >
+        is_Deleted = #{isDeleted,jdbcType=TINYINT},
       </if>
       <if test="remark != null" >
         remark = #{remark,jdbcType=LONGVARCHAR},
@@ -302,25 +302,25 @@
   </update>
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="net.yuanmomo.searchrescue.web.bean.LeaseInfo" >
     update leaseinfo
-    set userID = #{userid,jdbcType=BIGINT},
-      beaconID = #{beaconid,jdbcType=BIGINT},
-      startDate = #{startdate,jdbcType=TIMESTAMP},
-      returnDate = #{returndate,jdbcType=TIMESTAMP},
+    set user_ID = #{userId,jdbcType=BIGINT},
+      beacon_ID = #{beaconId,jdbcType=BIGINT},
+      start_Date = #{startDate,jdbcType=TIMESTAMP},
+      return_Date = #{returnDate,jdbcType=TIMESTAMP},
       version = #{version,jdbcType=BIGINT},
-      isReturned = #{isreturned,jdbcType=TINYINT},
-      isDeleted = #{isdeleted,jdbcType=TINYINT},
+      is_Returned = #{isReturned,jdbcType=TINYINT},
+      is_Deleted = #{isDeleted,jdbcType=TINYINT},
       remark = #{remark,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="net.yuanmomo.searchrescue.web.bean.LeaseInfo" >
     update leaseinfo
-    set userID = #{userid,jdbcType=BIGINT},
-      beaconID = #{beaconid,jdbcType=BIGINT},
-      startDate = #{startdate,jdbcType=TIMESTAMP},
-      returnDate = #{returndate,jdbcType=TIMESTAMP},
+    set user_ID = #{userId,jdbcType=BIGINT},
+      beacon_ID = #{beaconId,jdbcType=BIGINT},
+      start_Date = #{startDate,jdbcType=TIMESTAMP},
+      return_Date = #{returnDate,jdbcType=TIMESTAMP},
       version = #{version,jdbcType=BIGINT},
-      isReturned = #{isreturned,jdbcType=TINYINT},
-      isDeleted = #{isdeleted,jdbcType=TINYINT}
+      is_Returned = #{isReturned,jdbcType=TINYINT},
+      is_Deleted = #{isDeleted,jdbcType=TINYINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

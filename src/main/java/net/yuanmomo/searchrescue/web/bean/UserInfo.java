@@ -4,19 +4,14 @@ import java.io.Serializable;
 
 public class UserInfo implements Serializable {
     private Long id;
-
-    private String name;
-
+    private String userName;
+    private String password;
+    private String realName;
     private Byte cerStyle;
-
     private Byte userStyle;
-
     private String cipher;
-
     private Long version;
-
-    private Byte isdeleted;
-
+    private Byte isDeleted;
     private static final long serialVersionUID = 1L;
 
     public Long getId() {
@@ -27,12 +22,28 @@ public class UserInfo implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getRealName() {
+        return realName;
+    }
+
+    public void setRealName(String realName) {
+        this.realName = realName;
     }
 
     public Byte getCerStyle() {
@@ -67,12 +78,12 @@ public class UserInfo implements Serializable {
         this.version = version;
     }
 
-    public Byte getIsdeleted() {
-        return isdeleted;
+    public Byte getIsDeleted() {
+        return isDeleted;
     }
 
-    public void setIsdeleted(Byte isdeleted) {
-        this.isdeleted = isdeleted;
+    public void setIsDeleted(Byte isDeleted) {
+        this.isDeleted = isDeleted;
     }
 
     @Override
@@ -88,12 +99,14 @@ public class UserInfo implements Serializable {
         }
         UserInfo other = (UserInfo) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+            && (this.getUserName() == null ? other.getUserName() == null : this.getUserName().equals(other.getUserName()))
+            && (this.getPassword() == null ? other.getPassword() == null : this.getPassword().equals(other.getPassword()))
+            && (this.getRealName() == null ? other.getRealName() == null : this.getRealName().equals(other.getRealName()))
             && (this.getCerStyle() == null ? other.getCerStyle() == null : this.getCerStyle().equals(other.getCerStyle()))
             && (this.getUserStyle() == null ? other.getUserStyle() == null : this.getUserStyle().equals(other.getUserStyle()))
             && (this.getCipher() == null ? other.getCipher() == null : this.getCipher().equals(other.getCipher()))
             && (this.getVersion() == null ? other.getVersion() == null : this.getVersion().equals(other.getVersion()))
-            && (this.getIsdeleted() == null ? other.getIsdeleted() == null : this.getIsdeleted().equals(other.getIsdeleted()));
+            && (this.getIsDeleted() == null ? other.getIsDeleted() == null : this.getIsDeleted().equals(other.getIsDeleted()));
     }
 
     @Override
@@ -101,12 +114,14 @@ public class UserInfo implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
-        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
+        result = prime * result + ((getUserName() == null) ? 0 : getUserName().hashCode());
+        result = prime * result + ((getPassword() == null) ? 0 : getPassword().hashCode());
+        result = prime * result + ((getRealName() == null) ? 0 : getRealName().hashCode());
         result = prime * result + ((getCerStyle() == null) ? 0 : getCerStyle().hashCode());
         result = prime * result + ((getUserStyle() == null) ? 0 : getUserStyle().hashCode());
         result = prime * result + ((getCipher() == null) ? 0 : getCipher().hashCode());
         result = prime * result + ((getVersion() == null) ? 0 : getVersion().hashCode());
-        result = prime * result + ((getIsdeleted() == null) ? 0 : getIsdeleted().hashCode());
+        result = prime * result + ((getIsDeleted() == null) ? 0 : getIsDeleted().hashCode());
         return result;
     }
 }

@@ -3,26 +3,26 @@
 <mapper namespace="net.yuanmomo.searchrescue.web.mapper.IdInfoMapper" >
   <resultMap id="BaseResultMap" type="net.yuanmomo.searchrescue.web.bean.IdInfo" >
     <id column="id" property="id" jdbcType="BIGINT" />
-    <result column="userInfo_ID" property="userinfoId" jdbcType="BIGINT" />
+    <result column="user_Info_ID" property="userInfoId" jdbcType="BIGINT" />
     <result column="sex" property="sex" jdbcType="TINYINT" />
     <result column="nation" property="nation" jdbcType="CHAR" />
-    <result column="nationID" property="nationid" jdbcType="INTEGER" />
+    <result column="nation_ID" property="nationId" jdbcType="INTEGER" />
     <result column="birthday" property="birthday" jdbcType="DATE" />
     <result column="address" property="address" jdbcType="VARCHAR" />
     <result column="phone" property="phone" jdbcType="CHAR" />
     <result column="cer_No" property="cerNo" jdbcType="CHAR" />
     <result column="authority" property="authority" jdbcType="VARCHAR" />
     <result column="effec_ Duration" property="effecDuration" jdbcType="TIMESTAMP" />
-    <result column="startTime" property="starttime" jdbcType="TIMESTAMP" />
-    <result column="endTime" property="endtime" jdbcType="TIMESTAMP" />
+    <result column="start_Time" property="startTime" jdbcType="TIMESTAMP" />
+    <result column="end_Time" property="endTime" jdbcType="TIMESTAMP" />
     <result column="photo" property="photo" jdbcType="VARCHAR" />
-    <result column="photoPath" property="photopath" jdbcType="VARCHAR" />
-    <result column="registerTime" property="registertime" jdbcType="TIMESTAMP" />
-    <result column="registerIP" property="registerip" jdbcType="CHAR" />
-    <result column="lastLoginIP" property="lastloginip" jdbcType="CHAR" />
-    <result column="lastLoginTime" property="lastlogintime" jdbcType="TIMESTAMP" />
+    <result column="photo_Path" property="photoPath" jdbcType="VARCHAR" />
+    <result column="register_Time" property="registerTime" jdbcType="TIMESTAMP" />
+    <result column="register_IP" property="registerIp" jdbcType="CHAR" />
+    <result column="last_Login_IP" property="lastLoginIp" jdbcType="CHAR" />
+    <result column="last_Login_Time" property="lastLoginTime" jdbcType="TIMESTAMP" />
     <result column="version" property="version" jdbcType="BIGINT" />
-    <result column="isDeleted" property="isdeleted" jdbcType="TINYINT" />
+    <result column="is_Deleted" property="isDeleted" jdbcType="TINYINT" />
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="net.yuanmomo.searchrescue.web.bean.IdInfo" extends="BaseResultMap" >
     <result column="remark" property="remark" jdbcType="LONGVARCHAR" />
@@ -86,9 +86,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, userInfo_ID, sex, nation, nationID, birthday, address, phone, cer_No, authority, 
-    "effec_ Duration", startTime, endTime, photo, photoPath, registerTime, registerIP, 
-    lastLoginIP, lastLoginTime, version, isDeleted
+    id, user_Info_ID, sex, nation, nation_ID, birthday, address, phone, cer_No, authority, 
+    "effec_ Duration", start_Time, end_Time, photo, photo_Path, register_Time, register_IP, 
+    last_Login_IP, last_Login_Time, version, is_Deleted
   </sql>
   <sql id="Blob_Column_List" >
     remark
@@ -150,21 +150,21 @@
     <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into idinfo (userInfo_ID, sex, nation, 
-      nationID, birthday, address, 
+    insert into idinfo (user_Info_ID, sex, nation, 
+      nation_ID, birthday, address, 
       phone, cer_No, authority, 
-      "effec_ Duration", startTime, endTime, 
-      photo, photoPath, registerTime, 
-      registerIP, lastLoginIP, lastLoginTime, 
-      version, isDeleted, remark
+      "effec_ Duration", start_Time, end_Time, 
+      photo, photo_Path, register_Time, 
+      register_IP, last_Login_IP, last_Login_Time, 
+      version, is_Deleted, remark
       )
-    values (#{userinfoId,jdbcType=BIGINT}, #{sex,jdbcType=TINYINT}, #{nation,jdbcType=CHAR}, 
-      #{nationid,jdbcType=INTEGER}, #{birthday,jdbcType=DATE}, #{address,jdbcType=VARCHAR}, 
+    values (#{userInfoId,jdbcType=BIGINT}, #{sex,jdbcType=TINYINT}, #{nation,jdbcType=CHAR}, 
+      #{nationId,jdbcType=INTEGER}, #{birthday,jdbcType=DATE}, #{address,jdbcType=VARCHAR}, 
       #{phone,jdbcType=CHAR}, #{cerNo,jdbcType=CHAR}, #{authority,jdbcType=VARCHAR}, 
-      #{effecDuration,jdbcType=TIMESTAMP}, #{starttime,jdbcType=TIMESTAMP}, #{endtime,jdbcType=TIMESTAMP}, 
-      #{photo,jdbcType=VARCHAR}, #{photopath,jdbcType=VARCHAR}, #{registertime,jdbcType=TIMESTAMP}, 
-      #{registerip,jdbcType=CHAR}, #{lastloginip,jdbcType=CHAR}, #{lastlogintime,jdbcType=TIMESTAMP}, 
-      #{version,jdbcType=BIGINT}, #{isdeleted,jdbcType=TINYINT}, #{remark,jdbcType=LONGVARCHAR}
+      #{effecDuration,jdbcType=TIMESTAMP}, #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, 
+      #{photo,jdbcType=VARCHAR}, #{photoPath,jdbcType=VARCHAR}, #{registerTime,jdbcType=TIMESTAMP}, 
+      #{registerIp,jdbcType=CHAR}, #{lastLoginIp,jdbcType=CHAR}, #{lastLoginTime,jdbcType=TIMESTAMP}, 
+      #{version,jdbcType=BIGINT}, #{isDeleted,jdbcType=TINYINT}, #{remark,jdbcType=LONGVARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="net.yuanmomo.searchrescue.web.bean.IdInfo" >
@@ -173,8 +173,8 @@
     </selectKey>
     insert into idinfo
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="userinfoId != null" >
-        userInfo_ID,
+      <if test="userInfoId != null" >
+        user_Info_ID,
       </if>
       <if test="sex != null" >
         sex,
@@ -182,8 +182,8 @@
       <if test="nation != null" >
         nation,
       </if>
-      <if test="nationid != null" >
-        nationID,
+      <if test="nationId != null" >
+        nation_ID,
       </if>
       <if test="birthday != null" >
         birthday,
@@ -203,43 +203,43 @@
       <if test="effecDuration != null" >
         "effec_ Duration",
       </if>
-      <if test="starttime != null" >
-        startTime,
+      <if test="startTime != null" >
+        start_Time,
       </if>
-      <if test="endtime != null" >
-        endTime,
+      <if test="endTime != null" >
+        end_Time,
       </if>
       <if test="photo != null" >
         photo,
       </if>
-      <if test="photopath != null" >
-        photoPath,
+      <if test="photoPath != null" >
+        photo_Path,
       </if>
-      <if test="registertime != null" >
-        registerTime,
+      <if test="registerTime != null" >
+        register_Time,
       </if>
-      <if test="registerip != null" >
-        registerIP,
+      <if test="registerIp != null" >
+        register_IP,
       </if>
-      <if test="lastloginip != null" >
-        lastLoginIP,
+      <if test="lastLoginIp != null" >
+        last_Login_IP,
       </if>
-      <if test="lastlogintime != null" >
-        lastLoginTime,
+      <if test="lastLoginTime != null" >
+        last_Login_Time,
       </if>
       <if test="version != null" >
         version,
       </if>
-      <if test="isdeleted != null" >
-        isDeleted,
+      <if test="isDeleted != null" >
+        is_Deleted,
       </if>
       <if test="remark != null" >
         remark,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="userinfoId != null" >
-        #{userinfoId,jdbcType=BIGINT},
+      <if test="userInfoId != null" >
+        #{userInfoId,jdbcType=BIGINT},
       </if>
       <if test="sex != null" >
         #{sex,jdbcType=TINYINT},
@@ -247,8 +247,8 @@
       <if test="nation != null" >
         #{nation,jdbcType=CHAR},
       </if>
-      <if test="nationid != null" >
-        #{nationid,jdbcType=INTEGER},
+      <if test="nationId != null" >
+        #{nationId,jdbcType=INTEGER},
       </if>
       <if test="birthday != null" >
         #{birthday,jdbcType=DATE},
@@ -268,35 +268,35 @@
       <if test="effecDuration != null" >
         #{effecDuration,jdbcType=TIMESTAMP},
       </if>
-      <if test="starttime != null" >
-        #{starttime,jdbcType=TIMESTAMP},
+      <if test="startTime != null" >
+        #{startTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="endtime != null" >
-        #{endtime,jdbcType=TIMESTAMP},
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
       </if>
       <if test="photo != null" >
         #{photo,jdbcType=VARCHAR},
       </if>
-      <if test="photopath != null" >
-        #{photopath,jdbcType=VARCHAR},
+      <if test="photoPath != null" >
+        #{photoPath,jdbcType=VARCHAR},
       </if>
-      <if test="registertime != null" >
-        #{registertime,jdbcType=TIMESTAMP},
+      <if test="registerTime != null" >
+        #{registerTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="registerip != null" >
-        #{registerip,jdbcType=CHAR},
+      <if test="registerIp != null" >
+        #{registerIp,jdbcType=CHAR},
       </if>
-      <if test="lastloginip != null" >
-        #{lastloginip,jdbcType=CHAR},
+      <if test="lastLoginIp != null" >
+        #{lastLoginIp,jdbcType=CHAR},
       </if>
-      <if test="lastlogintime != null" >
-        #{lastlogintime,jdbcType=TIMESTAMP},
+      <if test="lastLoginTime != null" >
+        #{lastLoginTime,jdbcType=TIMESTAMP},
       </if>
       <if test="version != null" >
         #{version,jdbcType=BIGINT},
       </if>
-      <if test="isdeleted != null" >
-        #{isdeleted,jdbcType=TINYINT},
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=TINYINT},
       </if>
       <if test="remark != null" >
         #{remark,jdbcType=LONGVARCHAR},
@@ -315,8 +315,8 @@
       <if test="record.id != null" >
         id = #{record.id,jdbcType=BIGINT},
       </if>
-      <if test="record.userinfoId != null" >
-        userInfo_ID = #{record.userinfoId,jdbcType=BIGINT},
+      <if test="record.userInfoId != null" >
+        user_Info_ID = #{record.userInfoId,jdbcType=BIGINT},
       </if>
       <if test="record.sex != null" >
         sex = #{record.sex,jdbcType=TINYINT},
@@ -324,8 +324,8 @@
       <if test="record.nation != null" >
         nation = #{record.nation,jdbcType=CHAR},
       </if>
-      <if test="record.nationid != null" >
-        nationID = #{record.nationid,jdbcType=INTEGER},
+      <if test="record.nationId != null" >
+        nation_ID = #{record.nationId,jdbcType=INTEGER},
       </if>
       <if test="record.birthday != null" >
         birthday = #{record.birthday,jdbcType=DATE},
@@ -345,35 +345,35 @@
       <if test="record.effecDuration != null" >
         "effec_ Duration" = #{record.effecDuration,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.starttime != null" >
-        startTime = #{record.starttime,jdbcType=TIMESTAMP},
+      <if test="record.startTime != null" >
+        start_Time = #{record.startTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.endtime != null" >
-        endTime = #{record.endtime,jdbcType=TIMESTAMP},
+      <if test="record.endTime != null" >
+        end_Time = #{record.endTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.photo != null" >
         photo = #{record.photo,jdbcType=VARCHAR},
       </if>
-      <if test="record.photopath != null" >
-        photoPath = #{record.photopath,jdbcType=VARCHAR},
+      <if test="record.photoPath != null" >
+        photo_Path = #{record.photoPath,jdbcType=VARCHAR},
       </if>
-      <if test="record.registertime != null" >
-        registerTime = #{record.registertime,jdbcType=TIMESTAMP},
+      <if test="record.registerTime != null" >
+        register_Time = #{record.registerTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.registerip != null" >
-        registerIP = #{record.registerip,jdbcType=CHAR},
+      <if test="record.registerIp != null" >
+        register_IP = #{record.registerIp,jdbcType=CHAR},
       </if>
-      <if test="record.lastloginip != null" >
-        lastLoginIP = #{record.lastloginip,jdbcType=CHAR},
+      <if test="record.lastLoginIp != null" >
+        last_Login_IP = #{record.lastLoginIp,jdbcType=CHAR},
       </if>
-      <if test="record.lastlogintime != null" >
-        lastLoginTime = #{record.lastlogintime,jdbcType=TIMESTAMP},
+      <if test="record.lastLoginTime != null" >
+        last_Login_Time = #{record.lastLoginTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.version != null" >
         version = #{record.version,jdbcType=BIGINT},
       </if>
-      <if test="record.isdeleted != null" >
-        isDeleted = #{record.isdeleted,jdbcType=TINYINT},
+      <if test="record.isDeleted != null" >
+        is_Deleted = #{record.isDeleted,jdbcType=TINYINT},
       </if>
       <if test="record.remark != null" >
         remark = #{record.remark,jdbcType=LONGVARCHAR},
@@ -386,26 +386,26 @@
   <update id="updateByExampleWithBLOBs" parameterType="map" >
     update idinfo
     set id = #{record.id,jdbcType=BIGINT},
-      userInfo_ID = #{record.userinfoId,jdbcType=BIGINT},
+      user_Info_ID = #{record.userInfoId,jdbcType=BIGINT},
       sex = #{record.sex,jdbcType=TINYINT},
       nation = #{record.nation,jdbcType=CHAR},
-      nationID = #{record.nationid,jdbcType=INTEGER},
+      nation_ID = #{record.nationId,jdbcType=INTEGER},
       birthday = #{record.birthday,jdbcType=DATE},
       address = #{record.address,jdbcType=VARCHAR},
       phone = #{record.phone,jdbcType=CHAR},
       cer_No = #{record.cerNo,jdbcType=CHAR},
       authority = #{record.authority,jdbcType=VARCHAR},
       "effec_ Duration" = #{record.effecDuration,jdbcType=TIMESTAMP},
-      startTime = #{record.starttime,jdbcType=TIMESTAMP},
-      endTime = #{record.endtime,jdbcType=TIMESTAMP},
+      start_Time = #{record.startTime,jdbcType=TIMESTAMP},
+      end_Time = #{record.endTime,jdbcType=TIMESTAMP},
       photo = #{record.photo,jdbcType=VARCHAR},
-      photoPath = #{record.photopath,jdbcType=VARCHAR},
-      registerTime = #{record.registertime,jdbcType=TIMESTAMP},
-      registerIP = #{record.registerip,jdbcType=CHAR},
-      lastLoginIP = #{record.lastloginip,jdbcType=CHAR},
-      lastLoginTime = #{record.lastlogintime,jdbcType=TIMESTAMP},
+      photo_Path = #{record.photoPath,jdbcType=VARCHAR},
+      register_Time = #{record.registerTime,jdbcType=TIMESTAMP},
+      register_IP = #{record.registerIp,jdbcType=CHAR},
+      last_Login_IP = #{record.lastLoginIp,jdbcType=CHAR},
+      last_Login_Time = #{record.lastLoginTime,jdbcType=TIMESTAMP},
       version = #{record.version,jdbcType=BIGINT},
-      isDeleted = #{record.isdeleted,jdbcType=TINYINT},
+      is_Deleted = #{record.isDeleted,jdbcType=TINYINT},
       remark = #{record.remark,jdbcType=LONGVARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -414,26 +414,26 @@
   <update id="updateByExample" parameterType="map" >
     update idinfo
     set id = #{record.id,jdbcType=BIGINT},
-      userInfo_ID = #{record.userinfoId,jdbcType=BIGINT},
+      user_Info_ID = #{record.userInfoId,jdbcType=BIGINT},
       sex = #{record.sex,jdbcType=TINYINT},
       nation = #{record.nation,jdbcType=CHAR},
-      nationID = #{record.nationid,jdbcType=INTEGER},
+      nation_ID = #{record.nationId,jdbcType=INTEGER},
       birthday = #{record.birthday,jdbcType=DATE},
       address = #{record.address,jdbcType=VARCHAR},
       phone = #{record.phone,jdbcType=CHAR},
       cer_No = #{record.cerNo,jdbcType=CHAR},
       authority = #{record.authority,jdbcType=VARCHAR},
       "effec_ Duration" = #{record.effecDuration,jdbcType=TIMESTAMP},
-      startTime = #{record.starttime,jdbcType=TIMESTAMP},
-      endTime = #{record.endtime,jdbcType=TIMESTAMP},
+      start_Time = #{record.startTime,jdbcType=TIMESTAMP},
+      end_Time = #{record.endTime,jdbcType=TIMESTAMP},
       photo = #{record.photo,jdbcType=VARCHAR},
-      photoPath = #{record.photopath,jdbcType=VARCHAR},
-      registerTime = #{record.registertime,jdbcType=TIMESTAMP},
-      registerIP = #{record.registerip,jdbcType=CHAR},
-      lastLoginIP = #{record.lastloginip,jdbcType=CHAR},
-      lastLoginTime = #{record.lastlogintime,jdbcType=TIMESTAMP},
+      photo_Path = #{record.photoPath,jdbcType=VARCHAR},
+      register_Time = #{record.registerTime,jdbcType=TIMESTAMP},
+      register_IP = #{record.registerIp,jdbcType=CHAR},
+      last_Login_IP = #{record.lastLoginIp,jdbcType=CHAR},
+      last_Login_Time = #{record.lastLoginTime,jdbcType=TIMESTAMP},
       version = #{record.version,jdbcType=BIGINT},
-      isDeleted = #{record.isdeleted,jdbcType=TINYINT}
+      is_Deleted = #{record.isDeleted,jdbcType=TINYINT}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -441,8 +441,8 @@
   <update id="updateByPrimaryKeySelective" parameterType="net.yuanmomo.searchrescue.web.bean.IdInfo" >
     update idinfo
     <set >
-      <if test="userinfoId != null" >
-        userInfo_ID = #{userinfoId,jdbcType=BIGINT},
+      <if test="userInfoId != null" >
+        user_Info_ID = #{userInfoId,jdbcType=BIGINT},
       </if>
       <if test="sex != null" >
         sex = #{sex,jdbcType=TINYINT},
@@ -450,8 +450,8 @@
       <if test="nation != null" >
         nation = #{nation,jdbcType=CHAR},
       </if>
-      <if test="nationid != null" >
-        nationID = #{nationid,jdbcType=INTEGER},
+      <if test="nationId != null" >
+        nation_ID = #{nationId,jdbcType=INTEGER},
       </if>
       <if test="birthday != null" >
         birthday = #{birthday,jdbcType=DATE},
@@ -471,35 +471,35 @@
       <if test="effecDuration != null" >
         "effec_ Duration" = #{effecDuration,jdbcType=TIMESTAMP},
       </if>
-      <if test="starttime != null" >
-        startTime = #{starttime,jdbcType=TIMESTAMP},
+      <if test="startTime != null" >
+        start_Time = #{startTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="endtime != null" >
-        endTime = #{endtime,jdbcType=TIMESTAMP},
+      <if test="endTime != null" >
+        end_Time = #{endTime,jdbcType=TIMESTAMP},
       </if>
       <if test="photo != null" >
         photo = #{photo,jdbcType=VARCHAR},
       </if>
-      <if test="photopath != null" >
-        photoPath = #{photopath,jdbcType=VARCHAR},
+      <if test="photoPath != null" >
+        photo_Path = #{photoPath,jdbcType=VARCHAR},
       </if>
-      <if test="registertime != null" >
-        registerTime = #{registertime,jdbcType=TIMESTAMP},
+      <if test="registerTime != null" >
+        register_Time = #{registerTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="registerip != null" >
-        registerIP = #{registerip,jdbcType=CHAR},
+      <if test="registerIp != null" >
+        register_IP = #{registerIp,jdbcType=CHAR},
       </if>
-      <if test="lastloginip != null" >
-        lastLoginIP = #{lastloginip,jdbcType=CHAR},
+      <if test="lastLoginIp != null" >
+        last_Login_IP = #{lastLoginIp,jdbcType=CHAR},
       </if>
-      <if test="lastlogintime != null" >
-        lastLoginTime = #{lastlogintime,jdbcType=TIMESTAMP},
+      <if test="lastLoginTime != null" >
+        last_Login_Time = #{lastLoginTime,jdbcType=TIMESTAMP},
       </if>
       <if test="version != null" >
         version = #{version,jdbcType=BIGINT},
       </if>
-      <if test="isdeleted != null" >
-        isDeleted = #{isdeleted,jdbcType=TINYINT},
+      <if test="isDeleted != null" >
+        is_Deleted = #{isDeleted,jdbcType=TINYINT},
       </if>
       <if test="remark != null" >
         remark = #{remark,jdbcType=LONGVARCHAR},
@@ -509,51 +509,51 @@
   </update>
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="net.yuanmomo.searchrescue.web.bean.IdInfo" >
     update idinfo
-    set userInfo_ID = #{userinfoId,jdbcType=BIGINT},
+    set user_Info_ID = #{userInfoId,jdbcType=BIGINT},
       sex = #{sex,jdbcType=TINYINT},
       nation = #{nation,jdbcType=CHAR},
-      nationID = #{nationid,jdbcType=INTEGER},
+      nation_ID = #{nationId,jdbcType=INTEGER},
       birthday = #{birthday,jdbcType=DATE},
       address = #{address,jdbcType=VARCHAR},
       phone = #{phone,jdbcType=CHAR},
       cer_No = #{cerNo,jdbcType=CHAR},
       authority = #{authority,jdbcType=VARCHAR},
       "effec_ Duration" = #{effecDuration,jdbcType=TIMESTAMP},
-      startTime = #{starttime,jdbcType=TIMESTAMP},
-      endTime = #{endtime,jdbcType=TIMESTAMP},
+      start_Time = #{startTime,jdbcType=TIMESTAMP},
+      end_Time = #{endTime,jdbcType=TIMESTAMP},
       photo = #{photo,jdbcType=VARCHAR},
-      photoPath = #{photopath,jdbcType=VARCHAR},
-      registerTime = #{registertime,jdbcType=TIMESTAMP},
-      registerIP = #{registerip,jdbcType=CHAR},
-      lastLoginIP = #{lastloginip,jdbcType=CHAR},
-      lastLoginTime = #{lastlogintime,jdbcType=TIMESTAMP},
+      photo_Path = #{photoPath,jdbcType=VARCHAR},
+      register_Time = #{registerTime,jdbcType=TIMESTAMP},
+      register_IP = #{registerIp,jdbcType=CHAR},
+      last_Login_IP = #{lastLoginIp,jdbcType=CHAR},
+      last_Login_Time = #{lastLoginTime,jdbcType=TIMESTAMP},
       version = #{version,jdbcType=BIGINT},
-      isDeleted = #{isdeleted,jdbcType=TINYINT},
+      is_Deleted = #{isDeleted,jdbcType=TINYINT},
       remark = #{remark,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="net.yuanmomo.searchrescue.web.bean.IdInfo" >
     update idinfo
-    set userInfo_ID = #{userinfoId,jdbcType=BIGINT},
+    set user_Info_ID = #{userInfoId,jdbcType=BIGINT},
       sex = #{sex,jdbcType=TINYINT},
       nation = #{nation,jdbcType=CHAR},
-      nationID = #{nationid,jdbcType=INTEGER},
+      nation_ID = #{nationId,jdbcType=INTEGER},
       birthday = #{birthday,jdbcType=DATE},
       address = #{address,jdbcType=VARCHAR},
       phone = #{phone,jdbcType=CHAR},
       cer_No = #{cerNo,jdbcType=CHAR},
       authority = #{authority,jdbcType=VARCHAR},
       "effec_ Duration" = #{effecDuration,jdbcType=TIMESTAMP},
-      startTime = #{starttime,jdbcType=TIMESTAMP},
-      endTime = #{endtime,jdbcType=TIMESTAMP},
+      start_Time = #{startTime,jdbcType=TIMESTAMP},
+      end_Time = #{endTime,jdbcType=TIMESTAMP},
       photo = #{photo,jdbcType=VARCHAR},
-      photoPath = #{photopath,jdbcType=VARCHAR},
-      registerTime = #{registertime,jdbcType=TIMESTAMP},
-      registerIP = #{registerip,jdbcType=CHAR},
-      lastLoginIP = #{lastloginip,jdbcType=CHAR},
-      lastLoginTime = #{lastlogintime,jdbcType=TIMESTAMP},
+      photo_Path = #{photoPath,jdbcType=VARCHAR},
+      register_Time = #{registerTime,jdbcType=TIMESTAMP},
+      register_IP = #{registerIp,jdbcType=CHAR},
+      last_Login_IP = #{lastLoginIp,jdbcType=CHAR},
+      last_Login_Time = #{lastLoginTime,jdbcType=TIMESTAMP},
       version = #{version,jdbcType=BIGINT},
-      isDeleted = #{isdeleted,jdbcType=TINYINT}
+      is_Deleted = #{isDeleted,jdbcType=TINYINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

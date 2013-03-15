@@ -7,3 +7,4 @@ function handleAJAXReturnValue(result) {
 		return result;
 	}
 }
+

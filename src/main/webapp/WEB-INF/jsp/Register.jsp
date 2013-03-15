@@ -9,8 +9,26 @@
 <link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/bootstrap-responsive.css" rel="stylesheet">
 <link href="css/docs.css" rel="stylesheet">
+<link href="css/jquery_ui/jquery.ui.all.css" rel="stylesheet">
 <link href="js/external/google-code-prettify/prettify.css"
 	rel="stylesheet">
+<style type="text/css">
+
+/* //jquery validate error style */
+input.error { border: 1px solid red; }
+label.error {
+  padding-left: 10px;
+
+  padding-bottom: 2px;
+
+  font-weight: bold;
+
+  color: #EA5200;
+}
+label.checked {
+  background:url("./demo/images/checked.gif") no-repeat 0px 0px;
+}
+</style>
 <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
 		  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -66,7 +84,8 @@
 				<div class="hero-unit">
 					<h1 align="center">用户注册</h1>
 					<br />
-					<form class="form-horizontal">
+					<form id="registerForm" class="form-horizontal"
+						action="user.do?option=doRegister" method="post">
 						<fieldset>
 							<div class="control-group">
 								<label class="control-label" for="input01"
@@ -95,7 +114,7 @@
 		<!--/row-->
 		<hr>
 		<footer>
-			<p>&copy; XXXXXX设计2013</p>
+			<p style="margin-left: 200px">&copy; XXXXXX设计2013</p>
 		</footer>
 	</div>
 	<!--/.fluid-container-->
@@ -103,7 +122,10 @@
 <!-- Placed at the end of the document so the pages load faster -->
 <!-- <script type="text/javascript" src="js/jquery/jquery-ui-1.9.2.custom.js"></script> -->
 <script type="text/javascript" src="js/jquery/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="js/jquery/jquery-ui-1.9.2.custom.min.js"></script>
 <script type="text/javascript" src="js/jquery/jquery.validate.js"></script>
+<script type="text/javascript" src="js/jquery/jquery.ui.datepicker-zh-CN.js"></script>
+<script type="text/javascript" src="js/jquery/jquery.ui.datepicker.js"></script>
 <script type="text/javascript" src="js/jquery/jquery.cookie.js"></script>
 <script type="text/javascript" src="js/external/application.js"></script>
 <script type="text/javascript" src="js/external/bootstrap-alert.js"></script>

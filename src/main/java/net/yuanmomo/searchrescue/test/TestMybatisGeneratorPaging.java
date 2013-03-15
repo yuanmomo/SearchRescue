@@ -41,7 +41,7 @@ public class TestMybatisGeneratorPaging {
 		criteria.setLimitStartAndEnd("1,2");
 		List<UserInfo> result=this.userMapper.selectByExample(criteria);
 		for(UserInfo user:result){
-			Logger.getRootLogger().info(user.getName());
+			Logger.getRootLogger().info(user.getRealname());
 		}
 	}
 }

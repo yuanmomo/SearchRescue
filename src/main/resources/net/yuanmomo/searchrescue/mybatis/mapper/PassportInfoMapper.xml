@@ -5,26 +5,26 @@
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="userInfo_ID" property="userinfoId" jdbcType="BIGINT" />
     <result column="authority" property="authority" jdbcType="VARCHAR" />
-    <result column="authorityID" property="authorityid" jdbcType="INTEGER" />
-    <result column="passportNo" property="passportno" jdbcType="CHAR" />
+    <result column="authority_ID" property="authorityId" jdbcType="INTEGER" />
+    <result column="passport_No" property="passportNo" jdbcType="CHAR" />
     <result column="nationality" property="nationality" jdbcType="VARCHAR" />
-    <result column="nationID" property="nationid" jdbcType="INTEGER" />
+    <result column="nation_ID" property="nationId" jdbcType="INTEGER" />
     <result column="birthday" property="birthday" jdbcType="TIMESTAMP" />
     <result column="sex" property="sex" jdbcType="TINYINT" />
     <result column="address" property="address" jdbcType="VARCHAR" />
     <result column="phone" property="phone" jdbcType="CHAR" />
-    <result column="issueDate" property="issuedate" jdbcType="TIMESTAMP" />
+    <result column="issue_Date" property="issueDate" jdbcType="TIMESTAMP" />
     <result column="effec_ Duration" property="effecDuration" jdbcType="TIMESTAMP" />
     <result column="signature" property="signature" jdbcType="VARCHAR" />
     <result column="photo" property="photo" jdbcType="INTEGER" />
-    <result column="photoPath" property="photopath" jdbcType="INTEGER" />
+    <result column="photo_Path" property="photoPath" jdbcType="INTEGER" />
     <result column="remark" property="remark" jdbcType="INTEGER" />
-    <result column="registerIP" property="registerip" jdbcType="VARCHAR" />
-    <result column="registerTime" property="registertime" jdbcType="TIMESTAMP" />
-    <result column="lastLoginIP" property="lastloginip" jdbcType="VARCHAR" />
-    <result column="lastLoginTime" property="lastlogintime" jdbcType="TIMESTAMP" />
+    <result column="register_IP" property="registerIp" jdbcType="VARCHAR" />
+    <result column="register_Time" property="registerTime" jdbcType="TIMESTAMP" />
+    <result column="last_Login_IP" property="lastLoginIp" jdbcType="VARCHAR" />
+    <result column="last_Login_Time" property="lastLoginTime" jdbcType="TIMESTAMP" />
     <result column="version" property="version" jdbcType="BIGINT" />
-    <result column="isDeleted" property="isdeleted" jdbcType="TINYINT" />
+    <result column="is_Deleted" property="isDeleted" jdbcType="TINYINT" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -85,9 +85,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, userInfo_ID, authority, authorityID, passportNo, nationality, nationID, birthday, 
-    sex, address, phone, issueDate, "effec_ Duration", signature, photo, photoPath, remark, 
-    registerIP, registerTime, lastLoginIP, lastLoginTime, version, isDeleted
+    id, userInfo_ID, authority, authority_ID, passport_No, nationality, nation_ID, birthday, 
+    sex, address, phone, issue_Date, "effec_ Duration", signature, photo, photo_Path, 
+    remark, register_IP, register_Time, last_Login_IP, last_Login_Time, version, is_Deleted
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="net.yuanmomo.searchrescue.web.bean.PassportInfoCriteria" >
     select
@@ -127,22 +127,22 @@
     <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into passportinfo (userInfo_ID, authority, authorityID, 
-      passportNo, nationality, nationID, 
+    insert into passportinfo (userInfo_ID, authority, authority_ID, 
+      passport_No, nationality, nation_ID, 
       birthday, sex, address, 
-      phone, issueDate, "effec_ Duration", 
-      signature, photo, photoPath, 
-      remark, registerIP, registerTime, 
-      lastLoginIP, lastLoginTime, version, 
-      isDeleted)
-    values (#{userinfoId,jdbcType=BIGINT}, #{authority,jdbcType=VARCHAR}, #{authorityid,jdbcType=INTEGER}, 
-      #{passportno,jdbcType=CHAR}, #{nationality,jdbcType=VARCHAR}, #{nationid,jdbcType=INTEGER}, 
+      phone, issue_Date, "effec_ Duration", 
+      signature, photo, photo_Path, 
+      remark, register_IP, register_Time, 
+      last_Login_IP, last_Login_Time, version, 
+      is_Deleted)
+    values (#{userinfoId,jdbcType=BIGINT}, #{authority,jdbcType=VARCHAR}, #{authorityId,jdbcType=INTEGER}, 
+      #{passportNo,jdbcType=CHAR}, #{nationality,jdbcType=VARCHAR}, #{nationId,jdbcType=INTEGER}, 
       #{birthday,jdbcType=TIMESTAMP}, #{sex,jdbcType=TINYINT}, #{address,jdbcType=VARCHAR}, 
-      #{phone,jdbcType=CHAR}, #{issuedate,jdbcType=TIMESTAMP}, #{effecDuration,jdbcType=TIMESTAMP}, 
-      #{signature,jdbcType=VARCHAR}, #{photo,jdbcType=INTEGER}, #{photopath,jdbcType=INTEGER}, 
-      #{remark,jdbcType=INTEGER}, #{registerip,jdbcType=VARCHAR}, #{registertime,jdbcType=TIMESTAMP}, 
-      #{lastloginip,jdbcType=VARCHAR}, #{lastlogintime,jdbcType=TIMESTAMP}, #{version,jdbcType=BIGINT}, 
-      #{isdeleted,jdbcType=TINYINT})
+      #{phone,jdbcType=CHAR}, #{issueDate,jdbcType=TIMESTAMP}, #{effecDuration,jdbcType=TIMESTAMP}, 
+      #{signature,jdbcType=VARCHAR}, #{photo,jdbcType=INTEGER}, #{photoPath,jdbcType=INTEGER}, 
+      #{remark,jdbcType=INTEGER}, #{registerIp,jdbcType=VARCHAR}, #{registerTime,jdbcType=TIMESTAMP}, 
+      #{lastLoginIp,jdbcType=VARCHAR}, #{lastLoginTime,jdbcType=TIMESTAMP}, #{version,jdbcType=BIGINT}, 
+      #{isDeleted,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" parameterType="net.yuanmomo.searchrescue.web.bean.PassportInfo" >
     <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
@@ -156,17 +156,17 @@
       <if test="authority != null" >
         authority,
       </if>
-      <if test="authorityid != null" >
-        authorityID,
+      <if test="authorityId != null" >
+        authority_ID,
       </if>
-      <if test="passportno != null" >
-        passportNo,
+      <if test="passportNo != null" >
+        passport_No,
       </if>
       <if test="nationality != null" >
         nationality,
       </if>
-      <if test="nationid != null" >
-        nationID,
+      <if test="nationId != null" >
+        nation_ID,
       </if>
       <if test="birthday != null" >
         birthday,
@@ -180,8 +180,8 @@
       <if test="phone != null" >
         phone,
       </if>
-      <if test="issuedate != null" >
-        issueDate,
+      <if test="issueDate != null" >
+        issue_Date,
       </if>
       <if test="effecDuration != null" >
         "effec_ Duration",
@@ -192,29 +192,29 @@
       <if test="photo != null" >
         photo,
       </if>
-      <if test="photopath != null" >
-        photoPath,
+      <if test="photoPath != null" >
+        photo_Path,
       </if>
       <if test="remark != null" >
         remark,
       </if>
-      <if test="registerip != null" >
-        registerIP,
+      <if test="registerIp != null" >
+        register_IP,
       </if>
-      <if test="registertime != null" >
-        registerTime,
+      <if test="registerTime != null" >
+        register_Time,
       </if>
-      <if test="lastloginip != null" >
-        lastLoginIP,
+      <if test="lastLoginIp != null" >
+        last_Login_IP,
       </if>
-      <if test="lastlogintime != null" >
-        lastLoginTime,
+      <if test="lastLoginTime != null" >
+        last_Login_Time,
       </if>
       <if test="version != null" >
         version,
       </if>
-      <if test="isdeleted != null" >
-        isDeleted,
+      <if test="isDeleted != null" >
+        is_Deleted,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -224,17 +224,17 @@
       <if test="authority != null" >
         #{authority,jdbcType=VARCHAR},
       </if>
-      <if test="authorityid != null" >
-        #{authorityid,jdbcType=INTEGER},
+      <if test="authorityId != null" >
+        #{authorityId,jdbcType=INTEGER},
       </if>
-      <if test="passportno != null" >
-        #{passportno,jdbcType=CHAR},
+      <if test="passportNo != null" >
+        #{passportNo,jdbcType=CHAR},
       </if>
       <if test="nationality != null" >
         #{nationality,jdbcType=VARCHAR},
       </if>
-      <if test="nationid != null" >
-        #{nationid,jdbcType=INTEGER},
+      <if test="nationId != null" >
+        #{nationId,jdbcType=INTEGER},
       </if>
       <if test="birthday != null" >
         #{birthday,jdbcType=TIMESTAMP},
@@ -248,8 +248,8 @@
       <if test="phone != null" >
         #{phone,jdbcType=CHAR},
       </if>
-      <if test="issuedate != null" >
-        #{issuedate,jdbcType=TIMESTAMP},
+      <if test="issueDate != null" >
+        #{issueDate,jdbcType=TIMESTAMP},
       </if>
       <if test="effecDuration != null" >
         #{effecDuration,jdbcType=TIMESTAMP},
@@ -260,29 +260,29 @@
       <if test="photo != null" >
         #{photo,jdbcType=INTEGER},
       </if>
-      <if test="photopath != null" >
-        #{photopath,jdbcType=INTEGER},
+      <if test="photoPath != null" >
+        #{photoPath,jdbcType=INTEGER},
       </if>
       <if test="remark != null" >
         #{remark,jdbcType=INTEGER},
       </if>
-      <if test="registerip != null" >
-        #{registerip,jdbcType=VARCHAR},
+      <if test="registerIp != null" >
+        #{registerIp,jdbcType=VARCHAR},
       </if>
-      <if test="registertime != null" >
-        #{registertime,jdbcType=TIMESTAMP},
+      <if test="registerTime != null" >
+        #{registerTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="lastloginip != null" >
-        #{lastloginip,jdbcType=VARCHAR},
+      <if test="lastLoginIp != null" >
+        #{lastLoginIp,jdbcType=VARCHAR},
       </if>
-      <if test="lastlogintime != null" >
-        #{lastlogintime,jdbcType=TIMESTAMP},
+      <if test="lastLoginTime != null" >
+        #{lastLoginTime,jdbcType=TIMESTAMP},
       </if>
       <if test="version != null" >
         #{version,jdbcType=BIGINT},
       </if>
-      <if test="isdeleted != null" >
-        #{isdeleted,jdbcType=TINYINT},
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=TINYINT},
       </if>
     </trim>
   </insert>
@@ -304,17 +304,17 @@
       <if test="record.authority != null" >
         authority = #{record.authority,jdbcType=VARCHAR},
       </if>
-      <if test="record.authorityid != null" >
-        authorityID = #{record.authorityid,jdbcType=INTEGER},
+      <if test="record.authorityId != null" >
+        authority_ID = #{record.authorityId,jdbcType=INTEGER},
       </if>
-      <if test="record.passportno != null" >
-        passportNo = #{record.passportno,jdbcType=CHAR},
+      <if test="record.passportNo != null" >
+        passport_No = #{record.passportNo,jdbcType=CHAR},
       </if>
       <if test="record.nationality != null" >
         nationality = #{record.nationality,jdbcType=VARCHAR},
       </if>
-      <if test="record.nationid != null" >
-        nationID = #{record.nationid,jdbcType=INTEGER},
+      <if test="record.nationId != null" >
+        nation_ID = #{record.nationId,jdbcType=INTEGER},
       </if>
       <if test="record.birthday != null" >
         birthday = #{record.birthday,jdbcType=TIMESTAMP},
@@ -328,8 +328,8 @@
       <if test="record.phone != null" >
         phone = #{record.phone,jdbcType=CHAR},
       </if>
-      <if test="record.issuedate != null" >
-        issueDate = #{record.issuedate,jdbcType=TIMESTAMP},
+      <if test="record.issueDate != null" >
+        issue_Date = #{record.issueDate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.effecDuration != null" >
         "effec_ Duration" = #{record.effecDuration,jdbcType=TIMESTAMP},
@@ -340,29 +340,29 @@
       <if test="record.photo != null" >
         photo = #{record.photo,jdbcType=INTEGER},
       </if>
-      <if test="record.photopath != null" >
-        photoPath = #{record.photopath,jdbcType=INTEGER},
+      <if test="record.photoPath != null" >
+        photo_Path = #{record.photoPath,jdbcType=INTEGER},
       </if>
       <if test="record.remark != null" >
         remark = #{record.remark,jdbcType=INTEGER},
       </if>
-      <if test="record.registerip != null" >
-        registerIP = #{record.registerip,jdbcType=VARCHAR},
+      <if test="record.registerIp != null" >
+        register_IP = #{record.registerIp,jdbcType=VARCHAR},
       </if>
-      <if test="record.registertime != null" >
-        registerTime = #{record.registertime,jdbcType=TIMESTAMP},
+      <if test="record.registerTime != null" >
+        register_Time = #{record.registerTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.lastloginip != null" >
-        lastLoginIP = #{record.lastloginip,jdbcType=VARCHAR},
+      <if test="record.lastLoginIp != null" >
+        last_Login_IP = #{record.lastLoginIp,jdbcType=VARCHAR},
       </if>
-      <if test="record.lastlogintime != null" >
-        lastLoginTime = #{record.lastlogintime,jdbcType=TIMESTAMP},
+      <if test="record.lastLoginTime != null" >
+        last_Login_Time = #{record.lastLoginTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.version != null" >
         version = #{record.version,jdbcType=BIGINT},
       </if>
-      <if test="record.isdeleted != null" >
-        isDeleted = #{record.isdeleted,jdbcType=TINYINT},
+      <if test="record.isDeleted != null" >
+        is_Deleted = #{record.isDeleted,jdbcType=TINYINT},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -374,26 +374,26 @@
     set id = #{record.id,jdbcType=BIGINT},
       userInfo_ID = #{record.userinfoId,jdbcType=BIGINT},
       authority = #{record.authority,jdbcType=VARCHAR},
-      authorityID = #{record.authorityid,jdbcType=INTEGER},
-      passportNo = #{record.passportno,jdbcType=CHAR},
+      authority_ID = #{record.authorityId,jdbcType=INTEGER},
+      passport_No = #{record.passportNo,jdbcType=CHAR},
       nationality = #{record.nationality,jdbcType=VARCHAR},
-      nationID = #{record.nationid,jdbcType=INTEGER},
+      nation_ID = #{record.nationId,jdbcType=INTEGER},
       birthday = #{record.birthday,jdbcType=TIMESTAMP},
       sex = #{record.sex,jdbcType=TINYINT},
       address = #{record.address,jdbcType=VARCHAR},
       phone = #{record.phone,jdbcType=CHAR},
-      issueDate = #{record.issuedate,jdbcType=TIMESTAMP},
+      issue_Date = #{record.issueDate,jdbcType=TIMESTAMP},
       "effec_ Duration" = #{record.effecDuration,jdbcType=TIMESTAMP},
       signature = #{record.signature,jdbcType=VARCHAR},
       photo = #{record.photo,jdbcType=INTEGER},
-      photoPath = #{record.photopath,jdbcType=INTEGER},
+      photo_Path = #{record.photoPath,jdbcType=INTEGER},
       remark = #{record.remark,jdbcType=INTEGER},
-      registerIP = #{record.registerip,jdbcType=VARCHAR},
-      registerTime = #{record.registertime,jdbcType=TIMESTAMP},
-      lastLoginIP = #{record.lastloginip,jdbcType=VARCHAR},
-      lastLoginTime = #{record.lastlogintime,jdbcType=TIMESTAMP},
+      register_IP = #{record.registerIp,jdbcType=VARCHAR},
+      register_Time = #{record.registerTime,jdbcType=TIMESTAMP},
+      last_Login_IP = #{record.lastLoginIp,jdbcType=VARCHAR},
+      last_Login_Time = #{record.lastLoginTime,jdbcType=TIMESTAMP},
       version = #{record.version,jdbcType=BIGINT},
-      isDeleted = #{record.isdeleted,jdbcType=TINYINT}
+      is_Deleted = #{record.isDeleted,jdbcType=TINYINT}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -407,17 +407,17 @@
       <if test="authority != null" >
         authority = #{authority,jdbcType=VARCHAR},
       </if>
-      <if test="authorityid != null" >
-        authorityID = #{authorityid,jdbcType=INTEGER},
+      <if test="authorityId != null" >
+        authority_ID = #{authorityId,jdbcType=INTEGER},
       </if>
-      <if test="passportno != null" >
-        passportNo = #{passportno,jdbcType=CHAR},
+      <if test="passportNo != null" >
+        passport_No = #{passportNo,jdbcType=CHAR},
       </if>
       <if test="nationality != null" >
         nationality = #{nationality,jdbcType=VARCHAR},
       </if>
-      <if test="nationid != null" >
-        nationID = #{nationid,jdbcType=INTEGER},
+      <if test="nationId != null" >
+        nation_ID = #{nationId,jdbcType=INTEGER},
       </if>
       <if test="birthday != null" >
         birthday = #{birthday,jdbcType=TIMESTAMP},
@@ -431,8 +431,8 @@
       <if test="phone != null" >
         phone = #{phone,jdbcType=CHAR},
       </if>
-      <if test="issuedate != null" >
-        issueDate = #{issuedate,jdbcType=TIMESTAMP},
+      <if test="issueDate != null" >
+        issue_Date = #{issueDate,jdbcType=TIMESTAMP},
       </if>
       <if test="effecDuration != null" >
         "effec_ Duration" = #{effecDuration,jdbcType=TIMESTAMP},
@@ -443,29 +443,29 @@
       <if test="photo != null" >
         photo = #{photo,jdbcType=INTEGER},
       </if>
-      <if test="photopath != null" >
-        photoPath = #{photopath,jdbcType=INTEGER},
+      <if test="photoPath != null" >
+        photo_Path = #{photoPath,jdbcType=INTEGER},
       </if>
       <if test="remark != null" >
         remark = #{remark,jdbcType=INTEGER},
       </if>
-      <if test="registerip != null" >
-        registerIP = #{registerip,jdbcType=VARCHAR},
+      <if test="registerIp != null" >
+        register_IP = #{registerIp,jdbcType=VARCHAR},
       </if>
-      <if test="registertime != null" >
-        registerTime = #{registertime,jdbcType=TIMESTAMP},
+      <if test="registerTime != null" >
+        register_Time = #{registerTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="lastloginip != null" >
-        lastLoginIP = #{lastloginip,jdbcType=VARCHAR},
+      <if test="lastLoginIp != null" >
+        last_Login_IP = #{lastLoginIp,jdbcType=VARCHAR},
       </if>
-      <if test="lastlogintime != null" >
-        lastLoginTime = #{lastlogintime,jdbcType=TIMESTAMP},
+      <if test="lastLoginTime != null" >
+        last_Login_Time = #{lastLoginTime,jdbcType=TIMESTAMP},
       </if>
       <if test="version != null" >
         version = #{version,jdbcType=BIGINT},
       </if>
-      <if test="isdeleted != null" >
-        isDeleted = #{isdeleted,jdbcType=TINYINT},
+      <if test="isDeleted != null" >
+        is_Deleted = #{isDeleted,jdbcType=TINYINT},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
@@ -474,26 +474,26 @@
     update passportinfo
     set userInfo_ID = #{userinfoId,jdbcType=BIGINT},
       authority = #{authority,jdbcType=VARCHAR},
-      authorityID = #{authorityid,jdbcType=INTEGER},
-      passportNo = #{passportno,jdbcType=CHAR},
+      authority_ID = #{authorityId,jdbcType=INTEGER},
+      passport_No = #{passportNo,jdbcType=CHAR},
       nationality = #{nationality,jdbcType=VARCHAR},
-      nationID = #{nationid,jdbcType=INTEGER},
+      nation_ID = #{nationId,jdbcType=INTEGER},
       birthday = #{birthday,jdbcType=TIMESTAMP},
       sex = #{sex,jdbcType=TINYINT},
       address = #{address,jdbcType=VARCHAR},
       phone = #{phone,jdbcType=CHAR},
-      issueDate = #{issuedate,jdbcType=TIMESTAMP},
+      issue_Date = #{issueDate,jdbcType=TIMESTAMP},
       "effec_ Duration" = #{effecDuration,jdbcType=TIMESTAMP},
       signature = #{signature,jdbcType=VARCHAR},
       photo = #{photo,jdbcType=INTEGER},
-      photoPath = #{photopath,jdbcType=INTEGER},
+      photo_Path = #{photoPath,jdbcType=INTEGER},
       remark = #{remark,jdbcType=INTEGER},
-      registerIP = #{registerip,jdbcType=VARCHAR},
-      registerTime = #{registertime,jdbcType=TIMESTAMP},
-      lastLoginIP = #{lastloginip,jdbcType=VARCHAR},
-      lastLoginTime = #{lastlogintime,jdbcType=TIMESTAMP},
+      register_IP = #{registerIp,jdbcType=VARCHAR},
+      register_Time = #{registerTime,jdbcType=TIMESTAMP},
+      last_Login_IP = #{lastLoginIp,jdbcType=VARCHAR},
+      last_Login_Time = #{lastLoginTime,jdbcType=TIMESTAMP},
       version = #{version,jdbcType=BIGINT},
-      isDeleted = #{isdeleted,jdbcType=TINYINT}
+      is_Deleted = #{isDeleted,jdbcType=TINYINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

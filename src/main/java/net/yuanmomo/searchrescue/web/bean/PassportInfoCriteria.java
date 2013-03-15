@@ -305,133 +305,133 @@ public class PassportInfoCriteria {
             return (Criteria) this;
         }
 
-        public Criteria andAuthorityidIsNull() {
-            addCriterion("authorityID is null");
+        public Criteria andAuthorityIdIsNull() {
+            addCriterion("authority_ID is null");
             return (Criteria) this;
         }
 
-        public Criteria andAuthorityidIsNotNull() {
-            addCriterion("authorityID is not null");
+        public Criteria andAuthorityIdIsNotNull() {
+            addCriterion("authority_ID is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAuthorityidEqualTo(Integer value) {
-            addCriterion("authorityID =", value, "authorityid");
+        public Criteria andAuthorityIdEqualTo(Integer value) {
+            addCriterion("authority_ID =", value, "authorityId");
             return (Criteria) this;
         }
 
-        public Criteria andAuthorityidNotEqualTo(Integer value) {
-            addCriterion("authorityID <>", value, "authorityid");
+        public Criteria andAuthorityIdNotEqualTo(Integer value) {
+            addCriterion("authority_ID <>", value, "authorityId");
             return (Criteria) this;
         }
 
-        public Criteria andAuthorityidGreaterThan(Integer value) {
-            addCriterion("authorityID >", value, "authorityid");
+        public Criteria andAuthorityIdGreaterThan(Integer value) {
+            addCriterion("authority_ID >", value, "authorityId");
             return (Criteria) this;
         }
 
-        public Criteria andAuthorityidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("authorityID >=", value, "authorityid");
+        public Criteria andAuthorityIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("authority_ID >=", value, "authorityId");
             return (Criteria) this;
         }
 
-        public Criteria andAuthorityidLessThan(Integer value) {
-            addCriterion("authorityID <", value, "authorityid");
+        public Criteria andAuthorityIdLessThan(Integer value) {
+            addCriterion("authority_ID <", value, "authorityId");
             return (Criteria) this;
         }
 
-        public Criteria andAuthorityidLessThanOrEqualTo(Integer value) {
-            addCriterion("authorityID <=", value, "authorityid");
+        public Criteria andAuthorityIdLessThanOrEqualTo(Integer value) {
+            addCriterion("authority_ID <=", value, "authorityId");
             return (Criteria) this;
         }
 
-        public Criteria andAuthorityidIn(List<Integer> values) {
-            addCriterion("authorityID in", values, "authorityid");
+        public Criteria andAuthorityIdIn(List<Integer> values) {
+            addCriterion("authority_ID in", values, "authorityId");
             return (Criteria) this;
         }
 
-        public Criteria andAuthorityidNotIn(List<Integer> values) {
-            addCriterion("authorityID not in", values, "authorityid");
+        public Criteria andAuthorityIdNotIn(List<Integer> values) {
+            addCriterion("authority_ID not in", values, "authorityId");
             return (Criteria) this;
         }
 
-        public Criteria andAuthorityidBetween(Integer value1, Integer value2) {
-            addCriterion("authorityID between", value1, value2, "authorityid");
+        public Criteria andAuthorityIdBetween(Integer value1, Integer value2) {
+            addCriterion("authority_ID between", value1, value2, "authorityId");
             return (Criteria) this;
         }
 
-        public Criteria andAuthorityidNotBetween(Integer value1, Integer value2) {
-            addCriterion("authorityID not between", value1, value2, "authorityid");
+        public Criteria andAuthorityIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("authority_ID not between", value1, value2, "authorityId");
             return (Criteria) this;
         }
 
-        public Criteria andPassportnoIsNull() {
-            addCriterion("passportNo is null");
+        public Criteria andPassportNoIsNull() {
+            addCriterion("passport_No is null");
             return (Criteria) this;
         }
 
-        public Criteria andPassportnoIsNotNull() {
-            addCriterion("passportNo is not null");
+        public Criteria andPassportNoIsNotNull() {
+            addCriterion("passport_No is not null");
             return (Criteria) this;
         }
 
-        public Criteria andPassportnoEqualTo(String value) {
-            addCriterion("passportNo =", value, "passportno");
+        public Criteria andPassportNoEqualTo(String value) {
+            addCriterion("passport_No =", value, "passportNo");
             return (Criteria) this;
         }
 
-        public Criteria andPassportnoNotEqualTo(String value) {
-            addCriterion("passportNo <>", value, "passportno");
+        public Criteria andPassportNoNotEqualTo(String value) {
+            addCriterion("passport_No <>", value, "passportNo");
             return (Criteria) this;
         }
 
-        public Criteria andPassportnoGreaterThan(String value) {
-            addCriterion("passportNo >", value, "passportno");
+        public Criteria andPassportNoGreaterThan(String value) {
+            addCriterion("passport_No >", value, "passportNo");
             return (Criteria) this;
         }
 
-        public Criteria andPassportnoGreaterThanOrEqualTo(String value) {
-            addCriterion("passportNo >=", value, "passportno");
+        public Criteria andPassportNoGreaterThanOrEqualTo(String value) {
+            addCriterion("passport_No >=", value, "passportNo");
             return (Criteria) this;
         }
 
-        public Criteria andPassportnoLessThan(String value) {
-            addCriterion("passportNo <", value, "passportno");
+        public Criteria andPassportNoLessThan(String value) {
+            addCriterion("passport_No <", value, "passportNo");
             return (Criteria) this;
         }
 
-        public Criteria andPassportnoLessThanOrEqualTo(String value) {
-            addCriterion("passportNo <=", value, "passportno");
+        public Criteria andPassportNoLessThanOrEqualTo(String value) {
+            addCriterion("passport_No <=", value, "passportNo");
             return (Criteria) this;
         }
 
-        public Criteria andPassportnoLike(String value) {
-            addCriterion("passportNo like", value, "passportno");
+        public Criteria andPassportNoLike(String value) {
+            addCriterion("passport_No like", value, "passportNo");
             return (Criteria) this;
         }
 
-        public Criteria andPassportnoNotLike(String value) {
-            addCriterion("passportNo not like", value, "passportno");
+        public Criteria andPassportNoNotLike(String value) {
+            addCriterion("passport_No not like", value, "passportNo");
             return (Criteria) this;
         }
 
-        public Criteria andPassportnoIn(List<String> values) {
-            addCriterion("passportNo in", values, "passportno");
+        public Criteria andPassportNoIn(List<String> values) {
+            addCriterion("passport_No in", values, "passportNo");
             return (Criteria) this;
         }
 
-        public Criteria andPassportnoNotIn(List<String> values) {
-            addCriterion("passportNo not in", values, "passportno");
+        public Criteria andPassportNoNotIn(List<String> values) {
+            addCriterion("passport_No not in", values, "passportNo");
             return (Criteria) this;
         }
 
-        public Criteria andPassportnoBetween(String value1, String value2) {
-            addCriterion("passportNo between", value1, value2, "passportno");
+        public Criteria andPassportNoBetween(String value1, String value2) {
+            addCriterion("passport_No between", value1, value2, "passportNo");
             return (Criteria) this;
         }
 
-        public Criteria andPassportnoNotBetween(String value1, String value2) {
-            addCriterion("passportNo not between", value1, value2, "passportno");
+        public Criteria andPassportNoNotBetween(String value1, String value2) {
+            addCriterion("passport_No not between", value1, value2, "passportNo");
             return (Criteria) this;
         }
 
@@ -505,63 +505,63 @@ public class PassportInfoCriteria {
             return (Criteria) this;
         }
 
-        public Criteria andNationidIsNull() {
-            addCriterion("nationID is null");
+        public Criteria andNationIdIsNull() {
+            addCriterion("nation_ID is null");
             return (Criteria) this;
         }
 
-        public Criteria andNationidIsNotNull() {
-            addCriterion("nationID is not null");
+        public Criteria andNationIdIsNotNull() {
+            addCriterion("nation_ID is not null");
             return (Criteria) this;
         }
 
-        public Criteria andNationidEqualTo(Integer value) {
-            addCriterion("nationID =", value, "nationid");
+        public Criteria andNationIdEqualTo(Integer value) {
+            addCriterion("nation_ID =", value, "nationId");
             return (Criteria) this;
         }
 
-        public Criteria andNationidNotEqualTo(Integer value) {
-            addCriterion("nationID <>", value, "nationid");
+        public Criteria andNationIdNotEqualTo(Integer value) {
+            addCriterion("nation_ID <>", value, "nationId");
             return (Criteria) this;
         }
 
-        public Criteria andNationidGreaterThan(Integer value) {
-            addCriterion("nationID >", value, "nationid");
+        public Criteria andNationIdGreaterThan(Integer value) {
+            addCriterion("nation_ID >", value, "nationId");
             return (Criteria) this;
         }
 
-        public Criteria andNationidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("nationID >=", value, "nationid");
+        public Criteria andNationIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("nation_ID >=", value, "nationId");
             return (Criteria) this;
         }
 
-        public Criteria andNationidLessThan(Integer value) {
-            addCriterion("nationID <", value, "nationid");
+        public Criteria andNationIdLessThan(Integer value) {
+            addCriterion("nation_ID <", value, "nationId");
             return (Criteria) this;
         }
 
-        public Criteria andNationidLessThanOrEqualTo(Integer value) {
-            addCriterion("nationID <=", value, "nationid");
+        public Criteria andNationIdLessThanOrEqualTo(Integer value) {
+            addCriterion("nation_ID <=", value, "nationId");
             return (Criteria) this;
         }
 
-        public Criteria andNationidIn(List<Integer> values) {
-            addCriterion("nationID in", values, "nationid");
+        public Criteria andNationIdIn(List<Integer> values) {
+            addCriterion("nation_ID in", values, "nationId");
             return (Criteria) this;
         }
 
-        public Criteria andNationidNotIn(List<Integer> values) {
-            addCriterion("nationID not in", values, "nationid");
+        public Criteria andNationIdNotIn(List<Integer> values) {
+            addCriterion("nation_ID not in", values, "nationId");
             return (Criteria) this;
         }
 
-        public Criteria andNationidBetween(Integer value1, Integer value2) {
-            addCriterion("nationID between", value1, value2, "nationid");
+        public Criteria andNationIdBetween(Integer value1, Integer value2) {
+            addCriterion("nation_ID between", value1, value2, "nationId");
             return (Criteria) this;
         }
 
-        public Criteria andNationidNotBetween(Integer value1, Integer value2) {
-            addCriterion("nationID not between", value1, value2, "nationid");
+        public Criteria andNationIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("nation_ID not between", value1, value2, "nationId");
             return (Criteria) this;
         }
 
@@ -825,63 +825,63 @@ public class PassportInfoCriteria {
             return (Criteria) this;
         }
 
-        public Criteria andIssuedateIsNull() {
-            addCriterion("issueDate is null");
+        public Criteria andIssueDateIsNull() {
+            addCriterion("issue_Date is null");
             return (Criteria) this;
         }
 
-        public Criteria andIssuedateIsNotNull() {
-            addCriterion("issueDate is not null");
+        public Criteria andIssueDateIsNotNull() {
+            addCriterion("issue_Date is not null");
             return (Criteria) this;
         }
 
-        public Criteria andIssuedateEqualTo(Date value) {
-            addCriterion("issueDate =", value, "issuedate");
+        public Criteria andIssueDateEqualTo(Date value) {
+            addCriterion("issue_Date =", value, "issueDate");
             return (Criteria) this;
         }
 
-        public Criteria andIssuedateNotEqualTo(Date value) {
-            addCriterion("issueDate <>", value, "issuedate");
+        public Criteria andIssueDateNotEqualTo(Date value) {
+            addCriterion("issue_Date <>", value, "issueDate");
             return (Criteria) this;
         }
 
-        public Criteria andIssuedateGreaterThan(Date value) {
-            addCriterion("issueDate >", value, "issuedate");
+        public Criteria andIssueDateGreaterThan(Date value) {
+            addCriterion("issue_Date >", value, "issueDate");
             return (Criteria) this;
         }
 
-        public Criteria andIssuedateGreaterThanOrEqualTo(Date value) {
-            addCriterion("issueDate >=", value, "issuedate");
+        public Criteria andIssueDateGreaterThanOrEqualTo(Date value) {
+            addCriterion("issue_Date >=", value, "issueDate");
             return (Criteria) this;
         }
 
-        public Criteria andIssuedateLessThan(Date value) {
-            addCriterion("issueDate <", value, "issuedate");
+        public Criteria andIssueDateLessThan(Date value) {
+            addCriterion("issue_Date <", value, "issueDate");
             return (Criteria) this;
         }
 
-        public Criteria andIssuedateLessThanOrEqualTo(Date value) {
-            addCriterion("issueDate <=", value, "issuedate");
+        public Criteria andIssueDateLessThanOrEqualTo(Date value) {
+            addCriterion("issue_Date <=", value, "issueDate");
             return (Criteria) this;
         }
 
-        public Criteria andIssuedateIn(List<Date> values) {
-            addCriterion("issueDate in", values, "issuedate");
+        public Criteria andIssueDateIn(List<Date> values) {
+            addCriterion("issue_Date in", values, "issueDate");
             return (Criteria) this;
         }
 
-        public Criteria andIssuedateNotIn(List<Date> values) {
-            addCriterion("issueDate not in", values, "issuedate");
+        public Criteria andIssueDateNotIn(List<Date> values) {
+            addCriterion("issue_Date not in", values, "issueDate");
             return (Criteria) this;
         }
 
-        public Criteria andIssuedateBetween(Date value1, Date value2) {
-            addCriterion("issueDate between", value1, value2, "issuedate");
+        public Criteria andIssueDateBetween(Date value1, Date value2) {
+            addCriterion("issue_Date between", value1, value2, "issueDate");
             return (Criteria) this;
         }
 
-        public Criteria andIssuedateNotBetween(Date value1, Date value2) {
-            addCriterion("issueDate not between", value1, value2, "issuedate");
+        public Criteria andIssueDateNotBetween(Date value1, Date value2) {
+            addCriterion("issue_Date not between", value1, value2, "issueDate");
             return (Criteria) this;
         }
 
@@ -1075,63 +1075,63 @@ public class PassportInfoCriteria {
             return (Criteria) this;
         }
 
-        public Criteria andPhotopathIsNull() {
-            addCriterion("photoPath is null");
+        public Criteria andPhotoPathIsNull() {
+            addCriterion("photo_Path is null");
             return (Criteria) this;
         }
 
-        public Criteria andPhotopathIsNotNull() {
-            addCriterion("photoPath is not null");
+        public Criteria andPhotoPathIsNotNull() {
+            addCriterion("photo_Path is not null");
             return (Criteria) this;
         }
 
-        public Criteria andPhotopathEqualTo(Integer value) {
-            addCriterion("photoPath =", value, "photopath");
+        public Criteria andPhotoPathEqualTo(Integer value) {
+            addCriterion("photo_Path =", value, "photoPath");
             return (Criteria) this;
         }
 
-        public Criteria andPhotopathNotEqualTo(Integer value) {
-            addCriterion("photoPath <>", value, "photopath");
+        public Criteria andPhotoPathNotEqualTo(Integer value) {
+            addCriterion("photo_Path <>", value, "photoPath");
             return (Criteria) this;
         }
 
-        public Criteria andPhotopathGreaterThan(Integer value) {
-            addCriterion("photoPath >", value, "photopath");
+        public Criteria andPhotoPathGreaterThan(Integer value) {
+            addCriterion("photo_Path >", value, "photoPath");
             return (Criteria) this;
         }
 
-        public Criteria andPhotopathGreaterThanOrEqualTo(Integer value) {
-            addCriterion("photoPath >=", value, "photopath");
+        public Criteria andPhotoPathGreaterThanOrEqualTo(Integer value) {
+            addCriterion("photo_Path >=", value, "photoPath");
             return (Criteria) this;
         }
 
-        public Criteria andPhotopathLessThan(Integer value) {
-            addCriterion("photoPath <", value, "photopath");
+        public Criteria andPhotoPathLessThan(Integer value) {
+            addCriterion("photo_Path <", value, "photoPath");
             return (Criteria) this;
         }
 
-        public Criteria andPhotopathLessThanOrEqualTo(Integer value) {
-            addCriterion("photoPath <=", value, "photopath");
+        public Criteria andPhotoPathLessThanOrEqualTo(Integer value) {
+            addCriterion("photo_Path <=", value, "photoPath");
             return (Criteria) this;
         }
 
-        public Criteria andPhotopathIn(List<Integer> values) {
-            addCriterion("photoPath in", values, "photopath");
+        public Criteria andPhotoPathIn(List<Integer> values) {
+            addCriterion("photo_Path in", values, "photoPath");
             return (Criteria) this;
         }
 
-        public Criteria andPhotopathNotIn(List<Integer> values) {
-            addCriterion("photoPath not in", values, "photopath");
+        public Criteria andPhotoPathNotIn(List<Integer> values) {
+            addCriterion("photo_Path not in", values, "photoPath");
             return (Criteria) this;
         }
 
-        public Criteria andPhotopathBetween(Integer value1, Integer value2) {
-            addCriterion("photoPath between", value1, value2, "photopath");
+        public Criteria andPhotoPathBetween(Integer value1, Integer value2) {
+            addCriterion("photo_Path between", value1, value2, "photoPath");
             return (Criteria) this;
         }
 
-        public Criteria andPhotopathNotBetween(Integer value1, Integer value2) {
-            addCriterion("photoPath not between", value1, value2, "photopath");
+        public Criteria andPhotoPathNotBetween(Integer value1, Integer value2) {
+            addCriterion("photo_Path not between", value1, value2, "photoPath");
             return (Criteria) this;
         }
 
@@ -1195,263 +1195,263 @@ public class PassportInfoCriteria {
             return (Criteria) this;
         }
 
-        public Criteria andRegisteripIsNull() {
-            addCriterion("registerIP is null");
+        public Criteria andRegisterIpIsNull() {
+            addCriterion("register_IP is null");
             return (Criteria) this;
         }
 
-        public Criteria andRegisteripIsNotNull() {
-            addCriterion("registerIP is not null");
+        public Criteria andRegisterIpIsNotNull() {
+            addCriterion("register_IP is not null");
             return (Criteria) this;
         }
 
-        public Criteria andRegisteripEqualTo(String value) {
-            addCriterion("registerIP =", value, "registerip");
+        public Criteria andRegisterIpEqualTo(String value) {
+            addCriterion("register_IP =", value, "registerIp");
             return (Criteria) this;
         }
 
-        public Criteria andRegisteripNotEqualTo(String value) {
-            addCriterion("registerIP <>", value, "registerip");
+        public Criteria andRegisterIpNotEqualTo(String value) {
+            addCriterion("register_IP <>", value, "registerIp");
             return (Criteria) this;
         }
 
-        public Criteria andRegisteripGreaterThan(String value) {
-            addCriterion("registerIP >", value, "registerip");
+        public Criteria andRegisterIpGreaterThan(String value) {
+            addCriterion("register_IP >", value, "registerIp");
             return (Criteria) this;
         }
 
-        public Criteria andRegisteripGreaterThanOrEqualTo(String value) {
-            addCriterion("registerIP >=", value, "registerip");
+        public Criteria andRegisterIpGreaterThanOrEqualTo(String value) {
+            addCriterion("register_IP >=", value, "registerIp");
             return (Criteria) this;
         }
 
-        public Criteria andRegisteripLessThan(String value) {
-            addCriterion("registerIP <", value, "registerip");
+        public Criteria andRegisterIpLessThan(String value) {
+            addCriterion("register_IP <", value, "registerIp");
             return (Criteria) this;
         }
 
-        public Criteria andRegisteripLessThanOrEqualTo(String value) {
-            addCriterion("registerIP <=", value, "registerip");
+        public Criteria andRegisterIpLessThanOrEqualTo(String value) {
+            addCriterion("register_IP <=", value, "registerIp");
             return (Criteria) this;
         }
 
-        public Criteria andRegisteripLike(String value) {
-            addCriterion("registerIP like", value, "registerip");
+        public Criteria andRegisterIpLike(String value) {
+            addCriterion("register_IP like", value, "registerIp");
             return (Criteria) this;
         }
 
-        public Criteria andRegisteripNotLike(String value) {
-            addCriterion("registerIP not like", value, "registerip");
+        public Criteria andRegisterIpNotLike(String value) {
+            addCriterion("register_IP not like", value, "registerIp");
             return (Criteria) this;
         }
 
-        public Criteria andRegisteripIn(List<String> values) {
-            addCriterion("registerIP in", values, "registerip");
+        public Criteria andRegisterIpIn(List<String> values) {
+            addCriterion("register_IP in", values, "registerIp");
             return (Criteria) this;
         }
 
-        public Criteria andRegisteripNotIn(List<String> values) {
-            addCriterion("registerIP not in", values, "registerip");
+        public Criteria andRegisterIpNotIn(List<String> values) {
+            addCriterion("register_IP not in", values, "registerIp");
             return (Criteria) this;
         }
 
-        public Criteria andRegisteripBetween(String value1, String value2) {
-            addCriterion("registerIP between", value1, value2, "registerip");
+        public Criteria andRegisterIpBetween(String value1, String value2) {
+            addCriterion("register_IP between", value1, value2, "registerIp");
             return (Criteria) this;
         }
 
-        public Criteria andRegisteripNotBetween(String value1, String value2) {
-            addCriterion("registerIP not between", value1, value2, "registerip");
+        public Criteria andRegisterIpNotBetween(String value1, String value2) {
+            addCriterion("register_IP not between", value1, value2, "registerIp");
             return (Criteria) this;
         }
 
-        public Criteria andRegistertimeIsNull() {
-            addCriterion("registerTime is null");
+        public Criteria andRegisterTimeIsNull() {
+            addCriterion("register_Time is null");
             return (Criteria) this;
         }
 
-        public Criteria andRegistertimeIsNotNull() {
-            addCriterion("registerTime is not null");
+        public Criteria andRegisterTimeIsNotNull() {
+            addCriterion("register_Time is not null");
             return (Criteria) this;
         }
 
-        public Criteria andRegistertimeEqualTo(Date value) {
-            addCriterion("registerTime =", value, "registertime");
+        public Criteria andRegisterTimeEqualTo(Date value) {
+            addCriterion("register_Time =", value, "registerTime");
             return (Criteria) this;
         }
 
-        public Criteria andRegistertimeNotEqualTo(Date value) {
-            addCriterion("registerTime <>", value, "registertime");
+        public Criteria andRegisterTimeNotEqualTo(Date value) {
+            addCriterion("register_Time <>", value, "registerTime");
             return (Criteria) this;
         }
 
-        public Criteria andRegistertimeGreaterThan(Date value) {
-            addCriterion("registerTime >", value, "registertime");
+        public Criteria andRegisterTimeGreaterThan(Date value) {
+            addCriterion("register_Time >", value, "registerTime");
             return (Criteria) this;
         }
 
-        public Criteria andRegistertimeGreaterThanOrEqualTo(Date value) {
-            addCriterion("registerTime >=", value, "registertime");
+        public Criteria andRegisterTimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("register_Time >=", value, "registerTime");
             return (Criteria) this;
         }
 
-        public Criteria andRegistertimeLessThan(Date value) {
-            addCriterion("registerTime <", value, "registertime");
+        public Criteria andRegisterTimeLessThan(Date value) {
+            addCriterion("register_Time <", value, "registerTime");
             return (Criteria) this;
         }
 
-        public Criteria andRegistertimeLessThanOrEqualTo(Date value) {
-            addCriterion("registerTime <=", value, "registertime");
+        public Criteria andRegisterTimeLessThanOrEqualTo(Date value) {
+            addCriterion("register_Time <=", value, "registerTime");
             return (Criteria) this;
         }
 
-        public Criteria andRegistertimeIn(List<Date> values) {
-            addCriterion("registerTime in", values, "registertime");
+        public Criteria andRegisterTimeIn(List<Date> values) {
+            addCriterion("register_Time in", values, "registerTime");
             return (Criteria) this;
         }
 
-        public Criteria andRegistertimeNotIn(List<Date> values) {
-            addCriterion("registerTime not in", values, "registertime");
+        public Criteria andRegisterTimeNotIn(List<Date> values) {
+            addCriterion("register_Time not in", values, "registerTime");
             return (Criteria) this;
         }
 
-        public Criteria andRegistertimeBetween(Date value1, Date value2) {
-            addCriterion("registerTime between", value1, value2, "registertime");
+        public Criteria andRegisterTimeBetween(Date value1, Date value2) {
+            addCriterion("register_Time between", value1, value2, "registerTime");
             return (Criteria) this;
         }
 
-        public Criteria andRegistertimeNotBetween(Date value1, Date value2) {
-            addCriterion("registerTime not between", value1, value2, "registertime");
+        public Criteria andRegisterTimeNotBetween(Date value1, Date value2) {
+            addCriterion("register_Time not between", value1, value2, "registerTime");
             return (Criteria) this;
         }
 
-        public Criteria andLastloginipIsNull() {
-            addCriterion("lastLoginIP is null");
+        public Criteria andLastLoginIpIsNull() {
+            addCriterion("last_Login_IP is null");
             return (Criteria) this;
         }
 
-        public Criteria andLastloginipIsNotNull() {
-            addCriterion("lastLoginIP is not null");
+        public Criteria andLastLoginIpIsNotNull() {
+            addCriterion("last_Login_IP is not null");
             return (Criteria) this;
         }
 
-        public Criteria andLastloginipEqualTo(String value) {
-            addCriterion("lastLoginIP =", value, "lastloginip");
+        public Criteria andLastLoginIpEqualTo(String value) {
+            addCriterion("last_Login_IP =", value, "lastLoginIp");
             return (Criteria) this;
         }
 
-        public Criteria andLastloginipNotEqualTo(String value) {
-            addCriterion("lastLoginIP <>", value, "lastloginip");
+        public Criteria andLastLoginIpNotEqualTo(String value) {
+            addCriterion("last_Login_IP <>", value, "lastLoginIp");
             return (Criteria) this;
         }
 
-        public Criteria andLastloginipGreaterThan(String value) {
-            addCriterion("lastLoginIP >", value, "lastloginip");
+        public Criteria andLastLoginIpGreaterThan(String value) {
+            addCriterion("last_Login_IP >", value, "lastLoginIp");
             return (Criteria) this;
         }
 
-        public Criteria andLastloginipGreaterThanOrEqualTo(String value) {
-            addCriterion("lastLoginIP >=", value, "lastloginip");
+        public Criteria andLastLoginIpGreaterThanOrEqualTo(String value) {
+            addCriterion("last_Login_IP >=", value, "lastLoginIp");
             return (Criteria) this;
         }
 
-        public Criteria andLastloginipLessThan(String value) {
-            addCriterion("lastLoginIP <", value, "lastloginip");
+        public Criteria andLastLoginIpLessThan(String value) {
+            addCriterion("last_Login_IP <", value, "lastLoginIp");
             return (Criteria) this;
         }
 
-        public Criteria andLastloginipLessThanOrEqualTo(String value) {
-            addCriterion("lastLoginIP <=", value, "lastloginip");
+        public Criteria andLastLoginIpLessThanOrEqualTo(String value) {
+            addCriterion("last_Login_IP <=", value, "lastLoginIp");
             return (Criteria) this;
         }
 
-        public Criteria andLastloginipLike(String value) {
-            addCriterion("lastLoginIP like", value, "lastloginip");
+        public Criteria andLastLoginIpLike(String value) {
+            addCriterion("last_Login_IP like", value, "lastLoginIp");
             return (Criteria) this;
         }
 
-        public Criteria andLastloginipNotLike(String value) {
-            addCriterion("lastLoginIP not like", value, "lastloginip");
+        public Criteria andLastLoginIpNotLike(String value) {
+            addCriterion("last_Login_IP not like", value, "lastLoginIp");
             return (Criteria) this;
         }
 
-        public Criteria andLastloginipIn(List<String> values) {
-            addCriterion("lastLoginIP in", values, "lastloginip");
+        public Criteria andLastLoginIpIn(List<String> values) {
+            addCriterion("last_Login_IP in", values, "lastLoginIp");
             return (Criteria) this;
         }
 
-        public Criteria andLastloginipNotIn(List<String> values) {
-            addCriterion("lastLoginIP not in", values, "lastloginip");
+        public Criteria andLastLoginIpNotIn(List<String> values) {
+            addCriterion("last_Login_IP not in", values, "lastLoginIp");
             return (Criteria) this;
         }
 
-        public Criteria andLastloginipBetween(String value1, String value2) {
-            addCriterion("lastLoginIP between", value1, value2, "lastloginip");
+        public Criteria andLastLoginIpBetween(String value1, String value2) {
+            addCriterion("last_Login_IP between", value1, value2, "lastLoginIp");
             return (Criteria) this;
         }
 
-        public Criteria andLastloginipNotBetween(String value1, String value2) {
-            addCriterion("lastLoginIP not between", value1, value2, "lastloginip");
+        public Criteria andLastLoginIpNotBetween(String value1, String value2) {
+            addCriterion("last_Login_IP not between", value1, value2, "lastLoginIp");
             return (Criteria) this;
         }
 
-        public Criteria andLastlogintimeIsNull() {
-            addCriterion("lastLoginTime is null");
+        public Criteria andLastLoginTimeIsNull() {
+            addCriterion("last_Login_Time is null");
             return (Criteria) this;
         }
 
-        public Criteria andLastlogintimeIsNotNull() {
-            addCriterion("lastLoginTime is not null");
+        public Criteria andLastLoginTimeIsNotNull() {
+            addCriterion("last_Login_Time is not null");
             return (Criteria) this;
         }
 
-        public Criteria andLastlogintimeEqualTo(Date value) {
-            addCriterion("lastLoginTime =", value, "lastlogintime");
+        public Criteria andLastLoginTimeEqualTo(Date value) {
+            addCriterion("last_Login_Time =", value, "lastLoginTime");
             return (Criteria) this;
         }
 
-        public Criteria andLastlogintimeNotEqualTo(Date value) {
-            addCriterion("lastLoginTime <>", value, "lastlogintime");
+        public Criteria andLastLoginTimeNotEqualTo(Date value) {
+            addCriterion("last_Login_Time <>", value, "lastLoginTime");
             return (Criteria) this;
         }
 
-        public Criteria andLastlogintimeGreaterThan(Date value) {
-            addCriterion("lastLoginTime >", value, "lastlogintime");
+        public Criteria andLastLoginTimeGreaterThan(Date value) {
+            addCriterion("last_Login_Time >", value, "lastLoginTime");
             return (Criteria) this;
         }
 
-        public Criteria andLastlogintimeGreaterThanOrEqualTo(Date value) {
-            addCriterion("lastLoginTime >=", value, "lastlogintime");
+        public Criteria andLastLoginTimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("last_Login_Time >=", value, "lastLoginTime");
             return (Criteria) this;
         }
 
-        public Criteria andLastlogintimeLessThan(Date value) {
-            addCriterion("lastLoginTime <", value, "lastlogintime");
+        public Criteria andLastLoginTimeLessThan(Date value) {
+            addCriterion("last_Login_Time <", value, "lastLoginTime");
             return (Criteria) this;
         }
 
-        public Criteria andLastlogintimeLessThanOrEqualTo(Date value) {
-            addCriterion("lastLoginTime <=", value, "lastlogintime");
+        public Criteria andLastLoginTimeLessThanOrEqualTo(Date value) {
+            addCriterion("last_Login_Time <=", value, "lastLoginTime");
             return (Criteria) this;
         }
 
-        public Criteria andLastlogintimeIn(List<Date> values) {
-            addCriterion("lastLoginTime in", values, "lastlogintime");
+        public Criteria andLastLoginTimeIn(List<Date> values) {
+            addCriterion("last_Login_Time in", values, "lastLoginTime");
             return (Criteria) this;
         }
 
-        public Criteria andLastlogintimeNotIn(List<Date> values) {
-            addCriterion("lastLoginTime not in", values, "lastlogintime");
+        public Criteria andLastLoginTimeNotIn(List<Date> values) {
+            addCriterion("last_Login_Time not in", values, "lastLoginTime");
             return (Criteria) this;
         }
 
-        public Criteria andLastlogintimeBetween(Date value1, Date value2) {
-            addCriterion("lastLoginTime between", value1, value2, "lastlogintime");
+        public Criteria andLastLoginTimeBetween(Date value1, Date value2) {
+            addCriterion("last_Login_Time between", value1, value2, "lastLoginTime");
             return (Criteria) this;
         }
 
-        public Criteria andLastlogintimeNotBetween(Date value1, Date value2) {
-            addCriterion("lastLoginTime not between", value1, value2, "lastlogintime");
+        public Criteria andLastLoginTimeNotBetween(Date value1, Date value2) {
+            addCriterion("last_Login_Time not between", value1, value2, "lastLoginTime");
             return (Criteria) this;
         }
 
@@ -1515,63 +1515,63 @@ public class PassportInfoCriteria {
             return (Criteria) this;
         }
 
-        public Criteria andIsdeletedIsNull() {
-            addCriterion("isDeleted is null");
+        public Criteria andIsDeletedIsNull() {
+            addCriterion("is_Deleted is null");
             return (Criteria) this;
         }
 
-        public Criteria andIsdeletedIsNotNull() {
-            addCriterion("isDeleted is not null");
+        public Criteria andIsDeletedIsNotNull() {
+            addCriterion("is_Deleted is not null");
             return (Criteria) this;
         }
 
-        public Criteria andIsdeletedEqualTo(Byte value) {
-            addCriterion("isDeleted =", value, "isdeleted");
+        public Criteria andIsDeletedEqualTo(Byte value) {
+            addCriterion("is_Deleted =", value, "isDeleted");
             return (Criteria) this;
         }
 
-        public Criteria andIsdeletedNotEqualTo(Byte value) {
-            addCriterion("isDeleted <>", value, "isdeleted");
+        public Criteria andIsDeletedNotEqualTo(Byte value) {
+            addCriterion("is_Deleted <>", value, "isDeleted");
             return (Criteria) this;
         }
 
-        public Criteria andIsdeletedGreaterThan(Byte value) {
-            addCriterion("isDeleted >", value, "isdeleted");
+        public Criteria andIsDeletedGreaterThan(Byte value) {
+            addCriterion("is_Deleted >", value, "isDeleted");
             return (Criteria) this;
         }
 
-        public Criteria andIsdeletedGreaterThanOrEqualTo(Byte value) {
-            addCriterion("isDeleted >=", value, "isdeleted");
+        public Criteria andIsDeletedGreaterThanOrEqualTo(Byte value) {
+            addCriterion("is_Deleted >=", value, "isDeleted");
             return (Criteria) this;
         }
 
-        public Criteria andIsdeletedLessThan(Byte value) {
-            addCriterion("isDeleted <", value, "isdeleted");
+        public Criteria andIsDeletedLessThan(Byte value) {
+            addCriterion("is_Deleted <", value, "isDeleted");
             return (Criteria) this;
         }
 
-        public Criteria andIsdeletedLessThanOrEqualTo(Byte value) {
-            addCriterion("isDeleted <=", value, "isdeleted");
+        public Criteria andIsDeletedLessThanOrEqualTo(Byte value) {
+            addCriterion("is_Deleted <=", value, "isDeleted");
             return (Criteria) this;
         }
 
-        public Criteria andIsdeletedIn(List<Byte> values) {
-            addCriterion("isDeleted in", values, "isdeleted");
+        public Criteria andIsDeletedIn(List<Byte> values) {
+            addCriterion("is_Deleted in", values, "isDeleted");
             return (Criteria) this;
         }
 
-        public Criteria andIsdeletedNotIn(List<Byte> values) {
-            addCriterion("isDeleted not in", values, "isdeleted");
+        public Criteria andIsDeletedNotIn(List<Byte> values) {
+            addCriterion("is_Deleted not in", values, "isDeleted");
             return (Criteria) this;
         }
 
-        public Criteria andIsdeletedBetween(Byte value1, Byte value2) {
-            addCriterion("isDeleted between", value1, value2, "isdeleted");
+        public Criteria andIsDeletedBetween(Byte value1, Byte value2) {
+            addCriterion("is_Deleted between", value1, value2, "isDeleted");
             return (Criteria) this;
         }
 
-        public Criteria andIsdeletedNotBetween(Byte value1, Byte value2) {
-            addCriterion("isDeleted not between", value1, value2, "isdeleted");
+        public Criteria andIsDeletedNotBetween(Byte value1, Byte value2) {
+            addCriterion("is_Deleted not between", value1, value2, "isDeleted");
             return (Criteria) this;
         }
 
@@ -1580,8 +1580,8 @@ public class PassportInfoCriteria {
             return (Criteria) this;
         }
 
-        public Criteria andPassportnoLikeInsensitive(String value) {
-            addCriterion("upper(passportNo) like", value.toUpperCase(), "passportno");
+        public Criteria andPassportNoLikeInsensitive(String value) {
+            addCriterion("upper(passport_No) like", value.toUpperCase(), "passportNo");
             return (Criteria) this;
         }
 
@@ -1605,13 +1605,13 @@ public class PassportInfoCriteria {
             return (Criteria) this;
         }
 
-        public Criteria andRegisteripLikeInsensitive(String value) {
-            addCriterion("upper(registerIP) like", value.toUpperCase(), "registerip");
+        public Criteria andRegisterIpLikeInsensitive(String value) {
+            addCriterion("upper(register_IP) like", value.toUpperCase(), "registerIp");
             return (Criteria) this;
         }
 
-        public Criteria andLastloginipLikeInsensitive(String value) {
-            addCriterion("upper(lastLoginIP) like", value.toUpperCase(), "lastloginip");
+        public Criteria andLastLoginIpLikeInsensitive(String value) {
+            addCriterion("upper(last_Login_IP) like", value.toUpperCase(), "lastLoginIp");
             return (Criteria) this;
         }
     }

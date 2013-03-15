@@ -10,13 +10,13 @@ public class PassportInfo implements Serializable {
 
     private String authority;
 
-    private Integer authorityid;
+    private Integer authorityId;
 
-    private String passportno;
+    private String passportNo;
 
     private String nationality;
 
-    private Integer nationid;
+    private Integer nationId;
 
     private Date birthday;
 
@@ -26,7 +26,7 @@ public class PassportInfo implements Serializable {
 
     private String phone;
 
-    private Date issuedate;
+    private Date issueDate;
 
     private Date effecDuration;
 
@@ -34,21 +34,21 @@ public class PassportInfo implements Serializable {
 
     private Integer photo;
 
-    private Integer photopath;
+    private Integer photoPath;
 
     private Integer remark;
 
-    private String registerip;
+    private String registerIp;
 
-    private Date registertime;
+    private Date registerTime;
 
-    private String lastloginip;
+    private String lastLoginIp;
 
-    private Date lastlogintime;
+    private Date lastLoginTime;
 
     private Long version;
 
-    private Byte isdeleted;
+    private Byte isDeleted;
 
     private static final long serialVersionUID = 1L;
 
@@ -76,20 +76,20 @@ public class PassportInfo implements Serializable {
         this.authority = authority;
     }
 
-    public Integer getAuthorityid() {
-        return authorityid;
+    public Integer getAuthorityId() {
+        return authorityId;
     }
 
-    public void setAuthorityid(Integer authorityid) {
-        this.authorityid = authorityid;
+    public void setAuthorityId(Integer authorityId) {
+        this.authorityId = authorityId;
     }
 
-    public String getPassportno() {
-        return passportno;
+    public String getPassportNo() {
+        return passportNo;
     }
 
-    public void setPassportno(String passportno) {
-        this.passportno = passportno;
+    public void setPassportNo(String passportNo) {
+        this.passportNo = passportNo;
     }
 
     public String getNationality() {
@@ -100,12 +100,12 @@ public class PassportInfo implements Serializable {
         this.nationality = nationality;
     }
 
-    public Integer getNationid() {
-        return nationid;
+    public Integer getNationId() {
+        return nationId;
     }
 
-    public void setNationid(Integer nationid) {
-        this.nationid = nationid;
+    public void setNationId(Integer nationId) {
+        this.nationId = nationId;
     }
 
     public Date getBirthday() {
@@ -140,12 +140,12 @@ public class PassportInfo implements Serializable {
         this.phone = phone;
     }
 
-    public Date getIssuedate() {
-        return issuedate;
+    public Date getIssueDate() {
+        return issueDate;
     }
 
-    public void setIssuedate(Date issuedate) {
-        this.issuedate = issuedate;
+    public void setIssueDate(Date issueDate) {
+        this.issueDate = issueDate;
     }
 
     public Date getEffecDuration() {
@@ -172,12 +172,12 @@ public class PassportInfo implements Serializable {
         this.photo = photo;
     }
 
-    public Integer getPhotopath() {
-        return photopath;
+    public Integer getPhotoPath() {
+        return photoPath;
     }
 
-    public void setPhotopath(Integer photopath) {
-        this.photopath = photopath;
+    public void setPhotoPath(Integer photoPath) {
+        this.photoPath = photoPath;
     }
 
     public Integer getRemark() {
@@ -188,36 +188,36 @@ public class PassportInfo implements Serializable {
         this.remark = remark;
     }
 
-    public String getRegisterip() {
-        return registerip;
+    public String getRegisterIp() {
+        return registerIp;
     }
 
-    public void setRegisterip(String registerip) {
-        this.registerip = registerip;
+    public void setRegisterIp(String registerIp) {
+        this.registerIp = registerIp;
     }
 
-    public Date getRegistertime() {
-        return registertime;
+    public Date getRegisterTime() {
+        return registerTime;
     }
 
-    public void setRegistertime(Date registertime) {
-        this.registertime = registertime;
+    public void setRegisterTime(Date registerTime) {
+        this.registerTime = registerTime;
     }
 
-    public String getLastloginip() {
-        return lastloginip;
+    public String getLastLoginIp() {
+        return lastLoginIp;
     }
 
-    public void setLastloginip(String lastloginip) {
-        this.lastloginip = lastloginip;
+    public void setLastLoginIp(String lastLoginIp) {
+        this.lastLoginIp = lastLoginIp;
     }
 
-    public Date getLastlogintime() {
-        return lastlogintime;
+    public Date getLastLoginTime() {
+        return lastLoginTime;
     }
 
-    public void setLastlogintime(Date lastlogintime) {
-        this.lastlogintime = lastlogintime;
+    public void setLastLoginTime(Date lastLoginTime) {
+        this.lastLoginTime = lastLoginTime;
     }
 
     public Long getVersion() {
@@ -228,12 +228,12 @@ public class PassportInfo implements Serializable {
         this.version = version;
     }
 
-    public Byte getIsdeleted() {
-        return isdeleted;
+    public Byte getIsDeleted() {
+        return isDeleted;
     }
 
-    public void setIsdeleted(Byte isdeleted) {
-        this.isdeleted = isdeleted;
+    public void setIsDeleted(Byte isDeleted) {
+        this.isDeleted = isDeleted;
     }
 
     @Override
@@ -251,26 +251,26 @@ public class PassportInfo implements Serializable {
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
             && (this.getUserinfoId() == null ? other.getUserinfoId() == null : this.getUserinfoId().equals(other.getUserinfoId()))
             && (this.getAuthority() == null ? other.getAuthority() == null : this.getAuthority().equals(other.getAuthority()))
-            && (this.getAuthorityid() == null ? other.getAuthorityid() == null : this.getAuthorityid().equals(other.getAuthorityid()))
-            && (this.getPassportno() == null ? other.getPassportno() == null : this.getPassportno().equals(other.getPassportno()))
+            && (this.getAuthorityId() == null ? other.getAuthorityId() == null : this.getAuthorityId().equals(other.getAuthorityId()))
+            && (this.getPassportNo() == null ? other.getPassportNo() == null : this.getPassportNo().equals(other.getPassportNo()))
             && (this.getNationality() == null ? other.getNationality() == null : this.getNationality().equals(other.getNationality()))
-            && (this.getNationid() == null ? other.getNationid() == null : this.getNationid().equals(other.getNationid()))
+            && (this.getNationId() == null ? other.getNationId() == null : this.getNationId().equals(other.getNationId()))
             && (this.getBirthday() == null ? other.getBirthday() == null : this.getBirthday().equals(other.getBirthday()))
             && (this.getSex() == null ? other.getSex() == null : this.getSex().equals(other.getSex()))
             && (this.getAddress() == null ? other.getAddress() == null : this.getAddress().equals(other.getAddress()))
             && (this.getPhone() == null ? other.getPhone() == null : this.getPhone().equals(other.getPhone()))
-            && (this.getIssuedate() == null ? other.getIssuedate() == null : this.getIssuedate().equals(other.getIssuedate()))
+            && (this.getIssueDate() == null ? other.getIssueDate() == null : this.getIssueDate().equals(other.getIssueDate()))
             && (this.getEffecDuration() == null ? other.getEffecDuration() == null : this.getEffecDuration().equals(other.getEffecDuration()))
             && (this.getSignature() == null ? other.getSignature() == null : this.getSignature().equals(other.getSignature()))
             && (this.getPhoto() == null ? other.getPhoto() == null : this.getPhoto().equals(other.getPhoto()))
-            && (this.getPhotopath() == null ? other.getPhotopath() == null : this.getPhotopath().equals(other.getPhotopath()))
+            && (this.getPhotoPath() == null ? other.getPhotoPath() == null : this.getPhotoPath().equals(other.getPhotoPath()))
             && (this.getRemark() == null ? other.getRemark() == null : this.getRemark().equals(other.getRemark()))
-            && (this.getRegisterip() == null ? other.getRegisterip() == null : this.getRegisterip().equals(other.getRegisterip()))
-            && (this.getRegistertime() == null ? other.getRegistertime() == null : this.getRegistertime().equals(other.getRegistertime()))
-            && (this.getLastloginip() == null ? other.getLastloginip() == null : this.getLastloginip().equals(other.getLastloginip()))
-            && (this.getLastlogintime() == null ? other.getLastlogintime() == null : this.getLastlogintime().equals(other.getLastlogintime()))
+            && (this.getRegisterIp() == null ? other.getRegisterIp() == null : this.getRegisterIp().equals(other.getRegisterIp()))
+            && (this.getRegisterTime() == null ? other.getRegisterTime() == null : this.getRegisterTime().equals(other.getRegisterTime()))
+            && (this.getLastLoginIp() == null ? other.getLastLoginIp() == null : this.getLastLoginIp().equals(other.getLastLoginIp()))
+            && (this.getLastLoginTime() == null ? other.getLastLoginTime() == null : this.getLastLoginTime().equals(other.getLastLoginTime()))
             && (this.getVersion() == null ? other.getVersion() == null : this.getVersion().equals(other.getVersion()))
-            && (this.getIsdeleted() == null ? other.getIsdeleted() == null : this.getIsdeleted().equals(other.getIsdeleted()));
+            && (this.getIsDeleted() == null ? other.getIsDeleted() == null : this.getIsDeleted().equals(other.getIsDeleted()));
     }
 
     @Override
@@ -280,26 +280,26 @@ public class PassportInfo implements Serializable {
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
         result = prime * result + ((getUserinfoId() == null) ? 0 : getUserinfoId().hashCode());
         result = prime * result + ((getAuthority() == null) ? 0 : getAuthority().hashCode());
-        result = prime * result + ((getAuthorityid() == null) ? 0 : getAuthorityid().hashCode());
-        result = prime * result + ((getPassportno() == null) ? 0 : getPassportno().hashCode());
+        result = prime * result + ((getAuthorityId() == null) ? 0 : getAuthorityId().hashCode());
+        result = prime * result + ((getPassportNo() == null) ? 0 : getPassportNo().hashCode());
         result = prime * result + ((getNationality() == null) ? 0 : getNationality().hashCode());
-        result = prime * result + ((getNationid() == null) ? 0 : getNationid().hashCode());
+        result = prime * result + ((getNationId() == null) ? 0 : getNationId().hashCode());
         result = prime * result + ((getBirthday() == null) ? 0 : getBirthday().hashCode());
         result = prime * result + ((getSex() == null) ? 0 : getSex().hashCode());
         result = prime * result + ((getAddress() == null) ? 0 : getAddress().hashCode());
         result = prime * result + ((getPhone() == null) ? 0 : getPhone().hashCode());
-        result = prime * result + ((getIssuedate() == null) ? 0 : getIssuedate().hashCode());
+        result = prime * result + ((getIssueDate() == null) ? 0 : getIssueDate().hashCode());
         result = prime * result + ((getEffecDuration() == null) ? 0 : getEffecDuration().hashCode());
         result = prime * result + ((getSignature() == null) ? 0 : getSignature().hashCode());
         result = prime * result + ((getPhoto() == null) ? 0 : getPhoto().hashCode());
-        result = prime * result + ((getPhotopath() == null) ? 0 : getPhotopath().hashCode());
+        result = prime * result + ((getPhotoPath() == null) ? 0 : getPhotoPath().hashCode());
         result = prime * result + ((getRemark() == null) ? 0 : getRemark().hashCode());
-        result = prime * result + ((getRegisterip() == null) ? 0 : getRegisterip().hashCode());
-        result = prime * result + ((getRegistertime() == null) ? 0 : getRegistertime().hashCode());
-        result = prime * result + ((getLastloginip() == null) ? 0 : getLastloginip().hashCode());
-        result = prime * result + ((getLastlogintime() == null) ? 0 : getLastlogintime().hashCode());
+        result = prime * result + ((getRegisterIp() == null) ? 0 : getRegisterIp().hashCode());
+        result = prime * result + ((getRegisterTime() == null) ? 0 : getRegisterTime().hashCode());
+        result = prime * result + ((getLastLoginIp() == null) ? 0 : getLastLoginIp().hashCode());
+        result = prime * result + ((getLastLoginTime() == null) ? 0 : getLastLoginTime().hashCode());
         result = prime * result + ((getVersion() == null) ? 0 : getVersion().hashCode());
-        result = prime * result + ((getIsdeleted() == null) ? 0 : getIsdeleted().hashCode());
+        result = prime * result + ((getIsDeleted() == null) ? 0 : getIsDeleted().hashCode());
         return result;
     }
 }

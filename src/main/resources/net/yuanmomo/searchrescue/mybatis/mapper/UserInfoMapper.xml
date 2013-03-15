@@ -3,12 +3,14 @@
 <mapper namespace="net.yuanmomo.searchrescue.web.mapper.UserInfoMapper" >
   <resultMap id="BaseResultMap" type="net.yuanmomo.searchrescue.web.bean.UserInfo" >
     <id column="id" property="id" jdbcType="BIGINT" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="user_Name" property="userName" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="real_Name" property="realName" jdbcType="VARCHAR" />
     <result column="Cer_Style" property="cerStyle" jdbcType="TINYINT" />
     <result column="User_Style" property="userStyle" jdbcType="TINYINT" />
     <result column="Cipher" property="cipher" jdbcType="CHAR" />
     <result column="version" property="version" jdbcType="BIGINT" />
-    <result column="isDeleted" property="isdeleted" jdbcType="TINYINT" />
+    <result column="is_Deleted" property="isDeleted" jdbcType="TINYINT" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -69,7 +71,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, name, Cer_Style, User_Style, Cipher, version, isDeleted
+    id, user_Name, password, real_Name, Cer_Style, User_Style, Cipher, version, is_Deleted
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="net.yuanmomo.searchrescue.web.bean.UserInfoCriteria" >
     select
@@ -109,12 +111,12 @@
     <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into userinfo (name, Cer_Style, User_Style, 
-      Cipher, version, isDeleted
-      )
-    values (#{name,jdbcType=VARCHAR}, #{cerStyle,jdbcType=TINYINT}, #{userStyle,jdbcType=TINYINT}, 
-      #{cipher,jdbcType=CHAR}, #{version,jdbcType=BIGINT}, #{isdeleted,jdbcType=TINYINT}
-      )
+    insert into userinfo (user_Name, password, real_Name, 
+      Cer_Style, User_Style, Cipher, 
+      version, is_Deleted)
+    values (#{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{realName,jdbcType=VARCHAR}, 
+      #{cerStyle,jdbcType=TINYINT}, #{userStyle,jdbcType=TINYINT}, #{cipher,jdbcType=CHAR}, 
+      #{version,jdbcType=BIGINT}, #{isDeleted,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" parameterType="net.yuanmomo.searchrescue.web.bean.UserInfo" >
     <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
@@ -122,8 +124,14 @@
     </selectKey>
     insert into userinfo
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="name != null" >
-        name,
+      <if test="userName != null" >
+        user_Name,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="realName != null" >
+        real_Name,
       </if>
       <if test="cerStyle != null" >
         Cer_Style,
@@ -137,13 +145,19 @@
       <if test="version != null" >
         version,
       </if>
-      <if test="isdeleted != null" >
-        isDeleted,
+      <if test="isDeleted != null" >
+        is_Deleted,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="name != null" >
-        #{name,jdbcType=VARCHAR},
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null" >
+        #{realName,jdbcType=VARCHAR},
       </if>
       <if test="cerStyle != null" >
         #{cerStyle,jdbcType=TINYINT},
@@ -157,8 +171,8 @@
       <if test="version != null" >
         #{version,jdbcType=BIGINT},
       </if>
-      <if test="isdeleted != null" >
-        #{isdeleted,jdbcType=TINYINT},
+      <if test="isDeleted != null" >
+        #{isDeleted,jdbcType=TINYINT},
       </if>
     </trim>
   </insert>
@@ -174,8 +188,14 @@
       <if test="record.id != null" >
         id = #{record.id,jdbcType=BIGINT},
       </if>
-      <if test="record.name != null" >
-        name = #{record.name,jdbcType=VARCHAR},
+      <if test="record.userName != null" >
+        user_Name = #{record.userName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.password != null" >
+        password = #{record.password,jdbcType=VARCHAR},
+      </if>
+      <if test="record.realName != null" >
+        real_Name = #{record.realName,jdbcType=VARCHAR},
       </if>
       <if test="record.cerStyle != null" >
         Cer_Style = #{record.cerStyle,jdbcType=TINYINT},
@@ -189,8 +209,8 @@
       <if test="record.version != null" >
         version = #{record.version,jdbcType=BIGINT},
       </if>
-      <if test="record.isdeleted != null" >
-        isDeleted = #{record.isdeleted,jdbcType=TINYINT},
+      <if test="record.isDeleted != null" >
+        is_Deleted = #{record.isDeleted,jdbcType=TINYINT},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -200,12 +220,14 @@
   <update id="updateByExample" parameterType="map" >
     update userinfo
     set id = #{record.id,jdbcType=BIGINT},
-      name = #{record.name,jdbcType=VARCHAR},
+      user_Name = #{record.userName,jdbcType=VARCHAR},
+      password = #{record.password,jdbcType=VARCHAR},
+      real_Name = #{record.realName,jdbcType=VARCHAR},
       Cer_Style = #{record.cerStyle,jdbcType=TINYINT},
       User_Style = #{record.userStyle,jdbcType=TINYINT},
       Cipher = #{record.cipher,jdbcType=CHAR},
       version = #{record.version,jdbcType=BIGINT},
-      isDeleted = #{record.isdeleted,jdbcType=TINYINT}
+      is_Deleted = #{record.isDeleted,jdbcType=TINYINT}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -213,8 +235,14 @@
   <update id="updateByPrimaryKeySelective" parameterType="net.yuanmomo.searchrescue.web.bean.UserInfo" >
     update userinfo
     <set >
-      <if test="name != null" >
-        name = #{name,jdbcType=VARCHAR},
+      <if test="userName != null" >
+        user_Name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null" >
+        real_Name = #{realName,jdbcType=VARCHAR},
       </if>
       <if test="cerStyle != null" >
         Cer_Style = #{cerStyle,jdbcType=TINYINT},
@@ -228,20 +256,22 @@
       <if test="version != null" >
         version = #{version,jdbcType=BIGINT},
       </if>
-      <if test="isdeleted != null" >
-        isDeleted = #{isdeleted,jdbcType=TINYINT},
+      <if test="isDeleted != null" >
+        is_Deleted = #{isDeleted,jdbcType=TINYINT},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="net.yuanmomo.searchrescue.web.bean.UserInfo" >
     update userinfo
-    set name = #{name,jdbcType=VARCHAR},
+    set user_Name = #{userName,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      real_Name = #{realName,jdbcType=VARCHAR},
       Cer_Style = #{cerStyle,jdbcType=TINYINT},
       User_Style = #{userStyle,jdbcType=TINYINT},
       Cipher = #{cipher,jdbcType=CHAR},
       version = #{version,jdbcType=BIGINT},
-      isDeleted = #{isdeleted,jdbcType=TINYINT}
+      is_Deleted = #{isDeleted,jdbcType=TINYINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

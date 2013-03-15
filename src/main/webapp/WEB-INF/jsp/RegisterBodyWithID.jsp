@@ -1,30 +1,48 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div class="control-group">
-	<label class="control-label" for="input01">姓名</label>
+	<label class="control-label" for="input01">注册用户名&nbsp;<span style="color: red">*</span></label>
 	<div class="controls">
-		<input type="text" class="input-xlarge" id="input01">
+		<input type="text" class="input-xlarge" id="userName" name="userName">
 	</div>
 </div>
 <div class="control-group">
-	<label class="control-label" for="select01">性别</label>
+	<label class="control-label" for="input01">密码&nbsp;<span style="color: red">*</span></label>
 	<div class="controls">
-		<select id="select01">
-			<option>请选择</option>
-			<option>男</option>
-			<option>女</option>
+		<input type="password" class="input-xlarge" id="password" name="password">
+	</div>
+</div>
+<div class="control-group">
+	<label class="control-label" for="input01">密码确认&nbsp;<span style="color: red">*</span></label>
+	<div class="controls">
+		<input type="password" class="input-xlarge" id="rePassword" name="rePassword">
+	</div>
+</div>
+<div class="control-group">
+	<label class="control-label" for="input01">姓名&nbsp;<span style="color: red">*</span></label>
+	<div class="controls">
+		<input type="text" class="input-xlarge" id="realName" name="realName">
+	</div>
+</div>
+<div class="control-group">
+	<label class="control-label" for="select01">性别&nbsp;<span style="color: red">*</span></label>
+	<div class="controls">
+		<select id="sex" name="sex">
+			<option value="0" selected="selected">请选择</option>
+			<option value="1" >男</option>
+			<option value="2" >女</option>
 		</select>
 	</div>
 </div>
 <div class="control-group">
-	<label class="control-label" for="input01">出生日期</label>
+	<label class="control-label" for="input01">出生日期&nbsp;<span style="color: red">*</span></label>
 	<div class="controls">
-		<input type="text" class="input-xlarge" id="input01">
+		<input type="text" class="input-xlarge" id="birthday" name="birthday">
 	</div>
 </div>
 <div class="control-group">
-	<label class="control-label" for="select01">名族</label>
+	<label class="control-label" for="select01">名族&nbsp;<span style="color: red">*</span></label>
 	<div class="controls">
-		<select id="multiSelect">
+		<select id="nation" name=nation>
 			<option selected="selected" value="汉族">汉族</option>
 			<option value="蒙古族">蒙古族</option>
 			<option value="彝族">彝族</option>
@@ -85,48 +103,48 @@
 	</div>
 </div>
 <div class="control-group">
-	<label class="control-label" for="input01">身份证号</label>
+	<label class="control-label" for="input01">身份证号&nbsp;<span style="color: red">*</span></label>
 	<div class="controls">
-		<input type="text" class="input-xlarge" id="input01">
+		<input type="text" class="input-xlarge" id="cer_No" name="cer_No">
 	</div>
 </div>
 <div class="control-group">
-	<label class="control-label" for="input01">发证机关</label>
+	<label class="control-label" for="input01">发证机关&nbsp;<span style="color: red">*</span></label>
 	<div class="controls">
-		<input type="text" class="input-xlarge" id="input01">
+		<input type="text" class="input-xlarge" id="authority" name="authority">
 	</div>
 </div>
 <div class="control-group">
-	<label class="control-label" for="input01">有效期限</label>
+	<label class="control-label" for="input01">有效期限&nbsp;<span style="color: red">*</span></label>
 	<div class="controls">
-		<input type="text" class="input-xlarge" id="input01">
+		<input type="text" class="input-xlarge" id="effec_duration" name="effec_duration">
 	</div>
 </div>
 <div class="control-group">
-	<label class="control-label" for="input01">开始时间</label>
+	<label class="control-label" for="input01">开始时间&nbsp;<span style="color: red">*</span></label>
 	<div class="controls">
-		<input type="text" class="input-xlarge" id="input01">
+		<input type="text" class="input-xlarge" id="startTime" name="startTime">
 	</div>
 </div>
 <div class="control-group">
-	<label class="control-label" for="input01">结束时间</label>
+	<label class="control-label" for="input01">结束时间&nbsp;<span style="color: red">*</span></label>
 	<div class="controls">
-		<input type="text" class="input-xlarge" id="input01">
+		<input type="text" class="input-xlarge" id="endTime" name="endTime">
 	</div>
 </div>
 <div class="control-group">
-	<label class="control-label" for="textarea">照片</label>
+	<label class="control-label" for="textarea" id="photo" name="photo">照片</label>
 	<div class="controls">
-		<img alt="照片" src="img/head.bmp">
+		<img alt="照片" src="">
 	</div>
 </div>
 <div class="control-group">
 	<label class="control-label" for="textarea">备注</label>
 	<div class="controls">
-		<textarea class="input-xlarge" id="textarea" rows="3"></textarea>
+		<textarea class="input-xlarge" id="remark" rows="3" name="remark"></textarea>
 	</div>
 </div>
 <div class="form-actions" style="margin-left: 200px">
-	<button type="submit" class="btn btn-primary">注册</button>
+	<button type="submit" class="btn btn-primary" onclick="register()">注册</button>
 	<button class="btn" type="reset">取消</button>
 </div>

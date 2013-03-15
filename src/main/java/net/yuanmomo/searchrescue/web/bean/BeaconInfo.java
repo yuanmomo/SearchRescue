@@ -8,13 +8,13 @@ public class BeaconInfo extends BeaconInfoKey implements Serializable {
 
     private Byte state;
 
-    private Date lastupdatetime;
+    private Date lastUpdateTime;
 
-    private Byte lastupdatebyuserstyle;
+    private Byte lastUpdateByUserStyle;
 
-    private Long lastupdatebyuserid;
+    private Long lastUpdateByUserId;
 
-    private Byte isdeleted;
+    private Byte isDeleted;
 
     private static final long serialVersionUID = 1L;
 
@@ -34,36 +34,36 @@ public class BeaconInfo extends BeaconInfoKey implements Serializable {
         this.state = state;
     }
 
-    public Date getLastupdatetime() {
-        return lastupdatetime;
+    public Date getLastUpdateTime() {
+        return lastUpdateTime;
     }
 
-    public void setLastupdatetime(Date lastupdatetime) {
-        this.lastupdatetime = lastupdatetime;
+    public void setLastUpdateTime(Date lastUpdateTime) {
+        this.lastUpdateTime = lastUpdateTime;
     }
 
-    public Byte getLastupdatebyuserstyle() {
-        return lastupdatebyuserstyle;
+    public Byte getLastUpdateByUserStyle() {
+        return lastUpdateByUserStyle;
     }
 
-    public void setLastupdatebyuserstyle(Byte lastupdatebyuserstyle) {
-        this.lastupdatebyuserstyle = lastupdatebyuserstyle;
+    public void setLastUpdateByUserStyle(Byte lastUpdateByUserStyle) {
+        this.lastUpdateByUserStyle = lastUpdateByUserStyle;
     }
 
-    public Long getLastupdatebyuserid() {
-        return lastupdatebyuserid;
+    public Long getLastUpdateByUserId() {
+        return lastUpdateByUserId;
     }
 
-    public void setLastupdatebyuserid(Long lastupdatebyuserid) {
-        this.lastupdatebyuserid = lastupdatebyuserid;
+    public void setLastUpdateByUserId(Long lastUpdateByUserId) {
+        this.lastUpdateByUserId = lastUpdateByUserId;
     }
 
-    public Byte getIsdeleted() {
-        return isdeleted;
+    public Byte getIsDeleted() {
+        return isDeleted;
     }
 
-    public void setIsdeleted(Byte isdeleted) {
-        this.isdeleted = isdeleted;
+    public void setIsDeleted(Byte isDeleted) {
+        this.isDeleted = isDeleted;
     }
 
     @Override
@@ -82,10 +82,10 @@ public class BeaconInfo extends BeaconInfoKey implements Serializable {
             && (this.getVersion() == null ? other.getVersion() == null : this.getVersion().equals(other.getVersion()))
             && (this.getBeaconNo() == null ? other.getBeaconNo() == null : this.getBeaconNo().equals(other.getBeaconNo()))
             && (this.getState() == null ? other.getState() == null : this.getState().equals(other.getState()))
-            && (this.getLastupdatetime() == null ? other.getLastupdatetime() == null : this.getLastupdatetime().equals(other.getLastupdatetime()))
-            && (this.getLastupdatebyuserstyle() == null ? other.getLastupdatebyuserstyle() == null : this.getLastupdatebyuserstyle().equals(other.getLastupdatebyuserstyle()))
-            && (this.getLastupdatebyuserid() == null ? other.getLastupdatebyuserid() == null : this.getLastupdatebyuserid().equals(other.getLastupdatebyuserid()))
-            && (this.getIsdeleted() == null ? other.getIsdeleted() == null : this.getIsdeleted().equals(other.getIsdeleted()));
+            && (this.getLastUpdateTime() == null ? other.getLastUpdateTime() == null : this.getLastUpdateTime().equals(other.getLastUpdateTime()))
+            && (this.getLastUpdateByUserStyle() == null ? other.getLastUpdateByUserStyle() == null : this.getLastUpdateByUserStyle().equals(other.getLastUpdateByUserStyle()))
+            && (this.getLastUpdateByUserId() == null ? other.getLastUpdateByUserId() == null : this.getLastUpdateByUserId().equals(other.getLastUpdateByUserId()))
+            && (this.getIsDeleted() == null ? other.getIsDeleted() == null : this.getIsDeleted().equals(other.getIsDeleted()));
     }
 
     @Override
@@ -96,10 +96,10 @@ public class BeaconInfo extends BeaconInfoKey implements Serializable {
         result = prime * result + ((getVersion() == null) ? 0 : getVersion().hashCode());
         result = prime * result + ((getBeaconNo() == null) ? 0 : getBeaconNo().hashCode());
         result = prime * result + ((getState() == null) ? 0 : getState().hashCode());
-        result = prime * result + ((getLastupdatetime() == null) ? 0 : getLastupdatetime().hashCode());
-        result = prime * result + ((getLastupdatebyuserstyle() == null) ? 0 : getLastupdatebyuserstyle().hashCode());
-        result = prime * result + ((getLastupdatebyuserid() == null) ? 0 : getLastupdatebyuserid().hashCode());
-        result = prime * result + ((getIsdeleted() == null) ? 0 : getIsdeleted().hashCode());
+        result = prime * result + ((getLastUpdateTime() == null) ? 0 : getLastUpdateTime().hashCode());
+        result = prime * result + ((getLastUpdateByUserStyle() == null) ? 0 : getLastUpdateByUserStyle().hashCode());
+        result = prime * result + ((getLastUpdateByUserId() == null) ? 0 : getLastUpdateByUserId().hashCode());
+        result = prime * result + ((getIsDeleted() == null) ? 0 : getIsDeleted().hashCode());
         return result;
     }
 }
