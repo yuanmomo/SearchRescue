@@ -117,7 +117,7 @@
 <div class="control-group">
 	<label class="control-label" for="input01">有效期限&nbsp;<span style="color: red">*</span></label>
 	<div class="controls">
-		<input type="text" class="input-xlarge" id="effec_duration" name="effec_duration">
+		<input type="text" class="input-xlarge" id="effecDuration" name="effecDuration">
 	</div>
 </div>
 <div class="control-group">

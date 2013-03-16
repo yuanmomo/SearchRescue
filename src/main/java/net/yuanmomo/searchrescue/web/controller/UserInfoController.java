@@ -1,5 +1,8 @@
 package net.yuanmomo.searchrescue.web.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 
 import net.sf.json.JSONArray;
@@ -7,8 +10,11 @@ import net.sf.json.JSONObject;
 import net.yuanmomo.searchrescue.web.bean.UserInfoID;
 import net.yuanmomo.searchrescue.web.util.BasicController;
 
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -71,8 +77,15 @@ public class UserInfoController extends BasicController {
 	public String doRegister(@ModelAttribute("userInfoID") UserInfoID userInfoID, 
 		HttpServletRequest request, ModelMap modelMap)
 			throws Exception {
-		
 		System.out.println(userInfoID);
 		return "Register";
 	}
+	
+	@InitBinder
+    public void initBinder(WebDataBinder binder) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        dateFormat.setLenient(false);
+        binder.registerCustomEditor(Date.class, new CustomDateEditor(
+                dateFormat, false));
+    }
 }

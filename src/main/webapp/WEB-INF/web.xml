@@ -35,7 +35,7 @@
 	</filter-mapping>
 	
 	<!-- 判断用户session中是否已经登录 -->
-	<filter>
+	<!-- <filter>
 		<filter-name>loginFilter</filter-name>
 		<filter-class>net.yuanmomo.searchrescue.web.filter.LoginFilterController</filter-class>
 	</filter>
@@ -46,7 +46,7 @@
 	<filter-mapping>
 		<filter-name>loginFilter</filter-name>
 		<url-pattern>*.jsp</url-pattern>
-	</filter-mapping>
+	</filter-mapping> -->
 	
 	<servlet>
 		<servlet-name>dispatcher</servlet-name>
