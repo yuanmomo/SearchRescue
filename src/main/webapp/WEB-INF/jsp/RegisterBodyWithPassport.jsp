@@ -1,44 +1,42 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div class="control-group">
-	<label class="control-label" for="input01">用户名</label>
+	<label class="control-label" for="input01">注册用户名&nbsp;<span style="color: red">*</span></label>
 	<div class="controls">
-		<input type="text" class="input-xlarge" id="userName" name="userName">&nbsp;<span style="color: red">*</span>
+		<input type="text" class="input-xlarge" id="userName" name="userName">
 	</div>
 </div>
 <div class="control-group">
-	<label class="control-label" for="input01">密码</label>
+	<label class="control-label" for="input01">密码&nbsp;<span style="color: red">*</span></label>
 	<div class="controls">
-		<input type="text" class="input-xlarge" id="password1" name="password1">&nbsp;<span style="color: red">*</span>
+		<input type="password" class="input-xlarge" id="password" name="password">
 	</div>
 </div>
 <div class="control-group">
-	<label class="control-label" for="input01">密码确认</label>
+	<label class="control-label" for="input01">密码确认&nbsp;<span style="color: red">*</span></label>
 	<div class="controls">
-		<input type="text" class="input-xlarge" id="password2" name="password2">&nbsp;<span style="color: red">*</span>
+		<input type="password" class="input-xlarge" id="rePassword" name="rePassword">
 	</div>
 </div>
 <div class="control-group">
-	<label class="control-label" for="input01">姓名</label>
+	<label class="control-label" for="input01">姓名&nbsp;<span style="color: red">*</span></label>
 	<div class="controls">
-		<input type="text" class="input-xlarge" id="realName" name="realName">&nbsp;<span style="color: red">*</span>
+		<input type="text" class="input-xlarge" id="realName" name="realName">
 	</div>
 </div>
 <div class="control-group">
-	<label class="control-label" for="select01">性别</label>
+	<label class="control-label" for="select01">性别&nbsp;<span style="color: red">*</span></label>
 	<div class="controls">
 		<select id="sex" name="sex">
 			<option value="0" selected="selected">请选择</option>
 			<option value="1" >男</option>
 			<option value="2" >女</option>
 		</select>
-		&nbsp;<span style="color: red">*</span>
 	</div>
 </div>
 <div class="control-group">
-	<label class="control-label" for="input01">出生日期</label>
+	<label class="control-label" for="input01">出生日期&nbsp;<span style="color: red">*</span></label>
 	<div class="controls">
 		<input type="text" class="input-xlarge" id="birthday" name="birthday">
-		&nbsp;<span style="color: red">*</span>
 	</div>
 </div>
 <div class="control-group">
@@ -50,13 +48,13 @@
 <div class="control-group">
 	<label class="control-label" for="input01">护照号</label>
 	<div class="controls">
-		<input type="text" class="input-xlarge" id="input01">&nbsp;<span style="color: red">*</span>
+		<input type="text" class="input-xlarge" id="passportNo" name="passportNo">&nbsp;<span style="color: red">*</span>
 	</div>
 </div>
 <div class="control-group">
 	<label class="control-label" for="input01">有效期限</label>
 	<div class="controls">
-		<input type="text" class="input-xlarge" id="input01">&nbsp;<span style="color: red">*</span>
+		<input type="text" class="input-xlarge" id="effecDuration" name="effecDuration">&nbsp;<span style="color: red">*</span>
 	</div>
 </div>
 <div class="control-group">

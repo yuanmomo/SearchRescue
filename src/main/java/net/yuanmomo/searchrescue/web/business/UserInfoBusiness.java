@@ -1,7 +1,12 @@
 package net.yuanmomo.searchrescue.web.business;
 
+import net.yuanmomo.searchrescue.web.bean.IdInfo;
 import net.yuanmomo.searchrescue.web.bean.UserInfo;
+import net.yuanmomo.searchrescue.web.bean.UserInfoCriteria;
+import net.yuanmomo.searchrescue.web.bean.UserInfoID;
 import net.yuanmomo.searchrescue.web.util.BasicBusiness;
+import net.yuanmomo.searchrescue.web.util.MD5;
+import net.yuanmomo.searchrescue.web.util.UserConvert;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
@@ -11,7 +16,43 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class UserInfoBusiness extends BasicBusiness {
 
+	public boolean isUserNameRegistered(String userName) {
+		// 判断userInfo是不是已经注册
+		UserInfoCriteria param = new UserInfoCriteria();
+		param.createCriteria().andUserNameEqualTo(userName);
+		int count = this.userInfoMapper.countByExample(param);
+		if (count > 0) {
+			return true;// 用户名已经存在，请重新输入用户名
+		}
+		return false;
+	}
+
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED, rollbackFor = Exception.class)
+	public int doRegister(UserInfoID userInfoId) throws Exception {
+		// 判断userInfo是不是已经注册
+		boolean isUserNameRegistered=this.isUserNameRegistered(userInfoId.getUserName());
+		if (isUserNameRegistered) {
+			return 1;// 用户名已经存在，请重新输入用户名
+		} else {
+			//用户名不存在，可以注册.先注册userInfo,在注册IDInfo
+			userInfoId.setUserStyle((byte) 3);//默认都是注册用户
+			
+			userInfoId.setCipher(MD5.getMD5(userInfoId.getPassword()));
+			UserInfo userInfo = UserConvert.convertUserInfoIDToUserInfo(userInfoId);
+			long result=this.userInfoMapper.insertSelective(userInfo);
+			if(result>=0){
+				//UserInfo 数据插入成功，接下来插入IDinfo
+				userInfoId.setUserInfoId(userInfo.getId());
+				IdInfo idInfo = UserConvert.convertUserInfoIDToIdInfo(userInfoId);
+				//插入idInfo
+				this.idInfoMapper.insert(idInfo);
+				return 100; //100表示用户注册成功。
+			}else{
+				throw new Exception("插入UserInfo表失败，回滚。。。");
+			}
+		}
+	}
+
 	public UserInfo selectById(long id) {
 		UserInfo user = this.userInfoMapper.selectByPrimaryKey(id);
 		return user;

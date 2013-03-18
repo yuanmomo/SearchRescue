@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.2.2
+-- version 3.3.7
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013 年 03 月 15 日 15:56
--- 服务器版本: 5.6.5-m8
+-- 生成日期: 2013 年 03 月 18 日 06:31
+-- 服务器版本: 5.6.5
 -- PHP 版本: 5.2.14
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -40,6 +39,11 @@ CREATE TABLE IF NOT EXISTS `beaconinfo` (
   PRIMARY KEY (`id`,`version`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
+--
+-- 转存表中的数据 `beaconinfo`
+--
+
+
 -- --------------------------------------------------------
 
 --
@@ -57,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `idinfo` (
   `phone` char(20) COLLATE utf8_bin DEFAULT NULL,
   `cer_No` char(25) COLLATE utf8_bin DEFAULT NULL,
   `authority` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `effec_ Duration` datetime DEFAULT NULL,
+  `effec_Duration` varchar(50) COLLATE utf8_bin DEFAULT NULL,
   `start_Time` datetime DEFAULT NULL,
   `end_Time` datetime DEFAULT NULL,
   `photo` varchar(50) COLLATE utf8_bin DEFAULT NULL,
@@ -73,7 +77,14 @@ CREATE TABLE IF NOT EXISTS `idinfo` (
   UNIQUE KEY `userInfo_Id` (`user_Info_ID`),
   KEY `cer_No` (`cer_No`),
   KEY `version` (`version`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `idinfo`
+--
+
+INSERT INTO `idinfo` (`id`, `user_Info_ID`, `sex`, `nation`, `nation_ID`, `birthday`, `address`, `phone`, `cer_No`, `authority`, `effec_Duration`, `start_Time`, `end_Time`, `photo`, `photo_Path`, `remark`, `register_Time`, `register_IP`, `last_Login_IP`, `last_Login_Time`, `version`, `is_Deleted`) VALUES
+(1, 0, 1, '汉族', 0, '1989-06-28', NULL, NULL, NULL, 'sadf', '20年', '2008-03-14 00:00:00', '2023-03-14 00:00:00', NULL, NULL, '', NULL, NULL, NULL, NULL, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -94,6 +105,11 @@ CREATE TABLE IF NOT EXISTS `leaseinfo` (
   PRIMARY KEY (`id`),
   KEY `userID` (`user_ID`,`beacon_ID`,`version`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+
+--
+-- 转存表中的数据 `leaseinfo`
+--
+
 
 -- --------------------------------------------------------
 
@@ -116,8 +132,8 @@ CREATE TABLE IF NOT EXISTS `passportinfo` (
   `issue_Date` datetime DEFAULT NULL,
   `effec_ Duration` datetime DEFAULT NULL,
   `signature` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `photo` int(11) DEFAULT NULL,
-  `photo_Path` int(11) DEFAULT NULL,
+  `photo` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `photo_Path` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `remark` int(11) DEFAULT NULL,
   `register_IP` varchar(40) COLLATE utf8_bin DEFAULT NULL,
   `register_Time` datetime DEFAULT NULL,
@@ -129,6 +145,11 @@ CREATE TABLE IF NOT EXISTS `passportinfo` (
   KEY `userIndo_ID` (`userInfo_ID`,`version`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
+--
+-- 转存表中的数据 `passportinfo`
+--
+
+
 -- --------------------------------------------------------
 
 --
@@ -137,16 +158,16 @@ CREATE TABLE IF NOT EXISTS `passportinfo` (
 
 CREATE TABLE IF NOT EXISTS `userinfo` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `user_Name` varchar(255) COLLATE utf8_bin NOT NULL,
+  `user_Name` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `password` varchar(64) COLLATE utf8_bin DEFAULT NULL,
-  `real_Name` varchar(255) COLLATE utf8_bin NOT NULL,
-  `Cer_Style` tinyint(4) NOT NULL,
-  `User_Style` tinyint(4) NOT NULL,
-  `Cipher` char(40) COLLATE utf8_bin NOT NULL,
-  `version` bigint(20) unsigned NOT NULL,
+  `real_Name` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `Cer_Style` tinyint(4) NOT NULL DEFAULT '0',
+  `User_Style` tinyint(4) NOT NULL DEFAULT '0',
+  `Cipher` char(40) COLLATE utf8_bin DEFAULT NULL,
+  `version` bigint(20) unsigned DEFAULT NULL,
   `is_Deleted` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=13 ;
 
 --
 -- 转存表中的数据 `userinfo`
@@ -154,10 +175,6 @@ CREATE TABLE IF NOT EXISTS `userinfo` (
 
 INSERT INTO `userinfo` (`id`, `user_Name`, `password`, `real_Name`, `Cer_Style`, `User_Style`, `Cipher`, `version`, `is_Deleted`) VALUES
 (1, 'momo1', NULL, '', 1, 1, 'momo1', 1, 0),
-(2, 'momo2', NULL, '', 2, 2, 'momo1', 2, 0),
-(3, 'momo3', NULL, '', 3, 3, 'momo3', 3, 0),
-(4, 'momo4', NULL, '', 4, 4, 'momo4', 4, 0);
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+(8, 'yuanmomo', '123456', '袁鸿彬', 1, 3, 'e10adc3949ba59abbe56e057f20f883e', 0, 0),
+(11, 'yuanmomo2', '123123', '袁鸿彬', 1, 3, '4297f44b13955235245b2497399d7a93', 0, 0),
+(12, 'yuanmomo3', '123123', '袁鸿彬', 1, 3, '4297f44b13955235245b2497399d7a93', 0, 0);

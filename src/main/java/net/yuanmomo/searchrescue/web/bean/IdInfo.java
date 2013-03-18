@@ -3,18 +3,20 @@ package net.yuanmomo.searchrescue.web.bean;
 import java.io.Serializable;
 import java.util.Date;
 
-public class IdInfo implements Serializable {
-	private Long id;
-	private Long userInfoId;
-	private Byte sex;
+import com.spagettikod.optimist.OptimisticLocking;
+
+@OptimisticLocking("idinfo")
+public class IdInfo extends BaseBean implements Serializable {
+	private Long userInfoId=0L;
+	private Byte sex=0;
 	private String nation;
-	private Integer nationId;
+	private Integer nationId=0;
 	private Date birthday;
 	private String address;
 	private String phone;
 	private String cerNo;
 	private String authority;
-	private Date effecDuration;
+	private String effecDuration;
 	private Date startTime;
 	private Date endTime;
 	private String photo;
@@ -23,18 +25,9 @@ public class IdInfo implements Serializable {
 	private String registerIp;
 	private String lastLoginIp;
 	private Date lastLoginTime;
-	private Long version;
-	private Byte isDeleted;
+	private Byte isDeleted=0;
 	private String remark;
 	private static final long serialVersionUID = 1L;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public Long getUserInfoId() {
 		return userInfoId;
@@ -108,11 +101,11 @@ public class IdInfo implements Serializable {
 		this.authority = authority;
 	}
 
-	public Date getEffecDuration() {
+	public String getEffecDuration() {
 		return effecDuration;
 	}
 
-	public void setEffecDuration(Date effecDuration) {
+	public void setEffecDuration(String effecDuration) {
 		this.effecDuration = effecDuration;
 	}
 
@@ -178,14 +171,6 @@ public class IdInfo implements Serializable {
 
 	public void setLastLoginTime(Date lastLoginTime) {
 		this.lastLoginTime = lastLoginTime;
-	}
-
-	public Long getVersion() {
-		return version;
-	}
-
-	public void setVersion(Long version) {
-		this.version = version;
 	}
 
 	public Byte getIsDeleted() {

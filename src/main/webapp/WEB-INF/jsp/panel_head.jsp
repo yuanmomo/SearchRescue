@@ -43,7 +43,7 @@
 						<li><a href="#contact">联系</a></li>
 					</ul>
 					<p class="navbar-text pull-right">
-						<span style="font-size: 15px;">你好，${user.name}</span>&nbsp;&nbsp;<a
+						<span style="font-size: 15px;">你好，${user.realName}</span>&nbsp;&nbsp;<a
 							href="/Login.do?option=exit">退出</a>
 					</p>
 				</div>

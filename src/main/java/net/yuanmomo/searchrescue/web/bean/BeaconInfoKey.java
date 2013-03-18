@@ -2,28 +2,8 @@ package net.yuanmomo.searchrescue.web.bean;
 
 import java.io.Serializable;
 
-public class BeaconInfoKey implements Serializable {
-    private Long id;
-
-    private Long version;
-
+public class BeaconInfoKey extends BaseBean implements Serializable {
     private static final long serialVersionUID = 1L;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getVersion() {
-        return version;
-    }
-
-    public void setVersion(Long version) {
-        this.version = version;
-    }
 
     @Override
     public boolean equals(Object that) {

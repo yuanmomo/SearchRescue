@@ -3,62 +3,31 @@ package net.yuanmomo.searchrescue.web.bean;
 import java.io.Serializable;
 import java.util.Date;
 
-public class PassportInfo implements Serializable {
-    private Long id;
-
-    private Long userinfoId;
-
+import com.spagettikod.optimist.OptimisticLocking;
+@OptimisticLocking("passportinfo")
+public class PassportInfo extends BaseBean implements Serializable {
+    private Long userinfoId=0L;
     private String authority;
-
-    private Integer authorityId;
-
+    private Integer authorityId=0;
     private String passportNo;
-
     private String nationality;
-
-    private Integer nationId;
-
+    private Integer nationId=0;
     private Date birthday;
-
-    private Byte sex;
-
+    private Byte sex=0;
     private String address;
-
     private String phone;
-
     private Date issueDate;
-
     private Date effecDuration;
-
     private String signature;
-
-    private Integer photo;
-
-    private Integer photoPath;
-
+    private String photo;
+    private String photoPath;
     private Integer remark;
-
     private String registerIp;
-
     private Date registerTime;
-
     private String lastLoginIp;
-
     private Date lastLoginTime;
-
-    private Long version;
-
     private Byte isDeleted;
-
     private static final long serialVersionUID = 1L;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public Long getUserinfoId() {
         return userinfoId;
@@ -164,19 +133,19 @@ public class PassportInfo implements Serializable {
         this.signature = signature;
     }
 
-    public Integer getPhoto() {
+    public String getPhoto() {
         return photo;
     }
 
-    public void setPhoto(Integer photo) {
+    public void setPhoto(String photo) {
         this.photo = photo;
     }
 
-    public Integer getPhotoPath() {
+    public String getPhotoPath() {
         return photoPath;
     }
 
-    public void setPhotoPath(Integer photoPath) {
+    public void setPhotoPath(String photoPath) {
         this.photoPath = photoPath;
     }
 
@@ -218,14 +187,6 @@ public class PassportInfo implements Serializable {
 
     public void setLastLoginTime(Date lastLoginTime) {
         this.lastLoginTime = lastLoginTime;
-    }
-
-    public Long getVersion() {
-        return version;
-    }
-
-    public void setVersion(Long version) {
-        this.version = version;
     }
 
     public Byte getIsDeleted() {

@@ -3,34 +3,17 @@ package net.yuanmomo.searchrescue.web.bean;
 import java.io.Serializable;
 import java.util.Date;
 
-public class LeaseInfo implements Serializable {
-    private Long id;
-
-    private Long userId;
-
+import com.spagettikod.optimist.OptimisticLocking;
+@OptimisticLocking("leaseinfo")
+public class LeaseInfo extends BaseBean implements Serializable {
+    private Long userId=0L;
     private Long beaconId;
-
     private Date startDate;
-
     private Date returnDate;
-
-    private Long version;
-
-    private Byte isReturned;
-
-    private Byte isDeleted;
-
+    private Byte isReturned=0;
+    private Byte isDeleted=0;
     private String remark;
-
     private static final long serialVersionUID = 1L;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public Long getUserId() {
         return userId;
@@ -63,15 +46,6 @@ public class LeaseInfo implements Serializable {
     public void setReturnDate(Date returnDate) {
         this.returnDate = returnDate;
     }
-
-    public Long getVersion() {
-        return version;
-    }
-
-    public void setVersion(Long version) {
-        this.version = version;
-    }
-
     public Byte getIsReturned() {
         return isReturned;
     }

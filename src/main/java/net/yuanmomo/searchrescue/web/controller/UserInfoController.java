@@ -74,13 +74,40 @@ public class UserInfoController extends BasicController {
 
 	//注册
 	@RequestMapping(method = RequestMethod.POST,params = "option=doRegister")
-	public String doRegister(@ModelAttribute("userInfoID") UserInfoID userInfoID, 
+	public String doRegister(@ModelAttribute("userInfoID") UserInfoID userInfoId, 
 		HttpServletRequest request, ModelMap modelMap)
 			throws Exception {
-		System.out.println(userInfoID);
+		//理论上要做数据验证，没时间做，暂时放置
+		//最主要的是userName和CerNo 身份证号码，这两个验证，此处就当做都合法
+		
+		//取得IP地址
+		userInfoId.setRegisterIp(request.getRemoteAddr());
+		userInfoId.setRegisterTime(new Date());
+		userInfoId.setLastLoginIp(request.getRemoteAddr());
+		userInfoId.setLastLoginTime(new Date());
+		int result = this.userInfoBusiness.doRegister(userInfoId);
+		switch (result) {
+		case 1:
+			//用户名存在，注册失败，理论上就当做不会发生此种情况，故不处理
+			break;
+		case 100:
+			//用户注册成功，将用户放进Session.
+			request.getSession().setAttribute("user", userInfoId);
+			request.setAttribute("module", "BeaconRent");
+			if(userInfoId.getCerStyle()==1){
+				request.setAttribute("rentBody", "ID");
+			}else{
+				request.setAttribute("rentBody", "Passport");
+			}
+			return "panel";
+		default:
+			return "Register";
+		}
 		return "Register";
 	}
 	
+	
+	//Spring MVC的属性自动装配中，日期类型转化
 	@InitBinder
     public void initBinder(WebDataBinder binder) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");

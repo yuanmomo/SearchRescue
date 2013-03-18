@@ -12,7 +12,7 @@
     <result column="phone" property="phone" jdbcType="CHAR" />
     <result column="cer_No" property="cerNo" jdbcType="CHAR" />
     <result column="authority" property="authority" jdbcType="VARCHAR" />
-    <result column="effec_ Duration" property="effecDuration" jdbcType="TIMESTAMP" />
+    <result column="effec_Duration" property="effecDuration" jdbcType="TIMESTAMP" />
     <result column="start_Time" property="startTime" jdbcType="TIMESTAMP" />
     <result column="end_Time" property="endTime" jdbcType="TIMESTAMP" />
     <result column="photo" property="photo" jdbcType="VARCHAR" />
@@ -87,7 +87,7 @@
   </sql>
   <sql id="Base_Column_List" >
     id, user_Info_ID, sex, nation, nation_ID, birthday, address, phone, cer_No, authority, 
-    "effec_ Duration", start_Time, end_Time, photo, photo_Path, register_Time, register_IP, 
+    effec_Duration, start_Time, end_Time, photo, photo_Path, register_Time, register_IP, 
     last_Login_IP, last_Login_Time, version, is_Deleted
   </sql>
   <sql id="Blob_Column_List" >
@@ -153,7 +153,7 @@
     insert into idinfo (user_Info_ID, sex, nation, 
       nation_ID, birthday, address, 
       phone, cer_No, authority, 
-      "effec_ Duration", start_Time, end_Time, 
+      effec_Duration, start_Time, end_Time, 
       photo, photo_Path, register_Time, 
       register_IP, last_Login_IP, last_Login_Time, 
       version, is_Deleted, remark
@@ -201,7 +201,7 @@
         authority,
       </if>
       <if test="effecDuration != null" >
-        "effec_ Duration",
+        effec_Duration,
       </if>
       <if test="startTime != null" >
         start_Time,
@@ -343,7 +343,7 @@
         authority = #{record.authority,jdbcType=VARCHAR},
       </if>
       <if test="record.effecDuration != null" >
-        "effec_ Duration" = #{record.effecDuration,jdbcType=TIMESTAMP},
+        effec_Duration = #{record.effecDuration,jdbcType=TIMESTAMP},
       </if>
       <if test="record.startTime != null" >
         start_Time = #{record.startTime,jdbcType=TIMESTAMP},
@@ -395,7 +395,7 @@
       phone = #{record.phone,jdbcType=CHAR},
       cer_No = #{record.cerNo,jdbcType=CHAR},
       authority = #{record.authority,jdbcType=VARCHAR},
-      "effec_ Duration" = #{record.effecDuration,jdbcType=TIMESTAMP},
+      effec_Duration = #{record.effecDuration,jdbcType=TIMESTAMP},
       start_Time = #{record.startTime,jdbcType=TIMESTAMP},
       end_Time = #{record.endTime,jdbcType=TIMESTAMP},
       photo = #{record.photo,jdbcType=VARCHAR},
@@ -423,7 +423,7 @@
       phone = #{record.phone,jdbcType=CHAR},
       cer_No = #{record.cerNo,jdbcType=CHAR},
       authority = #{record.authority,jdbcType=VARCHAR},
-      "effec_ Duration" = #{record.effecDuration,jdbcType=TIMESTAMP},
+      effec_Duration = #{record.effecDuration,jdbcType=TIMESTAMP},
       start_Time = #{record.startTime,jdbcType=TIMESTAMP},
       end_Time = #{record.endTime,jdbcType=TIMESTAMP},
       photo = #{record.photo,jdbcType=VARCHAR},
@@ -469,7 +469,7 @@
         authority = #{authority,jdbcType=VARCHAR},
       </if>
       <if test="effecDuration != null" >
-        "effec_ Duration" = #{effecDuration,jdbcType=TIMESTAMP},
+        effec_Duration = #{effecDuration,jdbcType=TIMESTAMP},
       </if>
       <if test="startTime != null" >
         start_Time = #{startTime,jdbcType=TIMESTAMP},
@@ -518,7 +518,7 @@
       phone = #{phone,jdbcType=CHAR},
       cer_No = #{cerNo,jdbcType=CHAR},
       authority = #{authority,jdbcType=VARCHAR},
-      "effec_ Duration" = #{effecDuration,jdbcType=TIMESTAMP},
+      effec_Duration = #{effecDuration,jdbcType=TIMESTAMP},
       start_Time = #{startTime,jdbcType=TIMESTAMP},
       end_Time = #{endTime,jdbcType=TIMESTAMP},
       photo = #{photo,jdbcType=VARCHAR},
@@ -543,7 +543,7 @@
       phone = #{phone,jdbcType=CHAR},
       cer_No = #{cerNo,jdbcType=CHAR},
       authority = #{authority,jdbcType=VARCHAR},
-      "effec_ Duration" = #{effecDuration,jdbcType=TIMESTAMP},
+      effec_Duration = #{effecDuration,jdbcType=TIMESTAMP},
       start_Time = #{startTime,jdbcType=TIMESTAMP},
       end_Time = #{endTime,jdbcType=TIMESTAMP},
       photo = #{photo,jdbcType=VARCHAR},

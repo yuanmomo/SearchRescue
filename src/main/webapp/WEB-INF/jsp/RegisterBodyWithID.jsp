@@ -105,7 +105,7 @@
 <div class="control-group">
 	<label class="control-label" for="input01">身份证号&nbsp;<span style="color: red">*</span></label>
 	<div class="controls">
-		<input type="text" class="input-xlarge" id="cer_No" name="cer_No">
+		<input type="text" class="input-xlarge" id="cerNo" name="cerNo">
 	</div>
 </div>
 <div class="control-group">

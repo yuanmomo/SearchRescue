@@ -2,26 +2,17 @@ package net.yuanmomo.searchrescue.web.bean;
 
 import java.io.Serializable;
 
-public class UserInfo implements Serializable {
-    private Long id;
+import com.spagettikod.optimist.OptimisticLocking;
+@OptimisticLocking("userinfo")
+public class UserInfo extends BaseBean implements Serializable {
     private String userName;
     private String password;
     private String realName;
-    private Byte cerStyle;
-    private Byte userStyle;
+    private Byte cerStyle=0;
+    private Byte userStyle=0;
     private String cipher;
-    private Long version;
-    private Byte isDeleted;
+    private Byte isDeleted=0;
     private static final long serialVersionUID = 1L;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getUserName() {
         return userName;
     }
@@ -69,15 +60,6 @@ public class UserInfo implements Serializable {
     public void setCipher(String cipher) {
         this.cipher = cipher;
     }
-
-    public Long getVersion() {
-        return version;
-    }
-
-    public void setVersion(Long version) {
-        this.version = version;
-    }
-
     public Byte getIsDeleted() {
         return isDeleted;
     }
