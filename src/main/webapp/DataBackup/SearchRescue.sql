@@ -130,7 +130,7 @@ CREATE TABLE IF NOT EXISTS `passportinfo` (
   `address` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `phone` char(30) COLLATE utf8_bin DEFAULT NULL,
   `issue_Date` datetime DEFAULT NULL,
-  `effec_ Duration` datetime DEFAULT NULL,
+  `effec_Duration` varchar(255) DEFAULT NULL,
   `signature` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `photo` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `photo_Path` varchar(255) COLLATE utf8_bin DEFAULT NULL,

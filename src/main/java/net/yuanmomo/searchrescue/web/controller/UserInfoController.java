@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import net.yuanmomo.searchrescue.web.bean.UserInfoID;
+import net.yuanmomo.searchrescue.web.bean.UserInfoPassport;
 import net.yuanmomo.searchrescue.web.util.BasicController;
 
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -73,8 +74,8 @@ public class UserInfoController extends BasicController {
 	}
 
 	//注册
-	@RequestMapping(method = RequestMethod.POST,params = "option=doRegister")
-	public String doRegister(@ModelAttribute("userInfoID") UserInfoID userInfoId, 
+	@RequestMapping(method = RequestMethod.POST,params = "option=doRegister1")
+	public String doRegisterForCerStyle1(@ModelAttribute("userInfoID") UserInfoID userInfoId, 
 		HttpServletRequest request, ModelMap modelMap)
 			throws Exception {
 		//理论上要做数据验证，没时间做，暂时放置
@@ -85,7 +86,7 @@ public class UserInfoController extends BasicController {
 		userInfoId.setRegisterTime(new Date());
 		userInfoId.setLastLoginIp(request.getRemoteAddr());
 		userInfoId.setLastLoginTime(new Date());
-		int result = this.userInfoBusiness.doRegister(userInfoId);
+		int result = this.userInfoBusiness.doRegisterForCerStyle1(userInfoId);
 		switch (result) {
 		case 1:
 			//用户名存在，注册失败，理论上就当做不会发生此种情况，故不处理
@@ -105,7 +106,39 @@ public class UserInfoController extends BasicController {
 		}
 		return "Register";
 	}
-	
+	@RequestMapping(method = RequestMethod.POST,params="option=doRegister2")
+	public String doRegisterForCerStyle2(@ModelAttribute("UserInfoPassport") UserInfoPassport userInfoPassport, 
+		HttpServletRequest request, ModelMap modelMap)
+			throws Exception {
+		//理论上要做数据验证，没时间做，暂时放置
+		//最主要的是userName和CerNo 身份证号码，这两个验证，此处就当做都合法
+		
+		//取得IP地址
+		userInfoPassport.setRegisterIp(request.getRemoteAddr());
+		userInfoPassport.setRegisterTime(new Date());
+		userInfoPassport.setLastLoginIp(request.getRemoteAddr());
+		userInfoPassport.setLastLoginTime(new Date());
+		int result = this.userInfoBusiness.doRegisterForCerStyle2(userInfoPassport);
+		//注册结果
+		switch (result) {
+		case 1:
+			//用户名存在，注册失败，理论上就当做不会发生此种情况，故不处理
+			break;
+		case 100:
+			//用户注册成功，将用户放进Session.
+			request.getSession().setAttribute("user", userInfoPassport);
+			request.setAttribute("module", "BeaconRent");
+			if(userInfoPassport.getCerStyle()==1){
+				request.setAttribute("rentBody", "ID");
+			}else{
+				request.setAttribute("rentBody", "Passport");
+			}
+			return "panel";
+		default:
+			return "Register";
+		}
+		return "Register";
+	}
 	
 	//Spring MVC的属性自动装配中，日期类型转化
 	@InitBinder

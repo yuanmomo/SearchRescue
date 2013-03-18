@@ -40,39 +40,39 @@
 	</div>
 </div>
 <div class="control-group">
-	<label class="control-label" for="input01">国籍</label>
+	<label class="control-label" for="input01">国籍&nbsp;<span style="color: red">*</span></label>
 	<div class="controls">
-		<input type="text" class="input-xlarge" id="input01">&nbsp;<span style="color: red">*</span>
+		<input type="text" class="input-xlarge" id="nationality" name="nationality">
 	</div>
 </div>
 <div class="control-group">
-	<label class="control-label" for="input01">护照号</label>
+	<label class="control-label" for="input01">护照号&nbsp;<span style="color: red">*</span></label>
 	<div class="controls">
-		<input type="text" class="input-xlarge" id="passportNo" name="passportNo">&nbsp;<span style="color: red">*</span>
+		<input type="text" class="input-xlarge" id="passportNo" name="passportNo">
 	</div>
 </div>
 <div class="control-group">
-	<label class="control-label" for="input01">有效期限</label>
+	<label class="control-label" for="input01">有效期限&nbsp;<span style="color: red">*</span></label>
 	<div class="controls">
-		<input type="text" class="input-xlarge" id="effecDuration" name="effecDuration">&nbsp;<span style="color: red">*</span>
+		<input type="text" class="input-xlarge" id="effecDuration" name="effecDuration">
 	</div>
 </div>
 <div class="control-group">
-	<label class="control-label" for="input01">签发日期</label>
+	<label class="control-label" for="input01">签发日期&nbsp;<span style="color: red">*</span></label>
 	<div class="controls">
-		<input type="text" class="input-xlarge" id="input01">&nbsp;<span style="color: red">*</span>
+		<input type="text" class="input-xlarge" id="issueDate" name="issueDate">
 	</div>
 </div>
 <div class="control-group">
-	<label class="control-label" for="input01">发证国或组织</label>
+	<label class="control-label" for="input01">发证国或组织&nbsp;<span style="color: red">*</span></label>
 	<div class="controls">
-		<input type="text" class="input-xlarge" id="input01">&nbsp;<span style="color: red">*</span>
+		<input type="text" class="input-xlarge" id="authority" name="authority">
 	</div>
 </div>
 <div class="control-group">
-	<label class="control-label" for="input01">签名</label>
+	<label class="control-label" for="input01">签名&nbsp;<span style="color: red">*</span></label>
 	<div class="controls">
-		<input type="text" class="input-xlarge" id="input01">&nbsp;<span style="color: red">*</span>
+		<input type="text" class="input-xlarge" id="signature" name="signature">
 	</div>
 </div>
 <div class="control-group">
@@ -84,7 +84,7 @@
 <div class="control-group">
 	<label class="control-label" for="textarea">备注</label>
 	<div class="controls">
-		<textarea class="input-xlarge" id="textarea" rows="3"></textarea>
+		<textarea class="input-xlarge" id="remark" name="remark" rows="3"></textarea>
 	</div>
 </div>
 <div class="form-actions" style="margin-left: 200px">

@@ -1,9 +1,11 @@
 package net.yuanmomo.searchrescue.web.business;
 
 import net.yuanmomo.searchrescue.web.bean.IdInfo;
+import net.yuanmomo.searchrescue.web.bean.PassportInfo;
 import net.yuanmomo.searchrescue.web.bean.UserInfo;
 import net.yuanmomo.searchrescue.web.bean.UserInfoCriteria;
 import net.yuanmomo.searchrescue.web.bean.UserInfoID;
+import net.yuanmomo.searchrescue.web.bean.UserInfoPassport;
 import net.yuanmomo.searchrescue.web.util.BasicBusiness;
 import net.yuanmomo.searchrescue.web.util.MD5;
 import net.yuanmomo.searchrescue.web.util.UserConvert;
@@ -28,7 +30,7 @@ public class UserInfoBusiness extends BasicBusiness {
 	}
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED, rollbackFor = Exception.class)
-	public int doRegister(UserInfoID userInfoId) throws Exception {
+	public int doRegisterForCerStyle1(UserInfoID userInfoId) throws Exception {
 		// 判断userInfo是不是已经注册
 		boolean isUserNameRegistered=this.isUserNameRegistered(userInfoId.getUserName());
 		if (isUserNameRegistered) {
@@ -53,6 +55,31 @@ public class UserInfoBusiness extends BasicBusiness {
 		}
 	}
 
+	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED, rollbackFor = Exception.class)
+	public int doRegisterForCerStyle2(UserInfoPassport userInfoPassport) throws Exception {
+		// 判断userInfo是不是已经注册
+		boolean isUserNameRegistered=this.isUserNameRegistered(userInfoPassport.getUserName());
+		if (isUserNameRegistered) {
+			return 1;// 用户名已经存在，请重新输入用户名
+		} else {
+			//用户名不存在，可以注册.先注册userInfo,在注册IDInfo
+			userInfoPassport.setUserStyle((byte) 3);//默认都是注册用户
+			
+			userInfoPassport.setCipher(MD5.getMD5(userInfoPassport.getPassword()));
+			UserInfo userInfo = UserConvert.convertUserInfoPassportToUserInfo(userInfoPassport);
+			long result=this.userInfoMapper.insertSelective(userInfo);
+			if(result>=0){
+				//UserInfo 数据插入成功，接下来插入IDinfo
+				userInfoPassport.setUserInfoId(userInfo.getId());
+				PassportInfo passportInfo = UserConvert.convertUserInfoPassportToPassportInfo(userInfoPassport);
+				//插入idInfo
+				this.passportInfoMapper.insert(passportInfo);
+				return 100; //100表示用户注册成功。
+			}else{
+				throw new Exception("插入UserInfo表失败，回滚。。。");
+			}
+		}
+	}
 	public UserInfo selectById(long id) {
 		UserInfo user = this.userInfoMapper.selectByPrimaryKey(id);
 		return user;

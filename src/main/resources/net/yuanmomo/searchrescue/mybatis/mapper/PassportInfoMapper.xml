@@ -14,7 +14,7 @@
     <result column="address" property="address" jdbcType="VARCHAR" />
     <result column="phone" property="phone" jdbcType="CHAR" />
     <result column="issue_Date" property="issueDate" jdbcType="TIMESTAMP" />
-    <result column="effec_ Duration" property="effecDuration" jdbcType="TIMESTAMP" />
+    <result column="effec_Duration" property="effecDuration" jdbcType="TIMESTAMP" />
     <result column="signature" property="signature" jdbcType="VARCHAR" />
     <result column="photo" property="photo" jdbcType="INTEGER" />
     <result column="photo_Path" property="photoPath" jdbcType="INTEGER" />
@@ -86,7 +86,7 @@
   </sql>
   <sql id="Base_Column_List" >
     id, userInfo_ID, authority, authority_ID, passport_No, nationality, nation_ID, birthday, 
-    sex, address, phone, issue_Date, "effec_ Duration", signature, photo, photo_Path, 
+    sex, address, phone, issue_Date, effec_Duration, signature, photo, photo_Path, 
     remark, register_IP, register_Time, last_Login_IP, last_Login_Time, version, is_Deleted
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="net.yuanmomo.searchrescue.web.bean.PassportInfoCriteria" >
@@ -130,7 +130,7 @@
     insert into passportinfo (userInfo_ID, authority, authority_ID, 
       passport_No, nationality, nation_ID, 
       birthday, sex, address, 
-      phone, issue_Date, "effec_ Duration", 
+      phone, issue_Date, effec_Duration, 
       signature, photo, photo_Path, 
       remark, register_IP, register_Time, 
       last_Login_IP, last_Login_Time, version, 
@@ -184,7 +184,7 @@
         issue_Date,
       </if>
       <if test="effecDuration != null" >
-        "effec_ Duration",
+        effec_Duration,
       </if>
       <if test="signature != null" >
         signature,
@@ -332,7 +332,7 @@
         issue_Date = #{record.issueDate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.effecDuration != null" >
-        "effec_ Duration" = #{record.effecDuration,jdbcType=TIMESTAMP},
+        effec_Duration = #{record.effecDuration,jdbcType=TIMESTAMP},
       </if>
       <if test="record.signature != null" >
         signature = #{record.signature,jdbcType=VARCHAR},
@@ -383,7 +383,7 @@
       address = #{record.address,jdbcType=VARCHAR},
       phone = #{record.phone,jdbcType=CHAR},
       issue_Date = #{record.issueDate,jdbcType=TIMESTAMP},
-      "effec_ Duration" = #{record.effecDuration,jdbcType=TIMESTAMP},
+      effec_Duration = #{record.effecDuration,jdbcType=TIMESTAMP},
       signature = #{record.signature,jdbcType=VARCHAR},
       photo = #{record.photo,jdbcType=INTEGER},
       photo_Path = #{record.photoPath,jdbcType=INTEGER},
@@ -435,7 +435,7 @@
         issue_Date = #{issueDate,jdbcType=TIMESTAMP},
       </if>
       <if test="effecDuration != null" >
-        "effec_ Duration" = #{effecDuration,jdbcType=TIMESTAMP},
+        effec_Duration = #{effecDuration,jdbcType=TIMESTAMP},
       </if>
       <if test="signature != null" >
         signature = #{signature,jdbcType=VARCHAR},
@@ -483,7 +483,7 @@
       address = #{address,jdbcType=VARCHAR},
       phone = #{phone,jdbcType=CHAR},
       issue_Date = #{issueDate,jdbcType=TIMESTAMP},
-      "effec_ Duration" = #{effecDuration,jdbcType=TIMESTAMP},
+      effec_Duration = #{effecDuration,jdbcType=TIMESTAMP},
       signature = #{signature,jdbcType=VARCHAR},
       photo = #{photo,jdbcType=INTEGER},
       photo_Path = #{photoPath,jdbcType=INTEGER},

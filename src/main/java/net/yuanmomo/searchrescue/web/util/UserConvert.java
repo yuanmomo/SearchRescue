@@ -1,8 +1,10 @@
 package net.yuanmomo.searchrescue.web.util;
 
 import net.yuanmomo.searchrescue.web.bean.IdInfo;
+import net.yuanmomo.searchrescue.web.bean.PassportInfo;
 import net.yuanmomo.searchrescue.web.bean.UserInfo;
 import net.yuanmomo.searchrescue.web.bean.UserInfoID;
+import net.yuanmomo.searchrescue.web.bean.UserInfoPassport;
 
 public class UserConvert {
 	public static UserInfo convertUserInfoIDToUserInfo(UserInfoID userInfoId){
@@ -90,6 +92,96 @@ public class UserConvert {
 			userInfoId.setIdInfoIsDeleted(idInfo.getIsDeleted());
 			userInfoId.setRemark(idInfo.getRemark());
 			return userInfoId;
+		}
+		return null;
+	}
+	public static UserInfo convertUserInfoPassportToUserInfo(UserInfoPassport userInfoPassport){
+		if(userInfoPassport!=null){
+			UserInfo userInfo=new UserInfo();
+			userInfo.setId(userInfoPassport.getUserInfoId());
+			userInfo.setUserName(userInfoPassport.getUserName());
+			userInfo.setPassword(userInfoPassport.getPassword());
+			userInfo.setRealName(userInfoPassport.getRealName());
+			userInfo.setCerStyle(userInfoPassport.getCerStyle());
+			userInfo.setUserStyle(userInfoPassport.getUserStyle());
+			userInfo.setCipher(userInfoPassport.getCipher());
+			userInfo.setVersion(userInfoPassport.getUserInfoVersion());
+			userInfo.setIsDeleted(userInfoPassport.getUserInfoIsDeleted());
+			return userInfo;
+		}
+		return null;
+	}
+	public static PassportInfo convertUserInfoPassportToPassportInfo(UserInfoPassport userInfoPassport){
+		if(userInfoPassport!=null){
+			PassportInfo passportInfo=new PassportInfo();
+			passportInfo.setUserinfoId(userInfoPassport.getUserInfoId());
+			passportInfo.setAuthority(userInfoPassport.getAuthority());
+			passportInfo.setAuthorityId(userInfoPassport.getAuthorityId());
+			passportInfo.setPassportNo(userInfoPassport.getPassportNo());
+			passportInfo.setNationality(userInfoPassport.getNationality());
+			passportInfo.setNationId(userInfoPassport.getNationId());
+			passportInfo.setBirthday(userInfoPassport.getBirthday());
+			passportInfo.setSex(userInfoPassport.getSex());
+			passportInfo.setAddress(userInfoPassport.getAddress());
+			passportInfo.setPhone(userInfoPassport.getPhone());
+			passportInfo.setIssueDate(userInfoPassport.getIssueDate());
+			passportInfo.setEffecDuration(userInfoPassport.getEffecDuration());
+			passportInfo.setSignature(userInfoPassport.getSignature());
+			passportInfo.setPhoto(userInfoPassport.getPhoto());
+			passportInfo.setPhotoPath(userInfoPassport.getPhotoPath());
+			passportInfo.setRemark(userInfoPassport.getRemark());
+			passportInfo.setRegisterIp(userInfoPassport.getRegisterIp());
+			passportInfo.setRegisterTime(userInfoPassport.getRegisterTime());
+			passportInfo.setLastLoginIp(userInfoPassport.getLastLoginIp());
+			passportInfo.setLastLoginTime(userInfoPassport.getLastLoginTime());
+			passportInfo.setVersion(userInfoPassport.getPassportInfoVersion());
+			passportInfo.setIsDeleted(userInfoPassport.getPassportInfoIsDeleted());
+			return passportInfo;
+		}
+		return null;
+	}
+	public static UserInfoPassport convertUserInfoToUserInfoPassport(UserInfo userInfo){
+		if(userInfo!=null){
+			UserInfoPassport userInfoPassport=new UserInfoPassport();
+			userInfoPassport.setUserInfoId(userInfo.getId());
+			userInfoPassport.setUserName(userInfo.getUserName());
+			userInfoPassport.setPassword(userInfo.getPassword());
+			userInfoPassport.setRealName(userInfo.getRealName());
+			userInfoPassport.setCerStyle(userInfo.getCerStyle());
+			userInfoPassport.setUserStyle(userInfo.getUserStyle());
+			userInfoPassport.setCipher(userInfo.getCipher());
+			userInfoPassport.setUserInfoVersion(userInfo.getVersion());
+			userInfoPassport.setUserInfoIsDeleted(userInfo.getIsDeleted());
+			return userInfoPassport;
+		}
+		return null;
+	}
+	public static UserInfoPassport convertPassportInfoToUserInfoPassport(PassportInfo passportInfo){
+		if(passportInfo!=null){
+			UserInfoPassport userInfoPassport=new UserInfoPassport();
+			userInfoPassport.setUserInfoId(passportInfo.getUserinfoId());
+			userInfoPassport.setAuthority(passportInfo.getAuthority());
+			userInfoPassport.setAuthorityId(passportInfo.getAuthorityId());
+			userInfoPassport.setPassportNo(passportInfo.getPassportNo());
+			userInfoPassport.setNationality(passportInfo.getNationality());
+			userInfoPassport.setNationId(passportInfo.getNationId());
+			userInfoPassport.setBirthday(passportInfo.getBirthday());
+			userInfoPassport.setSex(passportInfo.getSex());
+			userInfoPassport.setAddress(passportInfo.getAddress());
+			userInfoPassport.setPhone(passportInfo.getPhone());
+			userInfoPassport.setIssueDate(passportInfo.getIssueDate());
+			userInfoPassport.setEffecDuration(passportInfo.getEffecDuration());
+			userInfoPassport.setSignature(passportInfo.getSignature());
+			userInfoPassport.setPhoto(passportInfo.getPhoto());
+			userInfoPassport.setPhotoPath(passportInfo.getPhotoPath());
+			userInfoPassport.setRemark(passportInfo.getRemark());
+			userInfoPassport.setRegisterIp(passportInfo.getRegisterIp());
+			userInfoPassport.setRegisterTime(passportInfo.getRegisterTime());
+			userInfoPassport.setLastLoginIp(passportInfo.getLastLoginIp());
+			userInfoPassport.setLastLoginTime(passportInfo.getLastLoginTime());
+			userInfoPassport.setPassportInfoVersion(passportInfo.getVersion());
+			userInfoPassport.setPassportInfoIsDeleted(passportInfo.getIsDeleted());
+			return userInfoPassport;
 		}
 		return null;
 	}

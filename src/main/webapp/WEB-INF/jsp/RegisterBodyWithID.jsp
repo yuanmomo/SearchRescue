@@ -133,9 +133,9 @@
 	</div>
 </div>
 <div class="control-group">
-	<label class="control-label" for="textarea" id="photo" name="photo">照片</label>
+	<label class="control-label" for="textarea">照片</label>
 	<div class="controls">
-		<img alt="照片" src="">
+		<img alt="照片" src="" id="photo">
 	</div>
 </div>
 <div class="control-group">

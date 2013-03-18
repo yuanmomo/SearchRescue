@@ -17,16 +17,16 @@ public class PassportInfo extends BaseBean implements Serializable {
     private String address;
     private String phone;
     private Date issueDate;
-    private Date effecDuration;
+    private String effecDuration;
     private String signature;
     private String photo;
     private String photoPath;
-    private Integer remark;
+    private String remark;
     private String registerIp;
     private Date registerTime;
     private String lastLoginIp;
     private Date lastLoginTime;
-    private Byte isDeleted;
+    private Byte isDeleted=0;
     private static final long serialVersionUID = 1L;
 
     public Long getUserinfoId() {
@@ -117,11 +117,11 @@ public class PassportInfo extends BaseBean implements Serializable {
         this.issueDate = issueDate;
     }
 
-    public Date getEffecDuration() {
+    public String getEffecDuration() {
         return effecDuration;
     }
 
-    public void setEffecDuration(Date effecDuration) {
+    public void setEffecDuration(String effecDuration) {
         this.effecDuration = effecDuration;
     }
 
@@ -149,11 +149,11 @@ public class PassportInfo extends BaseBean implements Serializable {
         this.photoPath = photoPath;
     }
 
-    public Integer getRemark() {
+    public String getRemark() {
         return remark;
     }
 
-    public void setRemark(Integer remark) {
+    public void setRemark(String remark) {
         this.remark = remark;
     }
 

@@ -11,7 +11,7 @@ function login(){
 			password: {
 				required: true,
 				minlength: 6
-			},
+			}
 		},
 		messages: {
 			username: {
@@ -21,7 +21,7 @@ function login(){
 			password: {
 				required: "请输入密码",
 				minlength: "密码长度至少6"
-			},
+			}
 		}
 	});
 }
