@@ -54,15 +54,21 @@
 		<div class="span4">&nbsp;</div>
 		<div class="span4">
 			<form id="loginForm" class="form-horizontal"
-				action="user.do?option=login" method="post">
+				action="user.do?option=doLogin" method="post">
 				<fieldset>
 					<legend
 						style="margin-left: 200px; font-weight: bold; font-size: 28px;">搜救系统登录</legend>
 					<div class="control-group">
+						<label class="control-label" for="input01">&nbsp;</label>
+						<div class="controls">
+							<span id="loginResult">${message}</span>
+						</div>
+					</div>
+					<div class="control-group">
 						<label class="control-label" for="input01">用户名：</label>
 						<div class="controls">
 							<input id="username" name="username" type="text"
-								class="input-xlarge" id="input01">
+								class="input-xlarge">
 							<!-- <p class="help-block">*</p> -->
 						</div>
 					</div>
@@ -70,7 +76,7 @@
 						<label class="control-label" for="input01">密&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
 						<div class="controls">
 							<input id="password" name="password" type="password"
-								class="input-xlarge" id="input01">
+								class="input-xlarge">
 						</div>
 					</div>
 					<div class="form-actions" style="margin-left: 220px;">

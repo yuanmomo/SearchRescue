@@ -6,6 +6,12 @@
 	</div>
 </div>
 <div class="control-group">
+	<label class="control-label" for="input01">&nbsp;</label>
+	<div class="controls">
+		<button type="button" style="margin-left: 140px;" class="btn btn-primary" onclick="checkUserName()">检查用户名是否可用</button>
+	</div>
+</div>
+<div class="control-group">
 	<label class="control-label" for="input01">密码&nbsp;<span style="color: red">*</span></label>
 	<div class="controls">
 		<input type="password" class="input-xlarge" id="password" name="password">

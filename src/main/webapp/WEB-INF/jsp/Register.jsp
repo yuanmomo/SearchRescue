@@ -70,7 +70,7 @@ label.checked {
 			<div id="myModal" class="modal hide fade" style="display: none;">
 				<div class="modal-header">
 					<a class="close" data-dismiss="modal">×</a>
-					<h3>错误：</h3>
+					<h3>信息：</h3>
 				</div>
 				<div class="modal-body">
 					<p id="message"></p>
