@@ -23,14 +23,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("/user.do")
-public class UserInfoController extends BasicController {
+@RequestMapping("/beacon.do")
+public class BeanconController extends BasicController {
 
 	// 默认跳至登陆页面
-	@RequestMapping
+	@RequestMapping(params="option=loadAddBeaconBody")
 	public String loginAsDefault(HttpServletRequest request, ModelMap modelMap)
 			throws Exception {
-		return "Login";
+		UserInfo user=(UserInfo)request.getSession().getAttribute("user");
+		if(user.getUserStyle()<3){
+			//系统管理员和信标管理员
+			return "AddBeacon";
+		}
+		return "json";
 	}
 
 	// 跳至登陆页面

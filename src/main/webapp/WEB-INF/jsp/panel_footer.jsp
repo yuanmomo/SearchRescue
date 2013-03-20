@@ -17,6 +17,8 @@
 <script type="text/javascript" src="js/external/bootstrap-alert.js" ></script>
 <script type="text/javascript" src="js/external/bootstrap-modal.js"></script>
 <script type="text/javascript" src="js/external/bootstrap-transition.js"></script>
+<script type="text/javascript" src="js/beacon.js"></script>
+<script type="text/javascript" src="js/global.js"></script>
 <!-- Optional, bootstrap javascript library -->
 <script type="text/javascript" src="js/external/bootstrap.js"></script>
 

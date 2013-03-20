@@ -1,9 +1,8 @@
-#Mon Mar 11 21:01:37 CST 2013
+#Wed Mar 20 09:31:16 CST 2013
 eclipse.preferences.version=1
 encoding//src/main/webapp/WEB-INF/jsp/AddBeacon.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/jsp/BeaconDump.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/jsp/BeaconRent.jsp=UTF-8
-encoding//src/main/webapp/WEB-INF/jsp/BeaconRent2.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/jsp/BeaconRentWithID.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/jsp/BeaconRentWithPassport.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/jsp/Register.jsp=UTF-8

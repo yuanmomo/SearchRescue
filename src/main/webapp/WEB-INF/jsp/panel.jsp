@@ -4,10 +4,12 @@
 <%@include file="panel_head.jsp"%>
 
 <!-- Right Side/Main Content Start -->
-
-<%
-	String panelBody = (String) request.getAttribute("module") + ".jsp";
-	pageContext.include(panelBody);
-%>
-
+<div class="span9">
+	<div id="rightPanel">
+		<%
+			String panelBody = (String) request.getAttribute("module") + ".jsp";
+			pageContext.include(panelBody);
+		%>
+	</div>
+</div>
 <%@include file="panel_footer.jsp"%>

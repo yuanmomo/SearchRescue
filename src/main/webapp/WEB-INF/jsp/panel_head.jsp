@@ -44,7 +44,7 @@
 					</ul>
 					<p class="navbar-text pull-right">
 						<span style="font-size: 15px;">你好，${user.realName}</span>&nbsp;&nbsp;<a
-							href="/Login.do?option=exit">退出</a>
+							href="user.do?option=exit">退出</a>
 					</p>
 				</div>
 				<!--/.nav-collapse -->
@@ -53,6 +53,18 @@
 	</div>
 	<div class="container-fluid">
 	<div class="row-fluid">
+		<div id=messageDialog class="modal hide fade" style="display: none;">
+				<div class="modal-header">
+					<a class="close" data-dismiss="modal">×</a>
+					<h3>信息：</h3>
+				</div>
+				<div class="modal-body">
+					<p id="message"></p>
+				</div>
+				<div class="modal-footer">
+					<a href="#" class="btn" data-dismiss="modal">确定</a>
+				</div>
+			</div>
 		<!-- 加载左边导航栏，根据权限 -->
 <%
 	String relativeUrlPath = "panel_left.jsp";
