@@ -105,4 +105,11 @@ public class UserInfoBusiness extends BasicBusiness {
 		}
 		return null;
 	}
+	public boolean saveNewPassword(UserInfo user,String oldPassword,String newPassword){
+		user.setPassword(newPassword);
+		user.setCipher(MD5.getMD5(newPassword));
+		UserInfoCriteria param=new UserInfoCriteria();
+		param.createCriteria().andUserNameEqualTo(user.getUserName()).andCipherEqualTo(MD5.getMD5(oldPassword));
+		return this.userInfoMapper.updateByExample(user, param)>0?true:false;
+	}
 }

@@ -3,7 +3,6 @@ package net.yuanmomo.searchrescue.web.mapper;
 import java.util.List;
 import net.yuanmomo.searchrescue.web.bean.BeaconInfo;
 import net.yuanmomo.searchrescue.web.bean.BeaconInfoCriteria;
-import net.yuanmomo.searchrescue.web.bean.BeaconInfoKey;
 import org.apache.ibatis.annotations.Param;
 
 public interface BeaconInfoMapper {
@@ -11,7 +10,7 @@ public interface BeaconInfoMapper {
 
     int deleteByExample(BeaconInfoCriteria example);
 
-    int deleteByPrimaryKey(BeaconInfoKey key);
+    int deleteByPrimaryKey(Long id);
 
     int insert(BeaconInfo record);
 
@@ -19,7 +18,7 @@ public interface BeaconInfoMapper {
 
     List<BeaconInfo> selectByExample(BeaconInfoCriteria example);
 
-    BeaconInfo selectByPrimaryKey(BeaconInfoKey key);
+    BeaconInfo selectByPrimaryKey(Long id);
 
     int updateByExampleSelective(@Param("record") BeaconInfo record, @Param("example") BeaconInfoCriteria example);
 

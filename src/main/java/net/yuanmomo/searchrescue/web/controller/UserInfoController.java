@@ -11,6 +11,7 @@ import net.yuanmomo.searchrescue.web.bean.UserInfo;
 import net.yuanmomo.searchrescue.web.bean.UserInfoID;
 import net.yuanmomo.searchrescue.web.bean.UserInfoPassport;
 import net.yuanmomo.searchrescue.web.util.BasicController;
+import net.yuanmomo.searchrescue.web.util.MD5;
 
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -33,6 +34,13 @@ public class UserInfoController extends BasicController {
 		return "Login";
 	}
 
+	// 默认跳至登陆页面
+	@RequestMapping(params = "option=notLogin")
+	public String notLogin(HttpServletRequest request, ModelMap modelMap)
+			throws Exception {
+		return "Login";
+	}
+
 	// 跳至登陆页面
 	@RequestMapping(params = "option=login")
 	public String login(HttpServletRequest request, ModelMap modelMap)
@@ -40,7 +48,7 @@ public class UserInfoController extends BasicController {
 		return "Login";
 	}
 
-	// 跳至登陆页面
+	// 登陆
 	@RequestMapping(params = "option=doLogin")
 	public String doLogin(@RequestParam("username") String userName,
 			@RequestParam("password") String password,
@@ -79,6 +87,37 @@ public class UserInfoController extends BasicController {
 	public String register(HttpServletRequest request, ModelMap modelMap)
 			throws Exception {
 		return "Register";
+	}
+
+	// 跳转至密码修改页面
+	@RequestMapping(params = "option=loadChangePasswordBody")
+	public String loadChangePasswordBody(HttpServletRequest request,
+			ModelMap modelMap) throws Exception {
+		return "ChangePassword";
+	}
+
+	// 跳转至密码修改页面
+	@RequestMapping(params = "option=saveNewPassword")
+	public String saveNewPassword(
+			@RequestParam("oldPassword") String oldPassword,
+			@RequestParam("newPassword") String newPassword,
+			HttpServletRequest request, ModelMap modelMap) throws Exception {
+		// 得到当前用户
+		UserInfo user = (UserInfo) request.getSession().getAttribute("user");
+		JSONArray array = new JSONArray();
+		JSONObject result = new JSONObject();
+		boolean flag = this.userInfoBusiness.saveNewPassword(user, oldPassword,
+				newPassword);
+		if (!flag && !user.getCipher().equals(MD5.getMD5(oldPassword))) {
+			result.put("error", "原密码不正确，修改失败！！");
+		} else {
+			result.put("message", "密码修改成功");
+			// 让session失效.
+			request.getSession().invalidate();
+		}
+		array.add(result);
+		modelMap.addAttribute("json", array.toString());
+		return "json";
 	}
 
 	// 用户注册是选择了是护照用户还是身份证用户

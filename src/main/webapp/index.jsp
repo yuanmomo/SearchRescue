@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
-<body onload="window.location.href='user.do'">
+<body onload="window.location.href='user.do?option=login'">
 
 </body>
 </html>

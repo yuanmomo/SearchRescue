@@ -1,9 +1,29 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<link href="css/upload.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.wrapper {
+	width: 133px;
+	margin: 0 auto;
+}
+
+div.button {
+	height: 20px;
+	width: 83px;
+	background: url(../../../images/button.png) 0 0;
+	font-size: 12px;
+	color: #C7D92C;
+	text-align: center;
+	padding-top: 0px;
+}
+
+div.button.hover {
+	background: url(../../../images/button.png) 0 56px;
+	color: #95A226;
+}
+</style>
 <div class="hero-unit">
 	<h1 align="center">新增信标</h1>
 	<br />
-	<form class="form-horizontal">
+	<form id="beaconFileForm" class="form-horizontal"  method="POST" enctype="multipart/form-data">
 		<fieldset>
 			<div class="control-group">
 				<label class="control-label" for="input01"
@@ -12,7 +32,7 @@
 			<div class="control-group">
 				<label class="control-label" for="input01">信标号</label>
 				<div class="controls">
-					<input type="text" class="input-xlarge" id="input01">
+					<input type="text" class="input-xlarge" name="beaconNo" id="beaconNo">
 				</div>
 			</div>
 			<div class="control-group">
@@ -20,33 +40,16 @@
 					style="font-weight: bold; font-size: 25px;">批量增加</label>
 			</div>
 			<div id="control-group">
-
-				<!-- <label class="control-label" for="input01">请选择文件</label>
+				<label class="control-label" for="input01">请选择文件</label>
 				<div class="controls">
-					<input class="input-file" id="fileInput" type="file">
-				</div> -->
-				<div class="fieldset flash" id="fsUploadProgress">
-					<span class="legend">Upload Queue</span>
+					<input id="beaconFile" name="beaconFile" type="file" class="input-file"><br />
+					<img id="loading" src="img/loading.gif" style="display:none;">
 				</div>
-				<div id="divStatus">0 Files Uploaded</div>
-				<div>
-					<span id="spanButtonPlaceHolder"></span> <input id="btnCancel"
-						type="button" value="Cancel All Uploads"
-						onclick="swfu.cancelQueue();" disabled="disabled"
-						style="margin-left: 2px; font-size: 8pt; height: 29px;" />
-				</div>
-
 			</div>
-
 			<div class="form-actions" style="margin-left: 200px;">
-				<button type="submit" class="btn btn-primary">保存</button>
-				<button class="btn">取消</button>
+				<button id="buttonUpload" onclick="return addBeaconFileUpload();" class="btn btn-primary">保存</button>
+				<button type="reset" class="btn">取消</button>
 			</div>
 		</fieldset>
 	</form>
 </div>
-<script type="text/javascript" src="js/upload/swfupload.js"></script>
-<script type="text/javascript" src="js/upload/swfupload.queue.js"></script>
-<script type="text/javascript" src="js/upload/fileprogress.js"></script>
-<script type="text/javascript" src="js/upload/handlers.js"></script>
-<script type="text/javascript" src="js/upload/upload.js"></script>

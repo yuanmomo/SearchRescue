@@ -3,12 +3,12 @@
 <mapper namespace="net.yuanmomo.searchrescue.web.mapper.BeaconInfoMapper" >
   <resultMap id="BaseResultMap" type="net.yuanmomo.searchrescue.web.bean.BeaconInfo" >
     <id column="id" property="id" jdbcType="BIGINT" />
-    <id column="version" property="version" jdbcType="BIGINT" />
     <result column="beacon_No" property="beaconNo" jdbcType="CHAR" />
     <result column="State" property="state" jdbcType="TINYINT" />
     <result column="last_Update_Time" property="lastUpdateTime" jdbcType="TIMESTAMP" />
     <result column="last_Update_By_User_Style" property="lastUpdateByUserStyle" jdbcType="TINYINT" />
     <result column="last_Update_By_User_ID" property="lastUpdateByUserId" jdbcType="BIGINT" />
+    <result column="version" property="version" jdbcType="BIGINT" />
     <result column="is_Deleted" property="isDeleted" jdbcType="TINYINT" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -70,8 +70,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, version, beacon_No, State, last_Update_Time, last_Update_By_User_Style, last_Update_By_User_ID, 
-    is_Deleted
+    id, beacon_No, State, last_Update_Time, last_Update_By_User_Style, last_Update_By_User_ID, 
+    version, is_Deleted
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="net.yuanmomo.searchrescue.web.bean.BeaconInfoCriteria" >
     select
@@ -91,17 +91,15 @@
       </if>
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="net.yuanmomo.searchrescue.web.bean.BeaconInfoKey" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
     from beaconinfo
     where id = #{id,jdbcType=BIGINT}
-      and version = #{version,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="net.yuanmomo.searchrescue.web.bean.BeaconInfoKey" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from beaconinfo
     where id = #{id,jdbcType=BIGINT}
-      and version = #{version,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="net.yuanmomo.searchrescue.web.bean.BeaconInfoCriteria" >
     delete from beaconinfo
@@ -113,12 +111,12 @@
     <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into beaconinfo (version, beacon_No, State, 
-      last_Update_Time, last_Update_By_User_Style, 
-      last_Update_By_User_ID, is_Deleted)
-    values (#{version,jdbcType=BIGINT}, #{beaconNo,jdbcType=CHAR}, #{state,jdbcType=TINYINT}, 
-      #{lastUpdateTime,jdbcType=TIMESTAMP}, #{lastUpdateByUserStyle,jdbcType=TINYINT}, 
-      #{lastUpdateByUserId,jdbcType=BIGINT}, #{isDeleted,jdbcType=TINYINT})
+    insert into beaconinfo (beacon_No, State, last_Update_Time, 
+      last_Update_By_User_Style, last_Update_By_User_ID, 
+      version, is_Deleted)
+    values (#{beaconNo,jdbcType=CHAR}, #{state,jdbcType=TINYINT}, #{lastUpdateTime,jdbcType=TIMESTAMP}, 
+      #{lastUpdateByUserStyle,jdbcType=TINYINT}, #{lastUpdateByUserId,jdbcType=BIGINT}, 
+      #{version,jdbcType=BIGINT}, #{isDeleted,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" parameterType="net.yuanmomo.searchrescue.web.bean.BeaconInfo" >
     <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
@@ -126,9 +124,6 @@
     </selectKey>
     insert into beaconinfo
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="version != null" >
-        version,
-      </if>
       <if test="beaconNo != null" >
         beacon_No,
       </if>
@@ -144,14 +139,14 @@
       <if test="lastUpdateByUserId != null" >
         last_Update_By_User_ID,
       </if>
+      <if test="version != null" >
+        version,
+      </if>
       <if test="isDeleted != null" >
         is_Deleted,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="version != null" >
-        #{version,jdbcType=BIGINT},
-      </if>
       <if test="beaconNo != null" >
         #{beaconNo,jdbcType=CHAR},
       </if>
@@ -166,6 +161,9 @@
       </if>
       <if test="lastUpdateByUserId != null" >
         #{lastUpdateByUserId,jdbcType=BIGINT},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=BIGINT},
       </if>
       <if test="isDeleted != null" >
         #{isDeleted,jdbcType=TINYINT},
@@ -184,9 +182,6 @@
       <if test="record.id != null" >
         id = #{record.id,jdbcType=BIGINT},
       </if>
-      <if test="record.version != null" >
-        version = #{record.version,jdbcType=BIGINT},
-      </if>
       <if test="record.beaconNo != null" >
         beacon_No = #{record.beaconNo,jdbcType=CHAR},
       </if>
@@ -202,6 +197,9 @@
       <if test="record.lastUpdateByUserId != null" >
         last_Update_By_User_ID = #{record.lastUpdateByUserId,jdbcType=BIGINT},
       </if>
+      <if test="record.version != null" >
+        version = #{record.version,jdbcType=BIGINT},
+      </if>
       <if test="record.isDeleted != null" >
         is_Deleted = #{record.isDeleted,jdbcType=TINYINT},
       </if>
@@ -213,12 +211,12 @@
   <update id="updateByExample" parameterType="map" >
     update beaconinfo
     set id = #{record.id,jdbcType=BIGINT},
-      version = #{record.version,jdbcType=BIGINT},
       beacon_No = #{record.beaconNo,jdbcType=CHAR},
       State = #{record.state,jdbcType=TINYINT},
       last_Update_Time = #{record.lastUpdateTime,jdbcType=TIMESTAMP},
       last_Update_By_User_Style = #{record.lastUpdateByUserStyle,jdbcType=TINYINT},
       last_Update_By_User_ID = #{record.lastUpdateByUserId,jdbcType=BIGINT},
+      version = #{record.version,jdbcType=BIGINT},
       is_Deleted = #{record.isDeleted,jdbcType=TINYINT}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -242,12 +240,14 @@
       <if test="lastUpdateByUserId != null" >
         last_Update_By_User_ID = #{lastUpdateByUserId,jdbcType=BIGINT},
       </if>
+      <if test="version != null" >
+        version = #{version,jdbcType=BIGINT},
+      </if>
       <if test="isDeleted != null" >
         is_Deleted = #{isDeleted,jdbcType=TINYINT},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
-      and version = #{version,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="net.yuanmomo.searchrescue.web.bean.BeaconInfo" >
     update beaconinfo
@@ -256,8 +256,8 @@
       last_Update_Time = #{lastUpdateTime,jdbcType=TIMESTAMP},
       last_Update_By_User_Style = #{lastUpdateByUserStyle,jdbcType=TINYINT},
       last_Update_By_User_ID = #{lastUpdateByUserId,jdbcType=BIGINT},
+      version = #{version,jdbcType=BIGINT},
       is_Deleted = #{isDeleted,jdbcType=TINYINT}
     where id = #{id,jdbcType=BIGINT}
-      and version = #{version,jdbcType=BIGINT}
   </update>
 </mapper>

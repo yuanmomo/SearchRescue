@@ -1,5 +1,5 @@
 function login(){
-	// validate login form on keyup and submit
+	// validate file upload form on keyup and submit
 	$("#loginForm").validate({
 		rules: {
 			username: "required",

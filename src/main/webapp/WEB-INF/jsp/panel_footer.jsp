@@ -1,10 +1,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-		</div>
-	<!--/row-->
-	<hr>
-	<footer>
-		<p>&copy; XXXXXX设计2013</p>
-	</footer>
+</div>
+<!--/row-->
+<hr>
+<footer>
+	<p>&copy; XXXXXX设计2013</p>
+</footer>
 </div>
 <!--/.fluid-container-->
 </body>
@@ -13,12 +13,15 @@
 <script type="text/javascript" src="js/jquery/jquery-1.8.3.js"></script>
 <script type="text/javascript" src="js/jquery/jquery.validate.js"></script>
 <script type="text/javascript" src="js/jquery/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/jquery/jquery.form.js"></script>
 <script type="text/javascript" src="js/external/application.js"></script>
-<script type="text/javascript" src="js/external/bootstrap-alert.js" ></script>
+<script type="text/javascript" src="js/external/bootstrap-alert.js"></script>
 <script type="text/javascript" src="js/external/bootstrap-modal.js"></script>
 <script type="text/javascript" src="js/external/bootstrap-transition.js"></script>
 <script type="text/javascript" src="js/beacon.js"></script>
 <script type="text/javascript" src="js/global.js"></script>
+<script type="text/javascript" src="js/user.js"></script>
+<script type="text/javascript" src="js/ajaxfileupload.js"></script>
 <!-- Optional, bootstrap javascript library -->
 <script type="text/javascript" src="js/external/bootstrap.js"></script>
 
