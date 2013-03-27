@@ -260,4 +260,15 @@
       is_Deleted = #{isDeleted,jdbcType=TINYINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
+<!--   
+  <resultMap id="BoughtBeacon" type="net.yuanmomo.searchrescue.web.bean.QueryBoughtBeacon" >
+    <result column="beacon_No" property="beaconNo" jdbcType="CHAR" />
+    <result column="user_Name" property="userName" jdbcType="VARCHAR" />
+    <result column="passportNo" property="passportNo" jdbcType="CHAR" />
+    <result column="cerNo" property="cerNo" jdbcType="CHAR" />
+    <result column="boughtDate" property="boughtDate" jdbcType="TIMESTAMP" />
+  </resultMap>-->
+  <!-- <select id="queryBoughtBeacon" parameterType="net.yuanmomo.searchrescue.web.bean.QueryBoughtBeacon" resultType="net.yuanmomo.searchrescue.web.bean.QueryBoughtBeacon" >
+    where
+  </select>   -->
 </mapper>

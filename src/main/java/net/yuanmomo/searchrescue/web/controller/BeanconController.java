@@ -2,6 +2,7 @@ package net.yuanmomo.searchrescue.web.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -11,6 +12,7 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import net.yuanmomo.searchrescue.web.bean.BeaconAndFile;
 import net.yuanmomo.searchrescue.web.bean.BeaconInfo;
+import net.yuanmomo.searchrescue.web.bean.BoughtBeacon;
 import net.yuanmomo.searchrescue.web.bean.UserInfo;
 import net.yuanmomo.searchrescue.web.util.BasicController;
 
@@ -47,11 +49,13 @@ public class BeanconController extends BasicController {
 			HttpServletRequest request, ModelMap modelMap) throws Exception {
 		// 得到用户，验证权限
 		UserInfo user = (UserInfo) request.getSession().getAttribute("user");
+		JSONArray array=new JSONArray();
 		JSONObject result = new JSONObject();
 		if (user == null || user.getUserStyle() > 2) {
 			// 用户权限不为管理员或者信标管理员
 			result.put("error", "权限不足，添加信标错误！！");
-			request.setAttribute("json", result.toString());
+			array.add(result);
+			request.setAttribute("json",array.toString());
 			return "json";
 		} else {
 			// 返回的结果信息
@@ -68,8 +72,10 @@ public class BeanconController extends BasicController {
 				boolean flag = this.addBeaconNo(user, sb, beaconNo, "0");
 				if (flag) {
 					success++;
+					sb.append("输入框中信标添加成功<br />");
 				} else {
 					faild++;
+					sb.append("输入框中信标添加失败<br />");
 				}
 			}
 			// 上传文件，并保存信息
@@ -95,9 +101,9 @@ public class BeanconController extends BasicController {
 						+ success + " 个<br />");
 				sb.append("添加失败 " + faild + " 个<br />");
 			}
-			result.put("error", "");
 			result.put("msg", sb.toString());
-			request.setAttribute("json", result.toString());
+			array.add(result);
+			request.setAttribute("json",array.toString());
 			return "json";
 		}
 	}
@@ -106,7 +112,7 @@ public class BeanconController extends BasicController {
 			String beaconNo, String index) {
 		boolean isExist = this.beaconBusiness.isBeaconNoExist(beaconNo);
 		if (isExist) {
-			sb.append("该信标号 " + beaconNo + " 已经存在数据库，添加失败").append("<br />");
+			sb.append("序号" + index + ",该信标号 " + beaconNo + " 已经存在数据库，添加失败").append("<br />");
 			return false;
 		} else {
 			boolean flag = this.beaconBusiness.insert(beaconNo, user);
@@ -114,6 +120,9 @@ public class BeanconController extends BasicController {
 				sb.append("序号" + index + ",该信标号 " + beaconNo + " 添加失败").append(
 						"<br />");
 				return false;
+			}else{
+				sb.append("序号" + index + ",信标号 " + beaconNo + " 添加成功").append(
+						"<br />");
 			}
 		}
 		return true;
@@ -131,7 +140,7 @@ public class BeanconController extends BasicController {
 		return "json";
 	}
 
-	// 默认跳至信标添加页面
+	// 根据所给信标好查询
 	@RequestMapping(params = "option=getOneBeaconByBeaconNo")
 	public String getOneBeaconByBeaconNo(
 			@RequestParam("beaconNo") String beaconNo,
@@ -154,6 +163,93 @@ public class BeanconController extends BasicController {
 		return "json";
 	}
 
+	// 根据所给信标好查询
+	@RequestMapping(params = "option=getOneRandomBeacon")
+	public String getOneRandomBeacon(HttpServletRequest request,
+			ModelMap modelMap) throws Exception {
+		// 随机得到一个beacon
+		BeaconInfo beacon = this.beaconBusiness.getOneRandomBeacon();
+		if (beacon != null) {
+			JSONArray array = new JSONArray();
+			JSONObject obj = new JSONObject();
+			obj.put("beaconNo", beacon.getBeaconNo());
+			obj.put("id", beacon.getId() + "");
+			array.add(obj);
+			modelMap.addAttribute("json", array.toString());
+		} else {
+			modelMap.addAttribute("json", "{}");
+		}
+		return "json";
+	}
+
+	// 默认跳至信标购买页面
+	@RequestMapping(params = "option=loadBeaconBuyBody")
+	public String loadBeaconBuyBody(HttpServletRequest request,
+			ModelMap modelMap) throws Exception {
+		UserInfo user = (UserInfo) request.getSession().getAttribute("user");
+		if (user.getUserStyle() == 1) {
+			// 系统管理员添加购买
+			return "BeaconRent";
+		} else {
+			// 注册用户添加购买
+			return "BeaconBuyRegisterUser";
+		}
+	}
+
+	// 默认跳至信标购买查询页面
+	@RequestMapping(params = "option=loadBoughtQueryBody")
+	public String loadBoughtQueryBody(HttpServletRequest request,
+			ModelMap modelMap) throws Exception {
+		UserInfo user = (UserInfo) request.getSession().getAttribute("user");
+		if (user.getUserStyle() == 1) {
+			return "BeaconBoughtQuery";
+		}else{
+			return "BeaconBoughtQueryByRegisterUser";
+		}
+	}
+	// 默认跳至信标购买查询页面
+	@RequestMapping(params = "option=queryBoughtBeacon")
+	public String queryBoughtBeacon(
+			@RequestParam(value="userName",required = false) String userName,
+			@RequestParam(value="beaconNo",required=false) String beaconNo,
+			@RequestParam(value="cerNo",required=false) String cerNo,
+			@RequestParam(value="passportNo",required=false) String passportNo,
+			HttpServletRequest request,
+			ModelMap modelMap) throws Exception {
+		UserInfo user = (UserInfo) request.getSession().getAttribute("user");
+		if (user.getUserStyle() == 1) {
+			List<BoughtBeacon> result=this.beaconBusiness.queryBoughtBeacon(userName,beaconNo,passportNo,cerNo);
+			modelMap.addAttribute("json", JSONArray.fromObject(result).toString());
+			return "json";
+		}else{
+			//注册用户，只查询自己所购买的信标
+			List<BoughtBeacon> result=this.beaconBusiness.queryBoughtBeacon(user);
+			modelMap.addAttribute("json", JSONArray.fromObject(result).toString());
+			return "json";
+		}
+	}
+	// 注册用户购买一个信标
+	@RequestMapping(params = "option=doBuyBeacon")
+	public String doBuyBeacon(
+			@RequestParam("beaconId") long beaconId,
+			@RequestParam("buyBeaconDate") Date buyBeaconDate,
+			HttpServletRequest request, ModelMap modelMap) throws Exception {
+		UserInfo user = (UserInfo) request.getSession().getAttribute("user");
+		if (user.getUserStyle() == 3) {
+			boolean flag=this.beaconBusiness.doBuyBeaconByRegisterUser(beaconId, user,buyBeaconDate);
+			JSONArray array = new JSONArray();
+			JSONObject obj = new JSONObject();
+			if(flag){
+				obj.put("message", "购买信标成功");
+			}else{
+				obj.put("error", "购买信标失败");
+			}
+			array.add(obj);
+			modelMap.addAttribute("json", array.toString());
+		}
+		return "json";
+	}
+
 	// 批量删除信标
 	@RequestMapping(params = "option=deleteBeaconNo")
 	public String deleteBeaconNo(
@@ -162,14 +258,15 @@ public class BeanconController extends BasicController {
 		UserInfo user = (UserInfo) request.getSession().getAttribute("user");
 		if (user.getUserStyle() < 3) {
 			// 系统管理员和信标管理员
-			if(beaconNoIds!=null && !"".equals(beaconNoIds) && beaconNoIds.matches("[\\d,]*")){
+			if (beaconNoIds != null && !"".equals(beaconNoIds)
+					&& beaconNoIds.matches("[\\d,]*")) {
 				this.beaconBusiness.deleteBeaconNos(beaconNoIds, user);
 				JSONArray array = new JSONArray();
 				JSONObject obj = new JSONObject();
 				obj.put("message", "信标删除成功");
 				array.add(obj);
 				modelMap.addAttribute("json", array.toString());
-			}else{
+			} else {
 				JSONArray array = new JSONArray();
 				JSONObject obj = new JSONObject();
 				obj.put("message", "数据有错，更新失败！！");

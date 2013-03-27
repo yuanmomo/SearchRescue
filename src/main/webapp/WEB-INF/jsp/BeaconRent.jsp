@@ -16,21 +16,34 @@
 							<div class="control-group">
 								<label class="control-label" for="select01">身份类型</label>
 								<div class="controls">
-									<select id="select01">
-										<option>请选择</option>
-										<c:choose>
-										    <c:when test="${sessionScope.user.cerStyle==1}">
-										    	<option selected="selected">身份证用户</option>
-										    </c:when>
-										    <c:when test="${sessionScope.user.cerStyle==2}">
-										    	<option selected="selected">护照用户</option>
-										    </c:when>  
-										   <c:otherwise>
-										  		<option value="1" selected="selected">身份证用户</option>
-										   		<option value="2" >护照用户</option>
-										   </c:otherwise>
-										  </c:choose>
-									</select>
+								
+									<%-- 管理员用户需要选择是护照用户还是身份证用户 --%>
+									<c:if test="${user.userStyle==1}">
+										<select id="select01">
+											<option>请选择</option>
+											<option value="1" selected="selected">身份证用户</option>
+											<option value="2">护照用户</option>
+										</select>
+									</c:if>
+
+									<%-- 注册用户的身份在注册时已经确定 --%>
+									<c:if test="${user.userStyle==3}">
+										<select id="select01">
+											<option>请选择</option>
+											<c:choose>
+												<c:when test="${user.cerStyle==1}">
+													<option selected="selected">身份证用户</option>
+												</c:when>
+												<c:when test="${user.cerStyle==2}">
+													<option selected="selected">护照用户</option>
+												</c:when>
+												<c:otherwise>
+													<option value="1" selected="selected">身份证用户</option>
+													<option value="2">护照用户</option>
+												</c:otherwise>
+											</c:choose>
+										</select>
+									</c:if>
 								</div>
 							</div> 
 								<%

@@ -112,4 +112,20 @@ public class UserInfoBusiness extends BasicBusiness {
 		param.createCriteria().andUserNameEqualTo(user.getUserName()).andCipherEqualTo(MD5.getMD5(oldPassword));
 		return this.userInfoMapper.updateByExample(user, param)>0?true:false;
 	}
+	public UserInfoID getUserInfoIDByUserId(UserInfo user){
+		if(user.getId()<=0){
+			return null;
+		}else{
+			IdInfo idInfo=this.idInfoMapper.selectByPrimaryKey(user.getId());
+			return UserConvert.mergeUserInfoAndIdInfo(user, idInfo);
+		}
+	}
+	public UserInfoPassport getUserInfoPassportByUserId(UserInfo user){
+		if(user.getId()<=0){
+			return null;
+		}else{
+			PassportInfo passportInfo=this.passportInfoMapper.selectByPrimaryKey(user.getId());
+			return UserConvert.mergeUserInfoAndPassportInfo(user,passportInfo);
+		}
+	}
 }

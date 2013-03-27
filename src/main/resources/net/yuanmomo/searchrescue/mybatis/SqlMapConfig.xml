@@ -12,5 +12,6 @@ PUBLIC "-//ibatis.apache.org//DTD Config 3.0//EN"
     <mapper resource="net/yuanmomo/searchrescue/mybatis/mapper/IdInfoMapper.xml" />
     <mapper resource="net/yuanmomo/searchrescue/mybatis/mapper/LeaseInfoMapper.xml" />
     <mapper resource="net/yuanmomo/searchrescue/mybatis/mapper/PassportInfoMapper.xml" />
+    <mapper resource="net/yuanmomo/searchrescue/mybatis/mapper/BoughtBeaconMapper.xml" />
   </mappers>
 </configuration>

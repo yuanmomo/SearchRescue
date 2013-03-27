@@ -95,6 +95,45 @@ public class UserConvert {
 		}
 		return null;
 	}
+	public static UserInfoID mergeUserInfoAndIdInfo(UserInfo userInfo,IdInfo idInfo){
+		UserInfoID userInfoId=new UserInfoID();
+		if(userInfo!=null){
+			userInfoId.setUserInfoId(userInfo.getId());
+			userInfoId.setUserName(userInfo.getUserName());
+			userInfoId.setPassword(userInfo.getPassword());
+			userInfoId.setRealName(userInfo.getRealName());
+			userInfoId.setCerStyle(userInfo.getCerStyle());
+			userInfoId.setUserStyle(userInfo.getUserStyle());
+			userInfoId.setCipher(userInfo.getCipher());
+			userInfoId.setUserInfoVersion(userInfo.getVersion());
+			userInfoId.setUserInfoIsDeleted(userInfo.getIsDeleted());
+		}
+		if(idInfo!=null){
+			userInfoId.setIdInfoId(idInfo.getId());
+			userInfoId.setUserInfoId(idInfo.getUserInfoId());
+			userInfoId.setSex(idInfo.getSex());
+			userInfoId.setNation(idInfo.getNation());
+			userInfoId.setBirthday(idInfo.getBirthday());
+			userInfoId.setAddress(idInfo.getAddress());
+			userInfoId.setPhone(idInfo.getPhone());
+			userInfoId.setCerNo(idInfo.getCerNo());
+			userInfoId.setAuthority(idInfo.getAuthority());
+			userInfoId.setEffecDuration(idInfo.getEffecDuration());
+			userInfoId.setStartTime(idInfo.getStartTime());
+			userInfoId.setEndTime(idInfo.getEndTime());
+			userInfoId.setPhoto(idInfo.getPhoto());
+			userInfoId.setPhotoPath(idInfo.getPhotoPath());
+			userInfoId.setRegisterTime(idInfo.getRegisterTime());
+			userInfoId.setRegisterIp(idInfo.getRegisterIp());
+			userInfoId.setLastLoginIp(idInfo.getLastLoginIp());
+			userInfoId.setLastLoginTime(idInfo.getLastLoginTime());
+			userInfoId.setIdInfoVersion(idInfo.getVersion());
+			userInfoId.setIdInfoIsDeleted(idInfo.getIsDeleted());
+			userInfoId.setRemark(idInfo.getRemark());
+		}
+		return userInfoId;
+	}
+	
 	public static UserInfo convertUserInfoPassportToUserInfo(UserInfoPassport userInfoPassport){
 		if(userInfoPassport!=null){
 			UserInfo userInfo=new UserInfo();
@@ -184,5 +223,44 @@ public class UserConvert {
 			return userInfoPassport;
 		}
 		return null;
+	}
+	public static UserInfoPassport mergeUserInfoAndPassportInfo(UserInfo userInfo,PassportInfo passportInfo){
+		UserInfoPassport userInfoPassport=new UserInfoPassport();
+		if(userInfo!=null){
+			userInfoPassport.setUserInfoId(userInfo.getId());
+			userInfoPassport.setUserName(userInfo.getUserName());
+			userInfoPassport.setPassword(userInfo.getPassword());
+			userInfoPassport.setRealName(userInfo.getRealName());
+			userInfoPassport.setCerStyle(userInfo.getCerStyle());
+			userInfoPassport.setUserStyle(userInfo.getUserStyle());
+			userInfoPassport.setCipher(userInfo.getCipher());
+			userInfoPassport.setUserInfoVersion(userInfo.getVersion());
+			userInfoPassport.setUserInfoIsDeleted(userInfo.getIsDeleted());
+		}
+		if(passportInfo!=null){
+			userInfoPassport.setUserInfoId(passportInfo.getUserinfoId());
+			userInfoPassport.setAuthority(passportInfo.getAuthority());
+			userInfoPassport.setAuthorityId(passportInfo.getAuthorityId());
+			userInfoPassport.setPassportNo(passportInfo.getPassportNo());
+			userInfoPassport.setNationality(passportInfo.getNationality());
+			userInfoPassport.setNationId(passportInfo.getNationId());
+			userInfoPassport.setBirthday(passportInfo.getBirthday());
+			userInfoPassport.setSex(passportInfo.getSex());
+			userInfoPassport.setAddress(passportInfo.getAddress());
+			userInfoPassport.setPhone(passportInfo.getPhone());
+			userInfoPassport.setIssueDate(passportInfo.getIssueDate());
+			userInfoPassport.setEffecDuration(passportInfo.getEffecDuration());
+			userInfoPassport.setSignature(passportInfo.getSignature());
+			userInfoPassport.setPhoto(passportInfo.getPhoto());
+			userInfoPassport.setPhotoPath(passportInfo.getPhotoPath());
+			userInfoPassport.setRemark(passportInfo.getRemark());
+			userInfoPassport.setRegisterIp(passportInfo.getRegisterIp());
+			userInfoPassport.setRegisterTime(passportInfo.getRegisterTime());
+			userInfoPassport.setLastLoginIp(passportInfo.getLastLoginIp());
+			userInfoPassport.setLastLoginTime(passportInfo.getLastLoginTime());
+			userInfoPassport.setPassportInfoVersion(passportInfo.getVersion());
+			userInfoPassport.setPassportInfoIsDeleted(passportInfo.getIsDeleted());
+		}
+		return userInfoPassport;
 	}
 }

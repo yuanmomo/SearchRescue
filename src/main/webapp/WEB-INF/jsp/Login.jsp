@@ -68,7 +68,7 @@
 						<label class="control-label" for="input01">用户名：</label>
 						<div class="controls">
 							<input id="username" name="username" type="text"
-								class="input-xlarge">
+								class="input-xlarge" value="${userName}">
 							<!-- <p class="help-block">*</p> -->
 						</div>
 					</div>

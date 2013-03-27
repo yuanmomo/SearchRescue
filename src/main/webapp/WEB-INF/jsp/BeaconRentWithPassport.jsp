@@ -1,4 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<c:if test="${user.userStyle==1}">
 <div class="control-group">
 	<label class="control-label" for="input01">姓名</label>
 	<div class="controls">
@@ -102,3 +105,6 @@
 			<input type="hidden" class="input-xlarge" id="input01">
 		</div>
 	</div>
+</c:if> 
+
+

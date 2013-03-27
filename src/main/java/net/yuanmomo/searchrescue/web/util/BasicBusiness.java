@@ -3,6 +3,7 @@ package net.yuanmomo.searchrescue.web.util;
 import javax.annotation.Resource;
 
 import net.yuanmomo.searchrescue.web.mapper.BeaconInfoMapper;
+import net.yuanmomo.searchrescue.web.mapper.BoughtBeaconMapper;
 import net.yuanmomo.searchrescue.web.mapper.IdInfoMapper;
 import net.yuanmomo.searchrescue.web.mapper.LeaseInfoMapper;
 import net.yuanmomo.searchrescue.web.mapper.PassportInfoMapper;
@@ -20,6 +21,8 @@ public class BasicBusiness {
 	protected PassportInfoMapper passportInfoMapper;
 	@Resource(name = "userInfoMapper")
 	protected UserInfoMapper userInfoMapper;
+	@Resource(name = "boughtBeaconMapper")
+	protected BoughtBeaconMapper boughtBeaconMapper;
 	public BeaconInfoMapper getBeaconInfoMapper() {
 		return beaconInfoMapper;
 	}
@@ -49,5 +52,11 @@ public class BasicBusiness {
 	}
 	public void setPassportInfoMapper(PassportInfoMapper passportInfoMapper) {
 		this.passportInfoMapper = passportInfoMapper;
+	}
+	public BoughtBeaconMapper getBoughtBeaconMapper() {
+		return boughtBeaconMapper;
+	}
+	public void setBoughtBeaconMapper(BoughtBeaconMapper boughtBeaconMapper) {
+		this.boughtBeaconMapper = boughtBeaconMapper;
 	}
 }

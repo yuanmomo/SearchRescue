@@ -27,7 +27,6 @@ public class LoginFilterController implements Filter {
 			arg2.doFilter(arg0, arg1);
 		} else {
 			// 还未登录，跳转至登录页面
-//			arg0.getRequestDispatcher("user.do?option=notLogin").forward(arg0, arg1);
 			((HttpServletResponse)arg1).sendRedirect("user.do?option=login");
 		}
 	}

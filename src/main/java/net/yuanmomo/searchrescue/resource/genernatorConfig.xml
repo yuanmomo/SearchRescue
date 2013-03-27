@@ -50,12 +50,12 @@
 			selectByExampleQueryId="true">
 			<generatedKey column="id" sqlStatement="mysql" identity="true" />
 		</table> -->
-		<table tableName="beaconinfo" domainObjectName="BeaconInfo"
+		<!-- <table tableName="beaconinfo" domainObjectName="BeaconInfo"
 			enableCountByExample="true" enableUpdateByExample="true"
 			enableDeleteByExample="true" enableSelectByExample="true"
 			selectByExampleQueryId="true">
 			<generatedKey column="id" sqlStatement="mysql" identity="true" />
-		</table>
+		</table> -->
 		<!-- <table tableName="idinfo" domainObjectName="IdInfo"
 			enableCountByExample="true" enableUpdateByExample="true"
 			enableDeleteByExample="true" enableSelectByExample="true"
@@ -74,5 +74,9 @@
 			selectByExampleQueryId="true">
 			<generatedKey column="id" sqlStatement="mysql" identity="true" />
 		</table> -->
+		 <table tableName="boughtBeacon" domainObjectName="BoughtBeacon"
+			enableSelectByExample="true">
+			
+		</table>
 	</context>
 </generatorConfiguration>

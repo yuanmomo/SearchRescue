@@ -5,11 +5,11 @@ import java.util.Date;
 
 public class BeaconInfo extends BaseBean implements Serializable {
     private String beaconNo;
-    private Byte state;
+    private Byte state=0;
     private Date lastUpdateTime;
-    private Byte lastUpdateByUserStyle;
-    private Long lastUpdateByUserId;
-    private Byte isDeleted;
+    private Byte lastUpdateByUserStyle=0;
+    private Long lastUpdateByUserId=0l;
+    private Byte isDeleted=0;
     private static final long serialVersionUID = 1L;
     public String getBeaconNo() {
         return beaconNo;

@@ -7,7 +7,7 @@ import com.spagettikod.optimist.OptimisticLocking;
 @OptimisticLocking("leaseinfo")
 public class LeaseInfo extends BaseBean implements Serializable {
     private Long userId=0L;
-    private Long beaconId;
+    private Long beaconId=0l;
     private Date startDate;
     private Date returnDate;
     private Byte isReturned=0;

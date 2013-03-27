@@ -60,16 +60,17 @@ public class UserInfoController extends BasicController {
 		if (user != null) {
 			// user不为null，登陆成功，讲user放到session
 			request.getSession().setAttribute("user", user);
-			request.setAttribute("module", "null");
+			modelMap.addAttribute("module", "null");
 			// 跳转到后台管理页面
 			return "panel";
 		}
 		// 查看用户名是否存在
 		boolean exist = this.userInfoBusiness.isUserNameRegistered(userName);
 		if (exist) {
-			request.setAttribute("message", "用户名存在，密码错误");
+			modelMap.addAttribute("userName",userName);
+			modelMap.addAttribute("message", "用户名存在，密码错误");
 		} else {
-			request.setAttribute("message", "用户名不存在");
+			modelMap.addAttribute("message", "用户名不存在");
 		}
 		return "Login";
 	}
