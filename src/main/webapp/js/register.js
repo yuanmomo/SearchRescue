@@ -11,7 +11,7 @@ function loadCerStyle() {
 		},
 		error : function() {
 			$("#message").html("加载注册身份类型失败，请联系管理员！！");
-			$('#myModal').modal({
+			$("#messageDialog").modal({
 				backdrop : true,
 				keyboard : true,
 				show : true
@@ -25,7 +25,7 @@ function loadCerStyle() {
 				resultArray = eval(result);
 				if (resultArray[0].error != "") {
 					$("#message").html(resultArray[0].error);
-					$('#myModal').modal({
+					$("#messageDialog").modal({
 						backdrop : true,
 						keyboard : true,
 						show : true
@@ -291,6 +291,7 @@ function register() {
 function checkUserName() {
 	var userName = $("#userName").val();
 	if (userName == "") {
+		alertMessage("请输入用户名");
 		return;
 	}
 	$.ajax({
@@ -301,7 +302,7 @@ function checkUserName() {
 		},
 		error : function() {
 			$("#message").html("加载注册身份类型失败，请联系管理员！！");
-			$('#myModal').modal({
+			$("#messageDialog").modal({
 				backdrop : true,
 				keyboard : true,
 				show : true
@@ -318,7 +319,7 @@ function checkUserName() {
 				}else{
 					$("#message").html(resultArray[0].message);
 				}
-				$('#myModal').modal({
+				$("#messageDialog").modal({
 					backdrop : true,
 					keyboard : true,
 					show : true

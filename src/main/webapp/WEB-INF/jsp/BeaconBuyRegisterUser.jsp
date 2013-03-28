@@ -7,7 +7,6 @@
 	<form id="beaconFileForm" class="form-horizontal" method="POST"
 		enctype="multipart/form-data">
 		<fieldset>
-
 			<div class="control-group">
 				<label class="control-label" for="input01"
 					style="font-weight: bold; font-size: 25px;">信标信息：</label>

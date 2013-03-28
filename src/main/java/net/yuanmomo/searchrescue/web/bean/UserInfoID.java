@@ -2,7 +2,7 @@ package net.yuanmomo.searchrescue.web.bean;
 
 import java.util.Date;
 
-public class UserInfoID {
+public class UserInfoID{
 	private Long userInfoId=0l;
 	private String userName;
 	private String password;
@@ -34,6 +34,26 @@ public class UserInfoID {
 	private String remark;
 	private Long idInfoVersion=0L;
 	private Byte idInfoIsDeleted=0;
+
+	   
+    //管理员设置购买用户
+    private Long buyBeaconId=0L;
+    private Date buyBeaconDate;
+	public Long getBuyBeaconId() {
+		return buyBeaconId;
+	}
+
+	public void setBuyBeaconId(Long buyBeaconId) {
+		this.buyBeaconId = buyBeaconId;
+	}
+
+	public Date getBuyBeaconDate() {
+		return buyBeaconDate;
+	}
+
+	public void setBuyBeaconDate(Date buyBeaconDate) {
+		this.buyBeaconDate = buyBeaconDate;
+	}
 
 	public Long getUserInfoId() {
 		return userInfoId;

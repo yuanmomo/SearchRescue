@@ -8,7 +8,7 @@
 			<li class="active"><a href="#">新增租赁</a></li>
 			<li><a href="#">租赁归还</a></li>
 			<li class="nav-header">信标购买管理</li>
-			<li><a href="#">新建购买</a></li>
+			<li><a href="javascript:void(0)" onclick="buyBeacon(this)">新建购买</a></li>
 			<li><a href="javascript:void(0)" onclick="boughtQuery(this)">购买查询</a></li>
 			<li class="nav-header">信标管理</li>
 			<li><a href="javascript:void(0);" onclick="addBeacon(this)">新增信标</a></li>

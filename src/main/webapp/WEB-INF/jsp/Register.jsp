@@ -67,7 +67,7 @@ label.checked {
 	</div>
 	<div class="container-fluid">
 		<div class="row-fluid">
-			<div id="myModal" class="modal hide fade" style="display: none;">
+			<div id="messageDialog" class="modal hide fade" style="display: none;">
 				<div class="modal-header">
 					<a class="close" data-dismiss="modal">×</a>
 					<h3>信息：</h3>

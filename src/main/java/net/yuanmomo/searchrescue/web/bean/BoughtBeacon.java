@@ -4,17 +4,11 @@ import java.io.Serializable;
 
 public class BoughtBeacon implements Serializable {
     private String userName;
-
     private String cerNo;
-
     private String passportNo;
-
     private String beaconNo;
-
     private Byte state=0;
-
     private String boughtDate;
-
     private static final long serialVersionUID = 1L;
 
     public String getUserName() {

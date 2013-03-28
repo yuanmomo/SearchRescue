@@ -180,20 +180,24 @@ public class BeaconBusiness extends BasicBusiness {
 		}
 		// 搜索视图 BoughtBeacon
 		BoughtBeaconCriteria param = new BoughtBeaconCriteria();
-		BoughtBeaconCriteria.Criteria criteria =param.createCriteria();
+		BoughtBeaconCriteria.Criteria criteria = param.createCriteria();
 		if (userName != null && !"".equals(userName)) {
-			criteria=criteria.andUserNameLike("%" + userName + "%");
+			criteria = criteria.andUserNameLike("%" + userName + "%");
 		}
 		if (beaconNo != null && !"".equals(beaconNo)) {
-			criteria=criteria.andBeaconNoLike("%" + beaconNo + "%");
+			criteria = criteria.andBeaconNoLike("%" + beaconNo + "%");
 		}
 		if (passportNo != null && !"".equals(passportNo)) {
-			criteria=criteria.andPassportNoLike("%" + passportNo + "%");
+			criteria = criteria.andPassportNoLike("%" + passportNo + "%");
 		}
 		if (cerNo != null && !"".equals(cerNo)) {
-			criteria=criteria.andCerNoLike("%" + cerNo + "%");
+			criteria = criteria.andCerNoLike("%" + cerNo + "%");
 		}
-		criteria=criteria.andStateEqualTo((byte)3);
+		criteria = criteria.andStateEqualTo((byte) 3);
 		return this.boughtBeaconMapper.selectByExample(param);
+	}
+
+	public boolean updateBeacon(BeaconInfo beacon){
+		return this.beaconInfoMapper.updateByPrimaryKey(beacon)>0?true:false;
 	}
 }

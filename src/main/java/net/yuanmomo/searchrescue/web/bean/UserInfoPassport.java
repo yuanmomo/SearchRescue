@@ -35,6 +35,25 @@ public class UserInfoPassport {
     private Date lastLoginTime;
     private Long passportInfoVersion=0L;
     private Byte passportInfoIsDeleted=0;
+    
+  //管理员设置购买用户
+    private Long buyBeaconId=0L;
+    private Date buyBeaconDate;
+	public Long getBuyBeaconId() {
+		return buyBeaconId;
+	}
+
+	public void setBuyBeaconId(Long buyBeaconId) {
+		this.buyBeaconId = buyBeaconId;
+	}
+
+	public Date getBuyBeaconDate() {
+		return buyBeaconDate;
+	}
+
+	public void setBuyBeaconDate(Date buyBeaconDate) {
+		this.buyBeaconDate = buyBeaconDate;
+	}
 	public Long getUserInfoId() {
 		return userInfoId;
 	}

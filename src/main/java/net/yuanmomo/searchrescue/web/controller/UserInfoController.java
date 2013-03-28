@@ -58,7 +58,7 @@ public class UserInfoController extends BasicController {
 			user = this.userInfoBusiness.doLogin(userName, password);
 		}
 		if (user != null) {
-			// user不为null，登陆成功，讲user放到session
+			// user不为null，登陆成功，将user放到session
 			request.getSession().setAttribute("user", user);
 			modelMap.addAttribute("module", "null");
 			// 跳转到后台管理页面
@@ -139,8 +139,6 @@ public class UserInfoController extends BasicController {
 			return "RegisterBodyWithID";
 		} else if (cerStyleNumber == 2) {
 			return "RegisterBodyWithPassport";
-		} else if (cerStyleNumber == 0) {
-			return "json";
 		}
 		JSONObject result = new JSONObject();
 		result.put("error", "注册身份类型错误！！");
@@ -170,7 +168,7 @@ public class UserInfoController extends BasicController {
 		case 100:
 			// 用户注册成功，将用户放进Session.
 			request.getSession().setAttribute("user", userInfoId);
-			request.setAttribute("module", "BeaconRent");
+			request.setAttribute("module", "BeaconBoughtQueryByRegisterUser");
 			if (userInfoId.getCerStyle() == 1) {
 				request.setAttribute("rentBody", "ID");
 			} else {
@@ -205,12 +203,7 @@ public class UserInfoController extends BasicController {
 		case 100:
 			// 用户注册成功，将用户放进Session.
 			request.getSession().setAttribute("user", userInfoPassport);
-			request.setAttribute("module", "BeaconRent");
-			if (userInfoPassport.getCerStyle() == 1) {
-				request.setAttribute("rentBody", "ID");
-			} else {
-				request.setAttribute("rentBody", "Passport");
-			}
+			request.setAttribute("module", "BeaconBuyRegisterUser");
 			return "panel";
 		default:
 			return "Register";

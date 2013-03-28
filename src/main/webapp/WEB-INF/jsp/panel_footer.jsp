@@ -23,6 +23,7 @@
 <script type="text/javascript" src="js/external/bootstrap-transition.js"></script>
 <script type="text/javascript" src="js/beacon.js"></script>
 <script type="text/javascript" src="js/global.js"></script>
+<script type="text/javascript" src="js/register.js"></script>
 <script type="text/javascript" src="js/user.js"></script>
 <script type="text/javascript" src="js/beaconBuy.js"></script>
 <script type="text/javascript" src="js/ajaxfileupload.js"></script>
