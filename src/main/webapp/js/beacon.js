@@ -178,7 +178,7 @@ function getOneBeaconByBeaconNo() {
 	var beaconNo = $("#beaconNo").val();
 	if (beaconNo == "") {
 		alertMessage("请输入信标号！！！");
-		return;
+		return false;
 	}
 
 	// 检查该beaconNo是否已经在table
@@ -187,7 +187,7 @@ function getOneBeaconByBeaconNo() {
 		for ( var i = 1; i <= _len; i++) {
 			if ($("#beaconNoId" + i).text() == beaconNo) {
 				alertMessage("已经将该信标号添加到删除列表");
-				return;
+				return false;
 			}
 		}
 	}
@@ -282,6 +282,7 @@ function deleteBeacons() {
 	var _len = $("#tableBody tr").length;
 	if (_len == 0) {
 		alertMessage("没有要删除的信标号");
+		return false;
 	}
 	var beaconArray = $("[name='beaconId[]']");
 	var beaconNoIds = "";

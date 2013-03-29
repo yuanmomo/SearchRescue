@@ -11,6 +11,8 @@ import net.yuanmomo.searchrescue.web.bean.BoughtBeacon;
 import net.yuanmomo.searchrescue.web.bean.BoughtBeaconCriteria;
 import net.yuanmomo.searchrescue.web.bean.IdInfo;
 import net.yuanmomo.searchrescue.web.bean.IdInfoCriteria;
+import net.yuanmomo.searchrescue.web.bean.LeaseInfo;
+import net.yuanmomo.searchrescue.web.bean.LeaseInfoCriteria;
 import net.yuanmomo.searchrescue.web.bean.PassportInfo;
 import net.yuanmomo.searchrescue.web.bean.PassportInfoCriteria;
 import net.yuanmomo.searchrescue.web.bean.UserInfo;
@@ -77,6 +79,39 @@ public class BeaconBusiness extends BasicBusiness {
 		return true;
 	}
 
+	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED, rollbackFor = Exception.class)
+	public boolean returnBeaconNos(String beaconNos, UserInfo user)
+			throws Exception {
+		String[] nos = beaconNos.split(",");
+		if(nos==null || nos.length==0){
+			return false;
+		}
+		BeaconInfoCriteria param=null;
+		for (int i = 0; i < nos.length; i++) {
+			param=new BeaconInfoCriteria();
+			param.createCriteria().andBeaconNoEqualTo(nos[i]);
+			List<BeaconInfo> beaconList = this.beaconInfoMapper.selectByExample(param);
+			if (beaconList !=null && beaconList.size()>0 && beaconList.get(0) != null) {
+				BeaconInfo beacon=beaconList.get(0);
+				beacon.setLastUpdateByUserId(user.getId());
+				beacon.setLastUpdateByUserStyle(user.getUserStyle());
+				beacon.setLastUpdateTime(new Date());
+				beacon.setState((byte) 1);
+				this.beaconInfoMapper.updateByPrimaryKey(beacon);
+				//beacon info更新完成，更新leaseBeaconInfo
+				LeaseInfoCriteria leaseParam=new LeaseInfoCriteria();
+				leaseParam.createCriteria().andBeaconIdEqualTo(beacon.getId());
+				List<LeaseInfo> leaseList = this.leaseInfoMapper.selectByExample(leaseParam);
+				if (leaseList !=null && leaseList.size()>0 && leaseList.get(0) != null) {
+					LeaseInfo lease=leaseList.get(0);
+					lease.setIsReturned((byte)1);
+					lease.setReturnDate(new Date());
+					this.leaseInfoMapper.updateByPrimaryKey(lease);
+				}
+			}
+		}
+		return true;
+	}
 	public BeaconInfo getOneBeacon(String beaconNo) {
 		BeaconInfoCriteria param = new BeaconInfoCriteria();
 		param.createCriteria().andBeaconNoEqualTo(beaconNo)
@@ -196,6 +231,31 @@ public class BeaconBusiness extends BasicBusiness {
 		criteria = criteria.andStateEqualTo((byte) 3);
 		return this.boughtBeaconMapper.selectByExample(param);
 	}
+	// 查询该用户的购买信标情况
+		public List<BoughtBeacon> queryLeaseBeacon(String userName,
+				String beaconNo, String passportNo, String cerNo) {
+			if (userName == null && beaconNo == null && passportNo == null
+					&& cerNo == null) {
+				return this.boughtBeaconMapper.selectByExample(null);
+			}
+			// 搜索视图 BoughtBeacon
+			BoughtBeaconCriteria param = new BoughtBeaconCriteria();
+			BoughtBeaconCriteria.Criteria criteria = param.createCriteria();
+			if (userName != null && !"".equals(userName)) {
+				criteria = criteria.andUserNameLike("%" + userName + "%");
+			}
+			if (beaconNo != null && !"".equals(beaconNo)) {
+				criteria = criteria.andBeaconNoLike("%" + beaconNo + "%");
+			}
+			if (passportNo != null && !"".equals(passportNo)) {
+				criteria = criteria.andPassportNoLike("%" + passportNo + "%");
+			}
+			if (cerNo != null && !"".equals(cerNo)) {
+				criteria = criteria.andCerNoLike("%" + cerNo + "%");
+			}
+			criteria = criteria.andStateEqualTo((byte) 2);
+			return this.boughtBeaconMapper.selectByExample(param);
+		}
 
 	public boolean updateBeacon(BeaconInfo beacon){
 		return this.beaconInfoMapper.updateByPrimaryKey(beacon)>0?true:false;

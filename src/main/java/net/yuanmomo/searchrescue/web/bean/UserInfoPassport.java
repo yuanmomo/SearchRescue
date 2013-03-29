@@ -38,7 +38,7 @@ public class UserInfoPassport {
     
   //管理员设置购买用户
     private Long buyBeaconId=0L;
-    private Date buyBeaconDate;
+    private Date buyBeaconDate;//租赁或者购买日期
 	public Long getBuyBeaconId() {
 		return buyBeaconId;
 	}

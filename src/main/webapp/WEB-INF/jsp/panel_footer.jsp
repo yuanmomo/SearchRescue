@@ -26,15 +26,8 @@
 <script type="text/javascript" src="js/register.js"></script>
 <script type="text/javascript" src="js/user.js"></script>
 <script type="text/javascript" src="js/beaconBuy.js"></script>
+<script type="text/javascript" src="js/beaconRent.js"></script>
 <script type="text/javascript" src="js/ajaxfileupload.js"></script>
 <!-- Optional, bootstrap javascript library -->
 <script type="text/javascript" src="js/external/bootstrap.js"></script>
-
-<!-- bsie js patch, it will only execute in IE6 -->
-<!--[if lte IE 6]>
-  <script type="text/javascript" src="js/external/bootstrap-ie.js"></script>
-  <![endif]-->
-<script type="text/javascript">
-  $.bootstrapIE6(el)
-  </script>
 </html>

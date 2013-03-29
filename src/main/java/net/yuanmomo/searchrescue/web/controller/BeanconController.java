@@ -201,6 +201,30 @@ public class BeanconController extends BasicController {
 		}
 	}
 
+	// 默认跳至信标租赁页面
+	@RequestMapping(params = "option=loadBeaconRentBody")
+	public String loadBeaconRentBody(HttpServletRequest request,
+			ModelMap modelMap) throws Exception {
+		UserInfo user = (UserInfo) request.getSession().getAttribute("user");
+		if (user.getUserStyle() == 1) {
+			// 系统管理员添加购买
+			return "BeaconRent";
+		}
+		return "json";
+	}
+
+	// 默认跳至信标租赁归还页面
+	@RequestMapping(params = "option=loadBeaconReturnBody")
+	public String loadBeaconReturnBody(HttpServletRequest request,
+			ModelMap modelMap) throws Exception {
+		UserInfo user = (UserInfo) request.getSession().getAttribute("user");
+		if (user.getUserStyle() == 1) {
+			// 系统管理员添加购买
+			return "Return";
+		}
+		return "json";
+	}
+
 	// 默认跳至信标购买查询页面
 	@RequestMapping(params = "option=loadBoughtQueryBody")
 	public String loadBoughtQueryBody(HttpServletRequest request,
@@ -236,6 +260,24 @@ public class BeanconController extends BasicController {
 					.toString());
 			return "json";
 		}
+	}
+
+	// 默认跳至信标购买查询页面
+	@RequestMapping(params = "option=queryLeaseBeacon")
+	public String queryLeaseBeacon(
+			@RequestParam(value = "userName", required = false) String userName,
+			@RequestParam(value = "beaconNo", required = false) String beaconNo,
+			@RequestParam(value = "cerNo", required = false) String cerNo,
+			@RequestParam(value = "passportNo", required = false) String passportNo,
+			HttpServletRequest request, ModelMap modelMap) throws Exception {
+		UserInfo user = (UserInfo) request.getSession().getAttribute("user");
+		if (user.getUserStyle() == 1) {
+			List<BoughtBeacon> result = this.beaconBusiness.queryLeaseBeacon(
+					userName, beaconNo, passportNo, cerNo);
+			modelMap.addAttribute("json", JSONArray.fromObject(result)
+					.toString());
+		}
+		return "json";
 	}
 
 	// 注册用户购买一个信标
@@ -287,6 +329,32 @@ public class BeanconController extends BasicController {
 		return "json";
 	}
 
+	// 批量租赁归还信标
+	@RequestMapping(params = "option=returnBeacon")
+	public String returnBeacon(@RequestParam("beaconNos") String beaconNos,
+			HttpServletRequest request, ModelMap modelMap) throws Exception {
+		UserInfo user = (UserInfo) request.getSession().getAttribute("user");
+		if (user.getUserStyle() < 3) {
+			// 系统管理员和信标管理员
+			if (beaconNos != null && !"".equals(beaconNos)
+					&& beaconNos.matches("[\\d,]*")) {
+				this.beaconBusiness.returnBeaconNos(beaconNos, user);
+				JSONArray array = new JSONArray();
+				JSONObject obj = new JSONObject();
+				obj.put("message", "信标归还成功");
+				array.add(obj);
+				modelMap.addAttribute("json", array.toString());
+			} else {
+				JSONArray array = new JSONArray();
+				JSONObject obj = new JSONObject();
+				obj.put("message", "数据有错，更新失败！！");
+				array.add(obj);
+				modelMap.addAttribute("json", array.toString());
+			}
+		}
+		return "json";
+	}
+
 	// 用户注册是选择了是护照用户还是身份证用户
 	@RequestMapping(params = "option=loadBeaconBuyBodyByCerStyle")
 	public String loadBeaconBuyBodyByCerStyle(HttpServletRequest request,
@@ -307,22 +375,48 @@ public class BeanconController extends BasicController {
 			return "BeaconBuyBodyWithPassport";
 		}
 		JSONObject result = new JSONObject();
-		result.put("error", "注册身份类型错误！！");
+		result.put("error", "身份类型错误！！");
 		array.add(result);
 		modelMap.addAttribute("json", array.toString());
 		return "json";
 	}
 
-	// 注册
+	// 用户注册是选择了是护照用户还是身份证用户
+	@RequestMapping(params = "option=loadBeaconRentBodyByCerStyle")
+	public String loadBeaconRentBodyByCerStyle(HttpServletRequest request,
+			ModelMap modelMap) throws Exception {
+		String cerStyleValue = request.getParameter("cerStyleValue");
+		JSONArray array = new JSONArray();
+		if (cerStyleValue == null || "".equals(cerStyleValue.trim())) {
+			JSONObject result = new JSONObject();
+			result.put("error", "身份类型不能为空");
+			array.add(result);
+			modelMap.addAttribute("json", array.toString());
+			return "json";
+		}
+		int cerStyleNumber = Integer.parseInt(cerStyleValue);
+		if (cerStyleNumber == 1) {
+			return "BeaconRentBodyWithID";
+		} else if (cerStyleNumber == 2) {
+			return "BeaconRentBodyWithPassport";
+		}
+		JSONObject result = new JSONObject();
+		result.put("error", "身份类型错误！！");
+		array.add(result);
+		modelMap.addAttribute("json", array.toString());
+		return "json";
+	}
+
+	// 管理员添加ID用户购买信标号
 	@RequestMapping(method = RequestMethod.POST, params = "option=doBuyBeaconByAdminAndCerStyle1")
 	public String doBuyBeaconByAdminAndCerStyle1(
 			@ModelAttribute("userInfoID") UserInfoID userInfoId,
 			HttpServletRequest request, ModelMap modelMap) throws Exception {
 		// 理论上要做数据验证，没时间做，暂时放置
 		// 最主要的是userName和CerNo 身份证号码，这两个验证，此处就当做都合法
-		
-		JSONArray array=new JSONArray();
-		JSONObject obj=new JSONObject();
+
+		JSONArray array = new JSONArray();
+		JSONObject obj = new JSONObject();
 
 		// 取得IP地址
 		userInfoId.setRegisterIp(request.getRemoteAddr());
@@ -331,44 +425,46 @@ public class BeanconController extends BasicController {
 		userInfoId.setLastLoginTime(new Date());
 		userInfoId.setPassword("123456");
 		userInfoId.setCipher(MD5.getMD5("123456"));
-		//先注册该用户的信息  // 管理员添加购买ID用户
+		// 先注册该用户的信息 // 管理员添加购买ID用户
 		int result = this.userInfoBusiness.doRegisterForCerStyle1(userInfoId);
 		switch (result) {
-			case 1:
-				// 用户名存在，注册失败，理论上就当做不会发生此种情况，故不处理
-				break;
-			case 100:
-				// 用户注册成功，接下来修改beacon信息
-				BeaconInfo beacon=this.beaconBusiness.getOneBeacon(userInfoId.getBuyBeaconId());
-				if(beacon!=null){
-					beacon.setLastUpdateByUserId(userInfoId.getUserInfoId());
-					beacon.setLastUpdateTime(userInfoId.getBuyBeaconDate());
-					beacon.setState((byte)3);
-					boolean flag=this.beaconBusiness.updateBeacon(beacon);
-					if(flag){
-						obj.put("message","管理员购买成功");
-					}else{
-						obj.put("error","管理员购买失败");
-					}
+		case 1:
+			// 用户名存在，注册失败，理论上就当做不会发生此种情况，故不处理
+			break;
+		case 100:
+			// 用户注册成功，接下来修改beacon信息
+			BeaconInfo beacon = this.beaconBusiness.getOneBeacon(userInfoId
+					.getBuyBeaconId());
+			if (beacon != null) {
+				beacon.setLastUpdateByUserId(userInfoId.getUserInfoId());
+				beacon.setLastUpdateTime(userInfoId.getBuyBeaconDate());
+				beacon.setState((byte) 3);
+				boolean flag = this.beaconBusiness.updateBeacon(beacon);
+				if (flag) {
+					obj.put("message", "管理员添加购买成功");
+				} else {
+					obj.put("error", "管理员添加购买失败");
 				}
-				break;
-			default:
-				break;
+			}
+			break;
+		default:
+			break;
 		}
 		array.add(obj);
-		modelMap.addAttribute("json",array.toString());
+		modelMap.addAttribute("json", array.toString());
 		return "json";
 	}
 
+	// 管理员添加护照用户购买信标号
 	@RequestMapping(method = RequestMethod.POST, params = "option=doBuyBeaconByAdminAndCerStyle2")
 	public String doBuyBeaconByAdminAndCerStyle2(
 			@ModelAttribute("UserInfoPassport") UserInfoPassport userInfoPassport,
 			HttpServletRequest request, ModelMap modelMap) throws Exception {
 		// 理论上要做数据验证，没时间做，暂时放置
 		// 最主要的是userName和CerNo 身份证号码，这两个验证，此处就当做都合法
-		
-		JSONArray array=new JSONArray();
-		JSONObject obj=new JSONObject();
+
+		JSONArray array = new JSONArray();
+		JSONObject obj = new JSONObject();
 
 		// 取得IP地址
 		userInfoPassport.setRegisterIp(request.getRemoteAddr());
@@ -377,11 +473,11 @@ public class BeanconController extends BasicController {
 		userInfoPassport.setLastLoginTime(new Date());
 		userInfoPassport.setPassword("123456");
 		userInfoPassport.setCipher(MD5.getMD5("123456"));
-		
-		//先注册该用户的信息  // 管理员添加购买护照用户
+
+		// 先注册该用户的信息 // 管理员添加购买护照用户
 		int result = this.userInfoBusiness
 				.doRegisterForCerStyle2(userInfoPassport);
-		
+
 		// 注册结果
 		switch (result) {
 		case 1:
@@ -389,16 +485,17 @@ public class BeanconController extends BasicController {
 			break;
 		case 100:
 			// 用户注册成功，接下来修改beacon信息
-			BeaconInfo beacon=this.beaconBusiness.getOneBeacon(userInfoPassport.getBuyBeaconId());
-			if(beacon!=null){
+			BeaconInfo beacon = this.beaconBusiness
+					.getOneBeacon(userInfoPassport.getBuyBeaconId());
+			if (beacon != null) {
 				beacon.setLastUpdateByUserId(userInfoPassport.getUserInfoId());
 				beacon.setLastUpdateTime(userInfoPassport.getBuyBeaconDate());
-				beacon.setState((byte)3);
-				boolean flag=this.beaconBusiness.updateBeacon(beacon);
-				if(flag){
-					obj.put("message","管理员购买成功");
-				}else{
-					obj.put("error","管理员购买失败");
+				beacon.setState((byte) 3);
+				boolean flag = this.beaconBusiness.updateBeacon(beacon);
+				if (flag) {
+					obj.put("message", "管理员添加购买成功");
+				} else {
+					obj.put("error", "管理员添加购买失败");
 				}
 			}
 			break;
@@ -406,7 +503,121 @@ public class BeanconController extends BasicController {
 			break;
 		}
 		array.add(obj);
-		modelMap.addAttribute("json",array.toString());
+		modelMap.addAttribute("json", array.toString());
+		return "json";
+	}
+
+	// 管理员添加ID用户购买信标号
+	@RequestMapping(method = RequestMethod.POST, params = "option=doRentBeaconByAdminAndCerStyle1")
+	public String doRentBeaconByAdminAndCerStyle1(
+			@ModelAttribute("userInfoID") UserInfoID userInfoId,
+			HttpServletRequest request, ModelMap modelMap) throws Exception {
+		// 理论上要做数据验证，没时间做，暂时放置
+		// 最主要的是userName和CerNo 身份证号码，这两个验证，此处就当做都合法
+
+		JSONArray array = new JSONArray();
+		JSONObject obj = new JSONObject();
+
+		// 取得IP地址
+		userInfoId.setRegisterIp(request.getRemoteAddr());
+		userInfoId.setRegisterTime(new Date());
+		userInfoId.setLastLoginIp(request.getRemoteAddr());
+		userInfoId.setLastLoginTime(new Date());
+		userInfoId.setPassword("123456");
+		userInfoId.setCipher(MD5.getMD5("123456"));
+		// 先注册该用户的信息 // 管理员添加购买ID用户
+		int result = this.userInfoBusiness.doRegisterForCerStyle1(userInfoId);
+		switch (result) {
+		case 1:
+			// 用户名存在，注册失败，理论上就当做不会发生此种情况，故不处理
+			break;
+		case 100:
+			// 用户注册成功，接下来修改beacon信息
+			BeaconInfo beacon = this.beaconBusiness.getOneBeacon(userInfoId
+					.getBuyBeaconId());
+			if (beacon != null) {
+				beacon.setLastUpdateByUserId(userInfoId.getUserInfoId());
+				beacon.setLastUpdateTime(userInfoId.getBuyBeaconDate());
+				beacon.setState((byte) 2);
+				boolean flag = this.beaconBusiness.updateBeacon(beacon);
+				if (flag) {
+					// beacon的信息已经更新，谈价LeaseInfo，租赁信息
+					boolean leaseFlag = this.leaseInfoBusiness.insert(
+							userInfoId, beacon);
+					if (leaseFlag) {
+						obj.put("message", "管理员添加租赁成功");
+					} else {
+						obj.put("error", "管理员添加租赁失败");
+					}
+				} else {
+					obj.put("error", "管理员添加租赁失败");
+				}
+			}
+			break;
+		default:
+			break;
+		}
+		array.add(obj);
+		modelMap.addAttribute("json", array.toString());
+		return "json";
+	}
+
+	// 管理员添加护照用户购买信标号
+	@RequestMapping(method = RequestMethod.POST, params = "option=doRentBeaconByAdminAndCerStyle2")
+	public String doRentBeaconByAdminAndCerStyle2(
+			@ModelAttribute("UserInfoPassport") UserInfoPassport userInfoPassport,
+			HttpServletRequest request, ModelMap modelMap) throws Exception {
+		// 理论上要做数据验证，没时间做，暂时放置
+		// 最主要的是userName和CerNo 身份证号码，这两个验证，此处就当做都合法
+
+		JSONArray array = new JSONArray();
+		JSONObject obj = new JSONObject();
+
+		// 取得IP地址
+		userInfoPassport.setRegisterIp(request.getRemoteAddr());
+		userInfoPassport.setRegisterTime(new Date());
+		userInfoPassport.setLastLoginIp(request.getRemoteAddr());
+		userInfoPassport.setLastLoginTime(new Date());
+		userInfoPassport.setPassword("123456");
+		userInfoPassport.setCipher(MD5.getMD5("123456"));
+
+		// 先注册该用户的信息 // 管理员添加购买护照用户
+		int result = this.userInfoBusiness
+				.doRegisterForCerStyle2(userInfoPassport);
+
+		// 注册结果
+		switch (result) {
+		case 1:
+			// 用户名存在，注册失败，理论上就当做不会发生此种情况，故不处理
+			break;
+		case 100:
+			// 用户注册成功，接下来修改beacon信息
+			BeaconInfo beacon = this.beaconBusiness
+					.getOneBeacon(userInfoPassport.getBuyBeaconId());
+			if (beacon != null) {
+				beacon.setLastUpdateByUserId(userInfoPassport.getUserInfoId());
+				beacon.setLastUpdateTime(userInfoPassport.getBuyBeaconDate());
+				beacon.setState((byte) 2);
+				boolean flag = this.beaconBusiness.updateBeacon(beacon);
+				if (flag) {
+					// beacon的信息已经更新，谈价LeaseInfo，租赁信息
+					boolean leaseFlag = this.leaseInfoBusiness.insert(
+							userInfoPassport, beacon);
+					if (leaseFlag) {
+						obj.put("message", "管理员添加租赁成功");
+					} else {
+						obj.put("error", "管理员添加租赁失败");
+					}
+				} else {
+					obj.put("error", "管理员添加租赁失败");
+				}
+			}
+			break;
+		default:
+			break;
+		}
+		array.add(obj);
+		modelMap.addAttribute("json", array.toString());
 		return "json";
 	}
 

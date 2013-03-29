@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 
 import net.yuanmomo.searchrescue.web.business.BeaconBusiness;
 import net.yuanmomo.searchrescue.web.business.IdInfoBusiness;
+import net.yuanmomo.searchrescue.web.business.LeaseInfoBusiness;
 import net.yuanmomo.searchrescue.web.business.UserInfoBusiness;
 
 public class BasicController {
@@ -14,6 +15,8 @@ public class BasicController {
 	protected IdInfoBusiness idInfoBusiness=null;
 	@Resource(name="beaconBusiness")
 	protected BeaconBusiness beaconBusiness=null;
+	@Resource(name="leaseInfoBusiness")
+	protected LeaseInfoBusiness leaseInfoBusiness=null;
 	
 	public UserInfoBusiness getUserInfoBusiness() {
 		return userInfoBusiness;

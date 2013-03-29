@@ -135,8 +135,4 @@ label.checked {
 <script type="text/javascript" src="js/external/bootstrap.js"></script>
 <script type="text/javascript" src="js/register.js"></script>
 <script type="text/javascript" src="js/global.js"></script>
-<!-- bsie js patch, it will only execute in IE6 -->
-<!--[if lte IE 6]>
-  <script type="text/javascript" src="js/external/bootstrap-ie.js"></script>
-  <![endif]-->
 </html>

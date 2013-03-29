@@ -1,69 +1,28 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<div class="span10">
-	<div class="hero-unit">
-		<h1 align="center">新增租赁</h1>
-		<br />
-		<form class="form-horizontal">
-			<fieldset>
-				<table>
-					<tr>
-						<td colspan="2">
-							<div class="control-group">
-								<label class="control-label" for="input01"
-									style="font-weight: bold; font-size: 25px;">用户信息</label>
-							</div>
-							<div class="control-group">
-								<label class="control-label" for="select01">身份类型</label>
-								<div class="controls">
-								
-									<%-- 管理员用户需要选择是护照用户还是身份证用户 --%>
-									<c:if test="${user.userStyle==1}">
-										<select id="select01">
-											<option>请选择</option>
-											<option value="1" selected="selected">身份证用户</option>
-											<option value="2">护照用户</option>
-										</select>
-									</c:if>
-
-									<%-- 注册用户的身份在注册时已经确定 --%>
-									<c:if test="${user.userStyle==3}">
-										<select id="select01">
-											<option>请选择</option>
-											<c:choose>
-												<c:when test="${user.cerStyle==1}">
-													<option selected="selected">身份证用户</option>
-												</c:when>
-												<c:when test="${user.cerStyle==2}">
-													<option selected="selected">护照用户</option>
-												</c:when>
-												<c:otherwise>
-													<option value="1" selected="selected">身份证用户</option>
-													<option value="2">护照用户</option>
-												</c:otherwise>
-											</c:choose>
-										</select>
-									</c:if>
-								</div>
-							</div> 
-								<%
-								 	String beaconfRentBody = "BeaconRentWith"
-								 			+ (String) request.getAttribute("rentBody") + ".jsp";
-								 	pageContext.include(beaconfRentBody);
-								%>
-
-						</td>
-					</tr>
-					<tr>
-						<td>&nbsp;</td>
-						<td colspan="2"><div class="form-actions">
-								<button type="submit" class="btn btn-primary">保存</button>
-								<button class="btn">取消</button>
-							</div></td>
-						<td>&nbsp;</td>
-					</tr>
-				</table>
-			</fieldset>
-		</form>
-	</div>
+<div class="hero-unit">
+	<h1 align="center">新增租赁</h1>
+	<br />
+	<form id="beaconRentAdminForm" class="form-horizontal" action=""
+		method="post">
+		<fieldset>
+			<div class="control-group">
+				<label class="control-label" for="input01"
+					style="font-weight: bold; font-size: 25px;">用户信息</label>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="select01">身份类型</label>
+				<div class="controls">
+					<select id="cerStyle" onchange="loadBeaconRentBodyByCerStyle()"
+						name="cerStyle">
+						<option value="0" selected="selected">请选择</option>
+						<option value="1">身份证用户</option>
+						<option value="2">护照用户</option>
+					</select>
+				</div>
+			</div>
+			<!-- //添加 管理员 操作 购买的body页面 -->
+			<div id="beaconRentBody"></div>
+		</fieldset>
+	</form>
 </div>

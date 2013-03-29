@@ -5,8 +5,9 @@
 		<ul id="navigator" class="nav nav-list">
 		<c:if test="${user.userStyle=='1'}">
 			<li class="nav-header">信标租赁管理</li>
-			<li class="active"><a href="#">新增租赁</a></li>
-			<li><a href="#">租赁归还</a></li>
+			<%-- 租赁和购买页面是完全一样的 --%>
+			<li class="active"><a href="javascript:void(0)" onclick="rentBeacon(this)">新增租赁</a></li>
+			<li><a href="javascript:void(0)" onclick="beaconReturn(this)">租赁归还</a></li>
 			<li class="nav-header">信标购买管理</li>
 			<li><a href="javascript:void(0)" onclick="buyBeacon(this)">新建购买</a></li>
 			<li><a href="javascript:void(0)" onclick="boughtQuery(this)">购买查询</a></li>

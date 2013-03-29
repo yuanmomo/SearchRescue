@@ -71,14 +71,13 @@ function doBuyBeacon() {
 		url : "beacon.do?option=doBuyBeacon",
 		data : {
 			"beaconId" : buyBeaconId,
-			"buyBeaconDate" : buyBeaconDate,
+			"buyBeaconDate" : buyBeaconDate
 		},
 		error : function() {
 			alertMessage("购买信标出错，请联系管理员！！");
 		},
 		success : function(data) {
 			var result = handleAJAXReturnValue(data);
-
 			try {
 				// 传回来的数据是一个页面，eval会抛出异常
 				var messageArray = eval(result);

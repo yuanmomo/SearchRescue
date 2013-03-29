@@ -115,12 +115,12 @@
 	</div>
 </div>
 <div class="control-group">
-	<label class="control-label" for="input01">购买日期</label>
+	<label class="control-label" for="input01">租赁开始日期</label>
 	<div class="controls">
 		<input type="text" class="input-xlarge" id="buyBeaconDate" name="buyBeaconDate">
 	</div>
 </div>
 <div class="form-actions" style="margin-left: 200px;">
-	<button type="submit" class="btn btn-primary" onclick="return doBuyBeaconByAdmin();">购买</button>
+	<button type="submit" class="btn btn-primary" onclick="return doRentBeaconByAdmin();">租赁</button>
 	<button class="btn" type="button" onclick="removeRightBody()">取消</button>
 </div>
